@@ -19,25 +19,25 @@ CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
 # ==========================================
 # Link Hosting Kalian Untuk Ssh Vpn
-akbarvpn="raw.githubusercontent.com/myridwan/sc/ipuk/ssh"
+akbarvpn="raw.githubusercontent.com/Rolka111111/sc/ipuk/ssh"
 # Link Hosting Kalian Untuk Sstp
-akbarvpnn="raw.githubusercontent.com/myridwan/sc/ipuk/sstp"
+akbarvpnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/sstp"
 # Link Hosting Kalian Untuk Ssr
-akbarvpnnn="raw.githubusercontent.com/myridwan/sc/ipuk/ssr"
+akbarvpnnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/ssr"
 # Link Hosting Kalian Untuk Shadowsocks
-akbarvpnnnn="raw.githubusercontent.com/myridwan/sc/ipuk/shadowsocks"
+akbarvpnnnn="raw.githubusercontent.comRolka111111/sc/ipuk/shadowsocks"
 # Link Hosting Kalian Untuk Wireguard
-akbarvpnnnnn="raw.githubusercontent.com/myridwan/sc/ipuk/wireguard"
+akbarvpnnnnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/wireguard"
 # Link Hosting Kalian Untuk Xray
-akbarvpnnnnnn="raw.githubusercontent.com/myridwan/sc/ipuk/xray"
+akbarvpnnnnnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/xray"
 # Link Hosting Kalian Untuk Ipsec
-akbarvpnnnnnnn="raw.githubusercontent.com/myridwan/sc/ipuk/ipsec"
+akbarvpnnnnnnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/ipsec"
 # Link Hosting Kalian Untuk Backup
-akbarvpnnnnnnnn="raw.githubusercontent.com/myridwan/sc/ipuk/backup"
+akbarvpnnnnnnnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/backup"
 # Link Hosting Kalian Untuk Websocket
-akbarvpnnnnnnnnn="raw.githubusercontent.com/myridwan/sc/ipuk/websocket"
+akbarvpnnnnnnnnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/websocket"
 # Link Hosting Kalian Untuk Ohp
-akbarvpnnnnnnnnnn="raw.githubusercontent.com/myridwan/sc/ipuk/ohp"
+akbarvpnnnnnnnnnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/ohp"
 
 # Getting
 echo -e ""
@@ -47,7 +47,7 @@ echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━�
 echo -e ""
 sleep 5
 MYIP=$(wget -qO- icanhazip.com);
-IZIN=$( curl https://myridwan.github.io/izin | grep $MYIP )
+IZIN=$( curl wget -qO- icanhazip.com | grep $MYIP )
 echo "Memeriksa Hak Akses VPS..."
 if [ $MYIP = $IZIN ]; then
 clear
