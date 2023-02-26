@@ -12,7 +12,7 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- icanhazip.com);
-IZIN=$( curl https://myridwan.github.io/izin | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/Rolka111111/sc/ipuk/izin | grep $MYIP )
 echo "Memeriksa Hak Akses VPS..."
 if [ $MYIP = $IZIN ]; then
 clear
@@ -30,16 +30,16 @@ echo "Checking VPS"
 clear
 # ==================================================
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/myridwan/sc/ipuk/ssh"
+akbarvpn="raw.githubusercontent.com/Rolka111111/sc/ipuk/ssh"
 
 # Link Hosting Kalian Untuk Xray
-akbarvpnn="raw.githubusercontent.com/myridwan/sc/ipuk/xray"
+akbarvpnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/xray"
 
 # Link Hosting Kalian Untuk Trojan Go
-akbarvpnnn="raw.githubusercontent.com/myridwan/sc/ipuk/trojango"
+akbarvpnnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/trojango"
 
 # Link Hosting Kalian Untuk Stunnel5
-akbarvpnnnn="raw.githubusercontent.com/myridwan/sc/ipuk/stunnel5"
+akbarvpnnnn="raw.githubusercontent.com/Rolka111111/sc/ipuk/stunnel5"
 
 # initializing var
 export DEBIAN_FRONTEND=noninteractive
@@ -406,7 +406,7 @@ netfilter-persistent reload
 cd /usr/bin
 wget -O addhost "https://${akbarvpn}/addhost.sh"
 wget -O about "https://${akbarvpn}/about.sh"
-wget -O menu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/menu.sh"
+wget -O menu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/menu.sh"
 wget -O addssh "https://${akbarvpn}/addssh.sh"
 wget -O trialssh "https://${akbarvpn}/trialssh.sh"
 wget -O delssh "https://${akbarvpn}/delssh.sh"
@@ -449,23 +449,23 @@ wget -O addtrgo "https://${akbarvpnnn}/addtrgo.sh"
 wget -O deltrgo "https://${akbarvpnnn}/deltrgo.sh"
 wget -O renewtrgo "https://${akbarvpnnn}/renewtrgo.sh"
 wget -O cektrgo "https://${akbarvpnnn}/cektrgo.sh"
-wget -O portsshnontls "https://raw.githubusercontent.com/myridwan/sc/ipuk/websocket/portsshnontls.sh"
-wget -O portsshws "https://raw.githubusercontent.com/myridwan/sc/ipuk/websocket/portsshws.sh"
+wget -O portsshnontls "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/websocket/portsshnontls.sh"
+wget -O portsshws "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/websocket/portsshws.sh"
 
-wget -O sshovpnmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/sshovpn.sh"
-wget -O l2tpmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/l2tpmenu.sh"
-wget -O pptpmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/pptpmenu.sh"
-wget -O sstpmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/sstpmenu.sh"
-wget -O wgmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/wgmenu.sh"
-wget -O ssmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/ssmenu.sh"
-wget -O ssrmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/ssrmenu.sh"
-wget -O vmessmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/vmessmenu.sh"
-wget -O vlessmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/vlessmenu.sh"
-wget -O trmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/trmenu.sh"
-wget -O trgomenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/trgomenu.sh"
-wget -O setmenu "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/setmenu.sh"
-wget -O running "https://raw.githubusercontent.com/myridwan/sc/ipuk/update/running.sh"
-wget -O cekxray "https://raw.githubusercontent.com/myridwan/src/ipuk/cekxray.sh"
+wget -O sshovpnmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/sshovpn.sh"
+wget -O l2tpmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/l2tpmenu.sh"
+wget -O pptpmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/pptpmenu.sh"
+wget -O sstpmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/sstpmenu.sh"
+wget -O wgmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/wgmenu.sh"
+wget -O ssmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/ssmenu.sh"
+wget -O ssrmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/ssrmenu.sh"
+wget -O vmessmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/vmessmenu.sh"
+wget -O vlessmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/vlessmenu.sh"
+wget -O trmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/trmenu.sh"
+wget -O trgomenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/trgomenu.sh"
+wget -O setmenu "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/setmenu.sh"
+wget -O running "https://raw.githubusercontent.com/Rolka111111/sc/ipuk/update/running.sh"
+wget -O cekxray "https://raw.githubusercontent.com/Rolka111111/src/ipuk/cekxray.sh"
 
 chmod +x portsshnontls
 chmod +x portsshws
