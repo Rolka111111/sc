@@ -13,7 +13,7 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- icanhazip.com);
-IZIN=$( curl https://myridwan.github.io/izin | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/Rolka111111/sc/ipuk/izin | grep $MYIP )
 echo "Memeriksa Hak Akses VPS..."
 if [ $MYIP = $IZIN ]; then
 clear
@@ -30,7 +30,7 @@ clear
 echo "Checking VPS"
 clear
 # Link Hosting Kalian
-akbarvpn="raw.githubusercontent.com/myridwan/sc/ipuk/ssr"
+akbarvpn="raw.githubusercontent.com/Rolka111111/sc/ipuk/ssr"
 
 PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin:~/bin
 export PATH
