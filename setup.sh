@@ -46,19 +46,14 @@ echo -e "\E[44;1;39m          ⇱ SCRIPT BY RIDWAN ⇲          \E[0m"
 echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m${NC}"
 echo -e ""
 sleep 5
-MYIP=$(wget -qO- icanhazip.com);
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+MYIP=$(wget -qO- ifconfig.co);
 clear
-echo -e "${CYAN}Akses Diizinkan...${off}"
-sleep 1
-else
-clear
-echo -e "${PURPLE}Akses Diblokir!${off}"
-echo "Hanya Untuk Pengguna Berbayar!"
-echo "Silahkan Hubungi Admin"
+if [ -f "/etc/v2ray/domain" ]; then
+echo "Script Already Installed"
 exit 0
-fi
-clear
-echo "Checking VPS"
 clear
 sleep 1
 echo -e ""
