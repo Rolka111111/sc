@@ -47,9 +47,6 @@ echo -e "${CYAN}━━━━━━━━━━━━━━━━━━━━━�
 echo -e ""
 sleep 5
 MYIP=$(wget -qO- icanhazip.com);
-IZIN=$( curl wget -qO- icanhazip.com | grep $MYIP )
-echo "Memeriksa Hak Akses VPS..."
-if [ $MYIP = $IZIN ]; then
 clear
 echo -e "${CYAN}Akses Diizinkan...${off}"
 sleep 1
