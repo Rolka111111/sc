@@ -1,7 +1,8 @@
 #!/bin/bash
 # Open Http Puncher
+clear
 echo "===================================="
-echo "            Installing Ohp Service             "
+echo "       Installing Ohp Service             "
 echo "===================================="
 sleep 0.5
 echo Running...
