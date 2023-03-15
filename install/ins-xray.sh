@@ -1,9 +1,10 @@
 #!/bin/bash
 # install xray
+clear
 echo "===================================="
 echo "      Xray Installing Vmess Vless Trojan     "
 echo "===================================="
-sleep 0.5
+sleep 1
 echo Running...
 sleep 0.5
 # Color
