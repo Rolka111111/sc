@@ -39,16 +39,15 @@ echo "IP=" >> /var/lib/crot/ipvps.conf
 # install cloudflare certificate
 wget https://${service}/cf.sh && chmod +x cf.sh && ./cf.sh
 # install xray
-wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
+wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && screen -S ins-xray ./ins-xray.sh
 #install ssh ovpn
 wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 # Websocket
 wget https://${instal}/ssh-ws.sh && chmod +x ssh-ws.sh && ./ssh-ws.sh
 # Ohp Server
 wget https://${instal}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
- wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
-# install xray grpc
-wget https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/sl-grpc.sh && chmod +x sl-grpc.sh && screen -S sl-grpc ./sl-grpc.sh
+# ip saya
+wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
 # install slowdns cloudflare certificate
 wget https://${instal}/nscf.sh && chmod +x nscf.sh && ./nscf.sh
 
