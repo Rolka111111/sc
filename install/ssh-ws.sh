@@ -10,9 +10,9 @@ sleep 0.5
 wget --output-document=/usr/local/bin/ws-nontls https://raw.githubusercontent.com/Annnjayy/sc/main/install/ws-ntls.py
 wget --output-document=/usr/local/bin/ws-tls https://raw.githubusercontent.com/Annnjayy/sc/main/install/ws-tls.py
 wget --output-document=/usr/local/bin/ws-ovpn https://raw.githubusercontent.com/Annnjayy/sc/main/install/ws-ovpn.py
-chmod +x /usr/local/bin/ws-ntls.py
-chmod +x /usr/local/bin/ws-tls.py
-chmod +x /usr/local/bin/ws-ovpn.py
+chmod +x /usr/local/bin/ws-nontls
+chmod +x /usr/local/bin/ws-tls
+chmod +x /usr/local/bin/ws-ovpn
 
 # Installing Service ws nontls
 cat > /etc/systemd/system/sshws-nontls.service << END
