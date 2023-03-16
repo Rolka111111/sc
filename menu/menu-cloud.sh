@@ -1,5 +1,4 @@
 #!/bin/bash
-#!/bin/bash
 clear
 red='\e[1;31m'
 green='\e[0;32m'
@@ -14,9 +13,9 @@ echo -e " 4}. Exit"
 echo -e ""
 echo -e ""
 echo -e "===============================" | lolcat
-read -p "    Select From Options [ 1 - 3 or [x] ] : " menu-cloud
+read -p "    Select From Options [ 1 - 3 or [x] ] : " menu
 echo -e "===============================" | lolcat
-case $menu-cloud in
+case $menu in
 1)
 backup
 ;;

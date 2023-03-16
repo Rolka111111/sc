@@ -18,21 +18,21 @@ echo -e "===============================" | lolcat
 echo -e ""
 echo -e ""
 echo -e "===============================" | lolcat
-read -p "Select From Options [ 1 - 5 or [x]  ] : " menu-trojan
+read -p "Select From Options [ 1 - 5 or [x]  ] : " menu
 echo -e "===============================" | lolcat
 echo -e ""
-case $menu-trojan in
+case $menu in
 1)
-addtrgo
+addtrojan
 ;;
 2)
-deltrgo
+deltrojan
 ;;
 3)
-renewtrgo
+renewtrojan
 ;;
 4)
-cektrgo
+cektrojan
 ;;
 5)
 menu

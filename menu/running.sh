@@ -1,36 +1,15 @@
 #!/bin/bash
-GREEN='\033[0;32m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-NC='\033[0m'
-yl='\e[32;1m'
-bl='\e[36;1m'
-gl='\e[32;1m'
-rd='\e[31;1m'
-mg='\e[0;95m'
-blu='\e[34m'
-op='\e[35m'
-or='\033[1;33m'
-bd='\e[1m'
-color1='\e[031;1m'
-color2='\e[34;1m'
-color3='\e[0m'
+clear
+red='\e[1;31m'
+green='\e[0;32m'
+clear
 # Getting
 # IP Validation
 dateFromServer=$(curl -v --insecure --silent https://google.com/ 2>&1 | grep Date | sed -e 's/< Date: //')
 biji=`date +"%Y-%m-%d" -d "$dateFromServer"`
-#########################
-
+# Ip
 MYIP=$(curl -sS ipinfo.io/ip)
-
-red='\e[1;31m'
-green='\e[1;32m'
-NC='\e[0m'
-green() { echo -e "\\033[32;1m${*}\\033[0m"; }
-red() { echo -e "\\033[31;1m${*}\\033[0m"; }
-PERMISSION
 clear
-
 # GETTING OS INFORMATION
 source /etc/os-release
 Versi_OS=$VERSION
@@ -38,7 +17,6 @@ ver=$VERSION_ID
 Tipe=$NAME
 URL_SUPPORT=$HOME_URL
 basedong=$ID
-
 # VPS ISP INFORMATION
 #ITAM='\033[0;30m'
 echo -e "$ITAM"
@@ -343,9 +321,9 @@ kernelku=$(uname -r)
 # GETTING DOMAIN NAME
 Domen="$(cat /etc/xray/domain)"
 echo -e ""
-echo -e "====================================="
-echo -e "             ⇱ Sytem Information ⇲           "
-echo -e "====================================="
+echo -e "=====================================" | lolcat
+echo -e "     ⇱ Sytem Information ⇲           "
+echo -e "=====================================" | lolcat
 echo -e "# Hostname    : $HOSTNAME"
 echo -e "# OS Name     : $Tipe"
 echo -e "# Processor    : $uptime"
@@ -355,13 +333,13 @@ echo -e "# Cpu Usage   :$cpu_usage"
 echo -e "# Total RAM   : ${totalram}MB"
 echo -e "# Public IP     : $MYIP"
 echo -e "# Domain      : $Domen"
-echo -e "====================================="
+echo -e "=====================================" | lolcat
 echo -e "# Client Name : $Name"
 echo -e "# Exp Script  : $Exp"
 echo -e "# Version     : V.1 "
-echo -e "====================================="
-echo -e "             ⇱ Service Information ⇲         "
-echo -e "====================================="
+echo -e "=====================================" | lolcat
+echo -e "     ⇱ Service Information ⇲         "
+echo -e "=====================================" | lolcat
 echo -e "# SSH / TUN           :$status_ssh"
 echo -e "# OpenVPN             :$status_openvpn"
 echo -e "# Dropbear             :$status_beruangjatuh"
@@ -385,12 +363,12 @@ echo -e "# OHP Dropbear       :$sohp"
 echo -e "# OHP OpenVPN      :$sohq"
 echo -e "# OHP SSH            :$sohr"
 echo -e "# SSL / SSH Multiplexer   :$sosslh"
-echo -e "====================================="
-echo -e "        Script By MakhlukVpn          "
-echo -e "====================================="
+echo -e "=====================================" | lolcat
+echo -e "    Script By MakhlukVpn          "
+echo -e "=====================================" | lolcat
 echo -e ""
-echo -e "                 Terimakasih Telah "
-echo -e "            Menggunakan Layanan Kami "
+echo -e "        Terimakasih Telah "
+echo -e "    Menggunakan Layanan Kami "
 echo -e ""
-echo -e "====================================="
+echo -e "=====================================" | lolcat
 echo -e "

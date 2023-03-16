@@ -25,9 +25,9 @@ echo -e "        Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
 echo -e ""
-echo -e "==============================="
+echo -e "===============================" | lolcat
 read -p "   Please Input Number  [1-10 or [x] ] :  "  menu
-echo -e "==============================="
+echo -e "===============================" | lolcat
 case $menu in
 1)
 menu-ssh

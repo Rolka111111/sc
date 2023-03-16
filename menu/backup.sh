@@ -1,50 +1,37 @@
 #!/bin/bash
-# SL
-# ==========================================
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
+clear
+red='\e[1;31m'
+green='\e[0;32m'
+clear
 # Getting
 clear
 IP=$(wget -qO- ipinfo.io/ip);
 date=$(date +"%Y-%m-%d")
 clear
+mkdir /home/email
 email=$(cat /home/email)
 if [[ "$email" = "" ]]; then
-echo -e "==============================="
+echo -e "===============================" | lolcat
 echo -e " Masukkan Email Untuk Menerima Backup"
-echo -e "==============================="
+echo -e "===============================" | lolcat
 read -rp "Email : " -e email
 cat <<EOF>>/home/email
 $email
 EOF
 fi
 clear
-echo -e "==============================="
+echo -e "===============================" | lolcat
 echo -e "      Mohon Tunggu Sebentar ,!!"
-echo -e "==============================="
+echo -e "===============================" | lolcat
 rm -rf /root/backup
 mkdir /root/backup
 cp /etc/passwd backup/
 cp /etc/group backup/
 cp /etc/shadow backup/
 cp /etc/gshadow backup/
-cp -r /etc/wireguard backup/wireguard
-cp /etc/ppp/chap-secrets backup/chap-secrets
-cp /etc/ipsec.d/passwd backup/passwd1
-cp /etc/shadowsocks-libev/akun.conf backup/ss.conf
 cp -r /var/lib/crot/ backup/crot
-cp -r /home/sstp backup/sstp
 cp -r /etc/xray backup/xray
 cp -r /etc/trojan-go backup/trojan-go
-cp -r /usr/local/shadowsocksr/ backup/shadowsocksr
 cp -r /home/vps/public_html backup/public_html
 cd /root
 zip -r $IP-$date.zip backup > /dev/null 2>&1

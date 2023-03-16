@@ -24,10 +24,10 @@ echo -e "===============================" | lolcat
 echo -e ""
 echo -e ""
 echo -e "===============================" | lolcat
-read -p "  Select From Options [ 1 - 9 or [x] ] : " menu-xray
+read -p "  Select From Options [ 1 - 9 or [x] ] : " menu
 echo -e "===============================" | lolcat
 echo -e ""
-case $menu-xray in
+case $menu in
 1)
 addvmess
 ;;
@@ -53,11 +53,9 @@ renewvless
 cekvless
 ;;
 9)
-clear
 menu
 ;;
 x)
-clear
 exit
 ;;
 esac

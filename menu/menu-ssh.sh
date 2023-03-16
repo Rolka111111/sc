@@ -5,7 +5,7 @@ green='\e[0;32m'
 clear
 echo -e ""
 echo -e "===============================" | lolcat
-echo -e "          SSH & OpenVPN Menu.           
+echo -e "          SSH & OpenVPN Menu.       "  
 echo -e "===============================" | lolcat
 echo -e ""
 echo -e " 1}.$green  Create SSH & OpenVPN Account"
@@ -24,10 +24,10 @@ echo -e "        Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
 echo -e ""
-echo -e "==============================="
-read -p "   Please Input Number  [1-9 or [x] ] :  "  menu-ssh
-echo -e "==============================="
-case $menu-ssh in
+echo -e "===============================" | lolcat
+read -p "   Please Input Number  [1-9 or [x] ] :  "  menu
+echo -e "===============================" | lolcat
+case $menu in
 1)
 usernew
 ;;
@@ -56,5 +56,6 @@ autokill
 ceklim
 ;;
 x)
+exit
 ;;
 esac
