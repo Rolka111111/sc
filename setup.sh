@@ -50,7 +50,7 @@ wget https://${instal}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 # install xray grpc
 wget https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/sl-grpc.sh && chmod +x sl-grpc.sh && screen -S sl-grpc ./sl-grpc.sh
 # install slowdns cloudflare certificate
-wget https://${service}/nscf.sh && chmod +x nscf.sh && ./nscf.sh
+wget https://${instal}/nscf.sh && chmod +x nscf.sh && ./nscf.sh
 
 #delete sc yabg sudah terinstall
 rm -f /root/ssh-vpn.sh
