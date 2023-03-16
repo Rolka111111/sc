@@ -1,8 +1,7 @@
 #!/bin/bash
 # Open Http Puncher
-clear
 echo "===================================="
-echo "       Installing Ohp Service             "
+echo "     Installing Ohp Service             "
 echo "===================================="
 sleep 0.5
 echo Running...
@@ -132,12 +131,12 @@ fi
 sleep 0.5
 clear
 echo -e "==============================="
-echo -e "           Done Install OHP  "
+echo -e "         Done Install OHP  "
 echo -e "==============================="
-echo -e "       PORT OHP SSH         : 8181  "
-echo -e "       PORT OHP DROPBEAR  : 8282   "
-echo -e "       PORT OHP OpenVPN   : 8383    "
+echo -e "    PORT OHP SSH         : 8181  "
+echo -e "    PORT OHP DROPBEAR  : 8282   "
+echo -e "    PORT OHP OpenVPN   : 8383    "
 echo -e "==============================="
-echo -e "        Script By MakhlukVpn          "
+echo -e "       Script By MakhlukVpn          "
 echo -e "==============================="
 sleep 1

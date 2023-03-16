@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "===================================="
-echo "             Installing All Service            "
+echo "      Installing All Service            "
 echo "===================================="
 sleep 0.5
 echo Processing...
@@ -46,7 +46,7 @@ commonname=cdn.covid19.go.id
 email=hayuk69@gmail.com
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://${service}/password"
+wget --output-document=/etc/pam.d/common-password "https://${service}/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -154,13 +154,13 @@ echo "<?php phpinfo() ?>" > /home/vps/public_html/info.php
 chown -R www-data:www-data /home/vps/public_html
 chmod -R g+rw /home/vps/public_html
 cd /home/vps/public_html
-wget -O /home/vps/public_html/index.html "https://${akbarvpn}/index.html1"
+wget --output-document=/home/vps/public_html/index.html "https://${akbarvpn}/index.html1"
 /etc/init.d/nginx restart
 cd
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://${service}/badvpn-udpgw64"
+wget --output-document=/usr/bin/badvpn-udpgw "https://${service}/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -189,7 +189,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://${service}/squid3.conf"
+wget --output-document=/etc/squid/squid.conf "https://${service}/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # Install SSLH
@@ -245,7 +245,7 @@ rm -rf /root/vnstat-2.6
 
 # install stunnel 5 
 cd /root/
-wget -q -O stunnel5.zip "https://${service}/stunnel5.zip"
+wget --output-document=stunnel5.zip "https://${service}/stunnel5.zip"
 unzip -o stunnel5.zip
 cd /root/stunnel
 chmod +x configure
@@ -304,7 +304,7 @@ WantedBy=multi-user.target
 END
 
 # Service Stunnel5 /etc/init.d/stunnel5
-wget -q -O /etc/init.d/stunnel5 "https://${service}/stunnel5.init"
+wget --output-document=/etc/init.d/stunnel5 "https://${service}/stunnel5.init"
 
 # Ubah Izin Akses
 chmod 600 /etc/stunnel5/stunnel5.pem
@@ -351,7 +351,7 @@ sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dr
 #wget https://${akbarvpn}/bbr.sh && chmod +x bbr.sh && ./bbr.sh
 
 # Ganti Banner
-wget -O /etc/issue.net "https://${service}/issue.net"
+wget --output-document=/etc/issue.net "https://${service}/issue.net"
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -372,104 +372,56 @@ netfilter-persistent reload
 
 # download script
 cd /usr/bin
-wget -O addhost "https://${menu}/addhost.sh"
-wget -O slhost "https://${service}/cf.sh"
-wget -O about "https://${menu}/about.sh"
-wget -O menu "https://${menu}/menu.sh"
-wget -O usernew "https://${ssh}/usernew.sh"
-wget -O trial "https://${ssh}/trial.sh"
-wget -O delete "https://${ssh}/delete.sh"
-wget -O member "https://${ssh}/member.sh"
-wget -O delexp "https://${ssh}/delexp.sh"
-wget -O running "https://${service}/running.sh"
-wget -O restart "https://${menu}/restart.sh"
-#wget -O speedtest "https://${akbarvpn}/speedtest_cli.py"
-#wget -O info "https://${akbarvpn}/info.sh"
-#wget -O ram "https://${akbarvpn}/ram.sh"
-wget -O usernew "https://${ssh}/usernew.sh"
-wget -O autokill "https://${ssh}/autokill.sh"
-wget -O ceklim "https://${ssh}/ceklim.sh"
-wget -O tendang "https://${service}/tendang.sh"
-wget -O clearlog "https://${service}/clearlog.sh"
-#wget -O changeport "https://${akbarvpn}/changeport.sh"
-#wget -O portovpn "https://${akbarvpn}/portovpn.sh"
-#wget -O portwg "https://${akbarvpn}/portwg.sh"
-#wget -O porttrojan "https://${akbarvpn}/porttrojan.sh"
-#wget -O portsstp "https://${akbarvpn}/portsstp.sh"
-#wget -O portsquid "https://${akbarvpn}/portsquid.sh"
-#wget -O portvlm "https://${akbarvpn}/portvlm.sh"
-#wget -O wbmn "https://${akbarvpn}/webmin.sh"
-wget -O xp "https://${service}/xp.sh"
-wget -O swapkvm "https://${service}/swapkvm.sh"
-wget -O addvmess "https://${xray}/addvmess.sh"
-wget -O addvless "https://${xray}/addvless.sh"
-wget -O addtrojan "https://${xray}/addtrojan.sh"
-wget -O backup "https://${menu}/backup.sh"
-wget -O restore "https://${menu}/restore.sh"
-wget -O menu-trojan "https://${menu}/menu-trojan.sh"
-wget -O menu-xray "https://${menu}/menu-xray.sh"
-wget -O menu-cloud "https://${menu}/menu-cloud.sh"
-wget -O delvmess "https://${xray}/delvmess.sh"
-wget -O delvless "https://${xray}/delvless.sh"
-wget -O deltrojan "https://${xray}/deltrojan.sh"
-wget -O cekvmess "https://${xray}/cekvmess.sh"
-wget -O cekvless "https://${xray}/cekvless.sh"
-wget -O cektrojan "https://${xray}/cektrojan.sh"
-wget -O renewvmess "https://${xray}/renewvmess.sh"
-wget -O renewvless "https://${xray}/renewvless.sh"
-wget -O renewtrojan "https://${xray}/renewtrojan.sh"
-wget -O certv2ray "https://${menu}/certv2ray.sh"
-wget -O addtrgo "https://${xray}/addtrgo.sh"
-wget -O deltrgo "https://${xray}/deltrgo.sh"
-wget -O renewtrgo "https://${xray}/renewtrgo.sh"
-wget -O cektrgo "https://${xray}/cektrgo.sh"
-wget -O ipsaya "https://${service}/ipsaya.sh"
-#wget -O portsshnontls "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshnontls.sh"
-#wget -O portsshws "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/websocket/portsshws.sh"
-#wget -O sshovpnmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/sshovpn.sh"
-#wget -O l2tpmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/l2tpmenu.sh"
-#wget -O pptpmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/pptpmenu.sh"
-#wget -O sstpmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/sstpmenu.sh"
-#wget -O wgmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/wgmenu.sh"
-#wget -O ssmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/ssmenu.sh"
-#wget -O ssrmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/ssrmenu.sh"
-#wget -O vmessmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/vmessmenu.sh"
-#wget -O vlessmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/vlessmenu.sh"
-#wget -O grpcmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/grpcmenu.sh"
-#wget -O grpcupdate "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/grpcupdate.sh"
-#wget -O trmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/trmenu.sh"
-#wget -O trgomenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/trgomenu.sh"
-#wget -O setmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/setmenu.sh"
-#wget -O slowdnsmenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/slowdnsmenu.sh"
-#wget -O running "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/running.sh"
-#wget -O updatemenu "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/update/updatemenu.sh"
-#wget -O sl-fix "https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/sslh-fix/sl-fix"
-
-#chmod +x sl-fix
-#chmod +x sshovpnmenu
-#chmod +x l2tpmenu
-#chmod +x pptpmenu
-#chmod +x sstpmenu
-#chmod +x wgmenu
-#chmod +x ssmenu
-#chmod +x ssrmenu
-#chmod +x grpcupdate
-#chmod +x trmenu
-#chmod +x trgomenu
-#chmod +x setmenu
-#chmod +x slowdnsmenu
-#chmod +x updatemenu
-#chmod +x portsshnontls
-#chmod +x portsshws
-#chmod +x cekssh
-#chmod +x speedtest
-#chmod +x info
+wget --output-document=addhost "https://${menu}/addhost.sh"
+wget --output-document=slhost "https://${service}/cf.sh"
+wget --output-document=about "https://${menu}/about.sh"
+wget --output-document=menu "https://${menu}/menu.sh"
+wget --output-document=usernew "https://${ssh}/usernew.sh"
+wget --output-document=renew "https://${ssh}/renew.sh"
+wget --output-document=trial "https://${ssh}/trial.sh"
+wget --output-document=delete "https://${ssh}/delete.sh"
+wget --output-document=member "https://${ssh}/member.sh"
+wget --output-document=delexp "https://${ssh}/delexp.sh"
+wget --output-document=running "https://${service}/running.sh"
+wget --output-document=restart "https://${menu}/restart.sh"
+wget --output-document=usernew "https://${ssh}/usernew.sh"
+wget --output-document=autokill "https://${ssh}/autokill.sh"
+wget --output-document=ceklim "https://${ssh}/ceklim.sh"
+wget --output-document=tendang "https://${service}/tendang.sh"
+wget --output-document=clearlog "https://${service}/clearlog.sh"
+wget --output-document=xp "https://${service}/xp.sh"
+wget --output-document=swapkvm "https://${service}/swapkvm.sh"
+wget --output-document=addvmess "https://${xray}/addvmess.sh"
+wget --output-document=addvless "https://${xray}/addvless.sh"
+wget --output-document=addtrojan "https://${xray}/addtrojan.sh"
+wget --output-document=backup "https://${menu}/backup.sh"
+wget --output-document=restore "https://${menu}/restore.sh"
+wget --output-document=menu-trojan "https://${menu}/menu-trojan.sh"
+wget --output-document=menu "https://${menu}/menu-ssh.sh"
+wget --output-document=menu-xray "https://${menu}/menu-xray.sh"
+wget --output-document=menu-cloud "https://${menu}/menu-cloud.sh"
+wget --output-document=delvmess "https://${xray}/delvmess.sh"
+wget --output-document=delvless "https://${xray}/delvless.sh"
+wget --output-document=deltrojan "https://${xray}/deltrojan.sh"
+wget --output-document=cekvmess "https://${xray}/cekvmess.sh"
+wget --output-document=cekvless "https://${xray}/cekvless.sh"
+wget --output-document=cektrojan "https://${xray}/cektrojan.sh"
+wget --output-document=renewvmess "https://${xray}/renewvmess.sh"
+wget --output-document=renewvless "https://${xray}/renewvless.sh"
+wget --output-document=renewtrojan "https://${xray}/renewtrojan.sh"
+wget --output-document=certv2ray "https://${menu}/certv2ray.sh"
+wget --output-document=addtrgo "https://${xray}/addtrgo.sh"
+wget --output-document=deltrgo "https://${xray}/deltrgo.sh"
+wget --output-document=renewtrgo "https://${xray}/renewtrgo.sh"
+wget --output-document=cektrgo "https://${xray}/cektrgo.sh"
+wget --output-document=ipsaya "https://${service}/ipsaya.sh"
 chmod +x backup
 chmod +x restore
 chmod +x ipsaya
 chmod +x menu-xray
 chmod +x menu-trojan
 chmod +x menu-cloud
+chmod +x menu-ssh
 chmod +x running
 chmod +x slhost
 chmod +x addhost
@@ -484,28 +436,17 @@ chmod +x about
 chmod +x autokill
 chmod +x tendang
 chmod +x ceklim
-#chmod +x ram
 chmod +x renew
 chmod +x clearlog
-#chmod +x changeport
-#chmod +x portovpn
-#chmod +x portwg
-#chmod +x porttrojan
-#chmod +x portsstp
-#chmod +x portsquid
-#chmod +x portvlm
 chmod +x wbmn
 chmod +x xp
 chmod +x swapkvm
 chmod +x addvmess
 chmod +x addvless
 chmod +x addtrojan
-#chmod +x addgrpc
-#chmod +x delgrpc
 chmod +x delvmess
 chmod +x delvless
 chmod +x deltrojan
-#chmod +x cekgrpc
 chmod +x cekvmess
 chmod +x cekvless
 chmod +x cektrojan
@@ -514,10 +455,6 @@ chmod +x renewvmess
 chmod +x renewvless
 chmod +x renewtrojan
 chmod +x certv2ray
-#chmod +x addtrgo
-#chmod +x deltrgo
-#chmod +x renewtrgo
-#chmod +x cektrgo
 echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 echo "10 4 * * * root clearlog && sslh-fix-reboot" >> /etc/crontab
@@ -561,9 +498,9 @@ rm -f /root/cert.pem
 rm -f /root/ssh-vpn.sh
 
 # finihsing
-echo "===================================="
-echo "         Sucesfully Install All Service         "
-echo "===================================="
+echo "====================================" | lolcat
+echo "    Sucesfully Install All Service         "
+echo "====================================" | lolcat
 sleep 0.5
 echo Processing...
 sleep 0.5

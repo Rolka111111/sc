@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "===================================="
-echo "             Installing StunnelAll             "
+echo "      Installing StunnelAll             "
 echo "===================================="
 sleep 0.5
 echo Running...
@@ -63,7 +63,7 @@ RUN=yes
 # systemd users: don't forget to modify /lib/systemd/system/sslh.service
 DAEMON=/usr/sbin/sslh
 
-DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:777 --ssh 127.0.0.1:109 --openvpn 127.0.0.1:1194 --http 127.0.0.1:8880 --pidfile /var/run/sslh/sslh.pid -n"
+DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:443 --ssh 127.0.0.1:109 --openvpn 127.0.0.1:1194 --http 127.0.0.1:80 --pidfile /var/run/sslh/sslh.pid -n"
 
 END
 
@@ -78,7 +78,7 @@ systemctl restart sslh
 # ssl
 # install stunnel 5 
 cd /root/
-wget -q -O stunnel5.zip "https://${service}/stunnel5.zip"
+wget --output-document=stunnel5.zip "https://${service}/stunnel5.zip"
 unzip -o stunnel5.zip
 cd /root/stunnel
 chmod +x configure
@@ -119,7 +119,6 @@ cat > /etc/systemd/system/stunnel5.service << END
 [Unit]
 Description=Stunnel5 Service
 Documentation=https://stunnel.org
-Documentation=https://github.com/Akbar218
 After=syslog.target network-online.target
 
 [Service]
@@ -131,7 +130,7 @@ WantedBy=multi-user.target
 END
 
 # Service Stunnel5 /etc/init.d/stunnel5
-wget -q -O /etc/init.d/stunnel5 "https://${service}/stunnel5.init"
+wget --output-document=/etc/init.d/stunnel5 "https://${service}/stunnel5.init"
 
 # Ubah Izin Akses
 chmod 600 /etc/stunnel5/stunnel5.pem

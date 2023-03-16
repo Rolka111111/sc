@@ -1,15 +1,15 @@
 #!/bin/bash
 # Proxy For Ssh & Ovpn Websocket
 echo "===================================="
-echo "           Installing Websocket-SSH          "
+echo "      Installing Websocket-SSH          "
 echo "===================================="
 sleep 0.5
 echo Processing...
 sleep 0.5
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/Annnjayy/sc/install/main/ws-ntls.py
-wget -q -O /usr/local/bin/ws-tls https://raw.githubusercontent.com/Annnjayy/sc/install/main/ws-tls.py
-wget -q -O /usr/local/bin/ws-ovpn https://raw.githubusercontent.com/Annnjayy/sc/install/main/ws-ovpn.py
+wget --output-document=/usr/local/bin/ws-nontls https://raw.githubusercontent.com/Annnjayy/sc/install/main/ws-ntls.py
+wget --output-document=/usr/local/bin/ws-tls https://raw.githubusercontent.com/Annnjayy/sc/install/main/ws-tls.py
+wget --output-document=/usr/local/bin/ws-ovpn https://raw.githubusercontent.com/Annnjayy/sc/install/main/ws-ovpn.py
 chmod +x /usr/local/bin/ws-ntls.py
 chmod +x /usr/local/bin/ws-tls.py
 chmod +x /usr/local/bin/ws-ovpn.py
