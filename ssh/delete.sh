@@ -1,44 +1,32 @@
 #!/bin/bash
-# SL
-# ==========================================
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
+clear
+red='\e[1;31m'
+green='\e[0;32m'
+clear
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 IZIN=$( curl ipinfo.io/ip | grep $MYIP )
 if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
+echo -e "===============================" | lolcat
+echo -e "$ Permission Accepted..."
+echo -e "===============================" | lolcat
 else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Fuck You!!"
+echo -e "===============================" | lolcat
+echo -e "$ Permission Denied!"
+echo -e "===============================" | lolcat
 exit 0
 fi
-read -p "Username SSH to Delete : " Pengguna
-
+clear
+echo -e "===============================" | lolcat
+read -p "  Username SSH to Delete : " Pengguna
 if getent passwd $Pengguna > /dev/null 2>&1; then
-        userdel $Pengguna
-        echo -e "==============================="
-        echo -e "             Succesfully
-        echo -e "==============================="
-        echo -e "  Username $Pengguna Telah Di Hapus"
-        echo -e "==============================="
-        echo -e "        Script By MakhlukVpn          "
-        echo -e "==============================="
-else
-        echo -e "==============================="
-        echo -e "            Failed Or Failure
-        echo -e "==============================="
-        echo -e "  Username $Pengguna Tidak Ada"
-        echo -e "==============================="
-        echo -e "        Script By MakhlukVpn          "
-        echo -e "==============================="
+userdel $Pengguna
+echo -e "===============================" | lolcat
+echo -e "      Succesfully "
+echo -e "===============================" | lolcat
+echo -e "  Username $Pengguna Telah Di Hapus"
+echo -e "===============================" | lolcat
+echo -e "     Script By MakhlukVpn  "
+echo -e "===============================" | lolcat
 fi

@@ -5,9 +5,9 @@ NC='\e[0m'
 MYIP=$(wget -qO- icanhazip.com);
 echo "Checking VPS"
 clear
-echo "========================================="
+echo "=========================================" | lolcat
 echo "  USERNAME   |   EXP DATE    |    STATUS "
-echo "========================================="
+echo "=========================================" | lolcat
 while read expired
 do
 AKUN="$(echo $expired | cut -d: -f1)"
@@ -23,9 +23,9 @@ fi
 fi
 done < /etc/passwd
 JUMLAH="$(awk -F: '$3 >= 1000 && $1 != "nobody" {print $1}' /etc/passwd | wc -l)"
-echo -e "==============================="
-echo -e "    Account number: $JUMLAH user"
-echo -e "==============================="
-echo -e "        Script By MakhlukVpn          "
-echo -e "==============================="
+echo -e "===============================" | lolcat
+echo -e "   Account number: $JUMLAH user"
+echo -e "===============================" | lolcat
+echo -e "     Script By MakhlukVpn          "
+echo -e "===============================" | lolcat
 echo -e ""
