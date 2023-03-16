@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "===================================="
-echo "      Installing All Service            "
+echo "   Installing All Service            "
 echo "===================================="
 sleep 0.5
 echo Processing...
@@ -397,7 +397,7 @@ wget --output-document=addtrojan "https://${xray}/addtrojan.sh"
 wget --output-document=backup "https://${menu}/backup.sh"
 wget --output-document=restore "https://${menu}/restore.sh"
 wget --output-document=menu-trojan "https://${menu}/menu-trojan.sh"
-wget --output-document=menu "https://${menu}/menu-ssh.sh"
+wget --output-document=menu-ssh "https://${menu}/menu-ssh.sh"
 wget --output-document=menu-xray "https://${menu}/menu-xray.sh"
 wget --output-document=menu-cloud "https://${menu}/menu-cloud.sh"
 wget --output-document=delvmess "https://${xray}/delvmess.sh"
@@ -410,10 +410,6 @@ wget --output-document=renewvmess "https://${xray}/renewvmess.sh"
 wget --output-document=renewvless "https://${xray}/renewvless.sh"
 wget --output-document=renewtrojan "https://${xray}/renewtrojan.sh"
 wget --output-document=certv2ray "https://${menu}/certv2ray.sh"
-wget --output-document=addtrgo "https://${xray}/addtrgo.sh"
-wget --output-document=deltrgo "https://${xray}/deltrgo.sh"
-wget --output-document=renewtrgo "https://${xray}/renewtrgo.sh"
-wget --output-document=cektrgo "https://${xray}/cektrgo.sh"
 wget --output-document=ipsaya "https://${service}/ipsaya.sh"
 chmod +x backup
 chmod +x restore
@@ -450,7 +446,6 @@ chmod +x deltrojan
 chmod +x cekvmess
 chmod +x cekvless
 chmod +x cektrojan
-chmod +x renewgrpc
 chmod +x renewvmess
 chmod +x renewvless
 chmod +x renewtrojan
