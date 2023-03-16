@@ -44,8 +44,8 @@ echo > /var/log/syslog
 echo > /var/log/btmp
 echo > /var/log/messages
 echo > /var/log/debug
-echo -e "==============================="
-echo -e "             Succesfully
-echo -e "==============================="
-echo -e "        Script By MakhlukVpn          "
-echo -e "==============================="
+echo -e "===============================" | lolcat
+echo -e "      Succesfully
+echo -e "===============================" | lolcat
+echo -e "   Script By MakhlukVpn          "
+echo -e "===============================" | lolcat

@@ -13,10 +13,10 @@ mkdir -p /etc/xray
 cp /root/domain /etc/xray/
 clear
 # Certificat For Ssh & Ovpn Websocket
-echo "===================================="
-echo "      Installing Cert Cloudflare Domain        "
-echo "===================================="
-sleep 0.5
+echo "====================================" | lolcat
+echo "   Installing Cert Cloudflare Domain        "
+echo "====================================" | lolcat
+sleep 1
 echo Running...
 sleep 0.5
 DOMAIN=makhlukvpn.my.id
