@@ -43,7 +43,6 @@ sleep 0.5
 echo -e "  Starting Restart Dropbear Service"
 sleep 0.5
 /etc/init.d/stunnel5 restart
-/etc/init.d/stunnel4 restart
 echo -e "  Starting Restart Stunnel Service"
 sleep 0.5
 /etc/init.d/openvpn restart
