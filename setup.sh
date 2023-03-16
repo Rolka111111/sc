@@ -8,7 +8,7 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 		exit 1
 fi
 echo "===================================="
-echo "             Installing AutoScript            "
+echo "   Installing AutoScript            "
 echo "===================================="
 sleep 0.5
 echo Processing...
@@ -38,8 +38,6 @@ mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
 # install cloudflare certificate
 wget https://${service}/cf.sh && chmod +x cf.sh && ./cf.sh
-# install slowdns cloudflare certificate
-wget https://${service}/nscf.sh && chmod +x nscf.sh && ./nscf.sh
 # install xray
 wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && screen -S xray ./ins-xray.sh
 #install ssh ovpn
@@ -50,7 +48,9 @@ wget https://${instal}/ssh-ws.sh && chmod +x ssh-ws.sh && ./ssh-ws.sh
 wget https://${instal}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
  wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
 # install xray grpc
-#wget https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/sl-grpc.sh && chmod +x sl-grpc.sh && screen -S sl-grpc ./sl-grpc.sh
+wget https://raw.githubusercontent.com/fisabiliyusri/Mantap/main/grpc/sl-grpc.sh && chmod +x sl-grpc.sh && screen -S sl-grpc ./sl-grpc.sh
+# install slowdns cloudflare certificate
+wget https://${service}/nscf.sh && chmod +x nscf.sh && ./nscf.sh
 
 #delete sc yabg sudah terinstall
 rm -f /root/ssh-vpn.sh
@@ -73,7 +73,7 @@ WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
 systemctl enable autosett
-wget -O /etc/set.sh "https://${service}/set.sh"
+wget --output-document=/etc/set.sh "https://${service}/set.sh"
 chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
