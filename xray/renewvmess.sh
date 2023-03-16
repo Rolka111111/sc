@@ -32,10 +32,10 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 	fi
 
 	clear
-	echo ""
+	echo -e "===============================" | lolcat
 	echo "Select the existing client you want to renew"
 	echo " Press CTRL+C to return"
-	echo -e "==============================="
+	echo -e "===============================" | lolcat
 	grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
 		if [[ ${CLIENT_NUMBER} == '1' ]]; then
@@ -45,6 +45,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/config.json")
 		fi
 	done
 read -p "Expired (Days): " masaaktif
+echo -e "===============================" | lolcat
 user=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 2 | sed -n "${CLIENT_NUMBER}"p)
 exp=$(grep -E "^### " "/etc/xray/config.json" | cut -d ' ' -f 3 | sed -n "${CLIENT_NUMBER}"p)
 now=$(date +%Y-%m-%d)
@@ -55,16 +56,14 @@ exp3=$(($exp2 + $masaaktif))
 exp4=`date -d "$exp3 days" +"%Y-%m-%d"`
 sed -i "s/### $user $exp/### $user $exp4/g" /etc/xray/config.json
 sed -i "s/### $user $exp/### $user $exp4/g" /etc/xray/config.json
-systemctl restart xray.service
-service cron restart
 clear
 echo ""
-echo -e "==============================="
-echo -e "    XRAYS/Vmess Account Renewed    "
-echo -e "==============================="
+echo -e "===============================" | lolcat
+echo -e "  XRAYS/Vmess Account Renewed    "
+echo -e "===============================" | lolcat
 echo -e "  Username  : $user"
 echo -e "  Expired   : $exp4"
-echo -e "==============================="
-echo -e "        Script By MakhlukVpn          "
-echo -e "==============================="
+echo -e "===============================" | lolcat
+echo -e "   Script By MakhlukVpn          "
+echo -e "===============================" | lolcat
 echo -e ""

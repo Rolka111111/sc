@@ -33,7 +33,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^#&# " "/etc/xray/config.json")
 	echo ""
 	echo " Select the existing client you want to remove"
 	echo " Press CTRL+C to return"
-	echo " ==============================="
+	echo " ===============================" | lolcat
 	echo "     No  Expired   User"
 	grep -E "^#&# " "/etc/xray/config.json" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -51,12 +51,12 @@ systemctl restart xray.service
 service cron restart
 clear
 echo ""
-echo -e "================================"
-echo -e "    XRAYS/Trojan Account Deleted     "
-echo -e "================================"
+echo -e "================================" | lolcat
+echo -e "   XRAYS/Trojan Account Deleted     "
+echo -e "================================" | lolcat
 echo -e " Username  : $user"
 echo -e " Expired   : $exp"
-echo -e "==============================="
-echo -e "        Script By MakhlukVpn          "
-echo -e "==============================="
+echo -e "===============================" | lolcat
+echo -e "    Script By MakhlukVpn          "
+echo -e "===============================" | lolcat
 echo -e ""

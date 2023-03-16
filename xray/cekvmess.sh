@@ -25,9 +25,9 @@ fi
 clear
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/config.json | grep '^###' | cut -d ' ' -f 2`);
-echo -e "==============================="
-echo -e "          Vmess User Login            "
-echo -e "==============================="
+echo -e "===============================" | lolcat
+echo -e "     Vmess User Login            "
+echo -e "===============================" | lolcat
 for akun in "${data[@]}"
 do
 if [[ -z "$akun" ]]; then
@@ -53,16 +53,16 @@ else
 jum2=$(cat /tmp/ipvmess.txt | nl)
 echo "user : $akun";
 echo "$jum2";
-echo -e "==============================="
+echo -e "===============================" | lolcat
 fi
 rm -rf /tmp/ipvmess.txt
 done
 oth=$(cat /tmp/other.txt | sort | uniq | nl)
 echo "other";
 echo "$oth";
-echo -e "==============================="
-echo -e "        Script By MakhlukVpn          "
-echo -e "==============================="
+echo -e "===============================" | lolcat
+echo -e "     Script By MakhlukVpn          "
+echo -e "===============================" | lolcat
 echo -e ""
 rm -rf /tmp/other.txt
 

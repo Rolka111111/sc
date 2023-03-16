@@ -31,41 +31,43 @@ domain=$IP
 fi
 tr="$(cat ~/log-install.txt | grep -w "Trojan" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
-		read -rp "Password : " -e user
-		user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
+echo -e "===============================" | lolcat
+read -rp "Password : " -e user
+user_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
 
-		if [[ ${user_EXISTS} == '1' ]]; then
-			echo ""
-			echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
-			exit 1
-		fi
-	done
+if [[ ${user_EXISTS} == '1' ]]; then
+echo -e "===============================" | lolcat
+echo -e "  Username ${user} Already On VPS "
+echo -e "     Please Choose Another"
+echo -e "===============================" | lolcat
+exit 1
+fi
+done
 read -p "Expired (Days) : " masaaktif
+echo -e "===============================" | lolcat
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 sed -i '/#xray-trojan$/a\#&# '"$user $exp"'\
 },{"password": "'""$user""'","email": "'""$user""'"' /etc/xray/config.json
-systemctl restart xray.service
-trojanlink="trojan://${user}@${domain}:${tr}"
-service cron restart
+trojanlink="trojan://${user}@${domain}:2087"
 clear
 echo -e ""
-echo -e "========{XRAYS/TROJAN}========"
+echo -e "========={XRAYS/TROJAN}=========" | lolcat
 echo -e "Remarks  : ${user}"
 echo -e "IP/Host  : ${MYIP}"
 echo -e "Address  : ${domain}"
-echo -e "Port     : ${tr}"
+echo -e "Port     : 2087"
 echo -e "Key      : ${user}"
 echo -e "Created  : $hariini"
 echo -e "Expired  : $exp"
-echo -e "==============================="
-echo -e "Link TR  : ${trojanlink}"
-echo -e "==============================="
-echo -e "        Script By MakhlukVpn          "
-echo -e "==============================="
+echo -e "===============================" | lolcat
+echo -e " Link TR  : ${trojanlink}"
+echo -e "===============================" | lolcat
+echo -e "   Script By MakhlukVpn          "
+echo -e "===============================" | lolcat
 echo -e ""
-echo -e "            Terimakasih Telah "
-echo -e "       Menggunakan Layanan Kami "
+echo -e "       Terimakasih Telah "
+echo -e "   Menggunakan Layanan Kami "
 echo -e ""
-echo -e "==============================="
+echo -e "===============================" | lolcat
 echo -e "
