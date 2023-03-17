@@ -111,9 +111,9 @@ cat > /etc/xray/config.json << END
         "kcpSettings": {},
         "httpSettings": {},
         "wsSettings": {
-          "path": "/vmess/",
+          "path": "/vmess",
           "headers": {
-            "Host": ""
+            "Host": "${domain}"
           }
         },
         "quicSettings": {}
@@ -140,9 +140,9 @@ cat > /etc/xray/config.json << END
         "kcpSettings": {},
         "httpSettings": {},
         "wsSettings": {
-          "path": "/vmess/",
+          "path": "/vmess",
           "headers": {
-            "Host": ""
+            "Host": "${domain}"
           }
         },
         "quicSettings": {}
@@ -182,9 +182,9 @@ cat > /etc/xray/config.json << END
         "kcpSettings": {},
         "httpSettings": {},
         "wsSettings": {
-          "path": "/vless/",
+          "path": "/vless",
           "headers": {
-            "Host": ""
+            "Host": "${domain}"
           }
         },
         "quicSettings": {}
@@ -218,9 +218,9 @@ cat > /etc/xray/config.json << END
         "kcpSettings": {},
         "httpSettings": {},
         "wsSettings": {
-          "path": "/vless/",
+          "path": "/vless",
           "headers": {
-            "Host": ""
+            "Host": "${domain}"
           }
         },
         "quicSettings": {}
@@ -501,7 +501,7 @@ systemctl enable trojan-go
 systemctl restart trojan-go
 clear
 echo -e "==============================="
-echo -e "        Done Install Xray  "
+echo -e "    Done Install Xray  "
 echo -e "==============================="
 echo -e "  PORT Vmess TLS     : 443       "
 echo -e "  PORT Vmess NTLS    : 80, 8443 "
@@ -510,7 +510,7 @@ echo -e "  PORT VLESS NTLS    : 80, 8443 "
 echo -e "  PORT TROJAN TLS    : 443      "
 echo -e "  PORT TROJAN NTLS   : 80, 8443 "
 echo -e "==============================="
-echo -e "       Script By MakhlukVpn          "
+echo -e "   Script By MakhlukVpn          "
 echo -e "==============================="
 sleep 1
 cd

@@ -1,8 +1,8 @@
 #!/bin/bash
 echo "===================================="
-echo "      Installing StunnelAll             "
+echo "   Installing StunnelAll             "
 echo "===================================="
-sleep 0.5
+sleep 1
 echo Running...
 sleep 0.5
 # Color
@@ -14,9 +14,6 @@ BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
-
-# Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
 # Link Hosting Kalian Untuk Stunnel5
 service="raw.githubusercontent.com/Annnjayy/sc/main/service"
 

@@ -2,7 +2,7 @@
 echo "===================================="
 echo "   Installing All Service            "
 echo "===================================="
-sleep 0.5
+sleep 1
 echo Processing...
 sleep 0.5
 # Color
@@ -48,7 +48,6 @@ email=hayuk69@gmail.com
 # simple password minimal
 wget --output-document=/etc/pam.d/common-password "https://${service}/password"
 chmod +x /etc/pam.d/common-password
-
 # go to root
 cd
 
@@ -154,7 +153,7 @@ echo "<?php phpinfo() ?>" > /home/vps/public_html/info.php
 chown -R www-data:www-data /home/vps/public_html
 chmod -R g+rw /home/vps/public_html
 cd /home/vps/public_html
-wget --output-document=/home/vps/public_html/index.html "https://${akbarvpn}/index.html1"
+wget --output-document=/home/vps/public_html/index.html "https://${service}/index.html1"
 /etc/init.d/nginx restart
 cd
 
@@ -215,7 +214,7 @@ RUN=yes
 # systemd users: don't forget to modify /lib/systemd/system/sslh.service
 DAEMON=/usr/sbin/sslh
 
-DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:777 --ssh 127.0.0.1:109 --openvpn 127.0.0.1:1194 --http 127.0.0.1:8880 --pidfile /var/run/sslh/sslh.pid -n"
+DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:777 --ssh 127.0.0.1:109 --openvpn 127.0.0.1:1194 --http 127.0.0.1:80 --pidfile /var/run/sslh/sslh.pid -n"
 
 END
 
@@ -283,10 +282,10 @@ connect = 127.0.0.1:1194
 END
 
 # make a certificate
-#openssl genrsa -out key.pem 2048
-#openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
-#-subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
-#cat key.pem cert.pem >> /etc/stunnel5/stunnel5.pem
+openssl genrsa -out key.pem 2048
+openssl req -new -x509 -key key.pem -out cert.pem -days 1095 \
+-subj "/C=$country/ST=$state/L=$locality/O=$organization/OU=$organizationalunit/CN=$commonname/emailAddress=$email"
+cat key.pem cert.pem >> /etc/stunnel5/stunnel5.pem
 
 # Service Stunnel5 systemctl restart stunnel5
 cat > /etc/systemd/system/stunnel5.service << END
@@ -329,7 +328,7 @@ systemctl restart stunnel5
 /etc/init.d/stunnel5 restart
 
 #OpenVPN
-wget https://${install}/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
+wget https://${install}/vpn.sh &&  chmod +x vpn.sh && bash vpn.sh
 
 # install fail2ban
 apt -y install fail2ban
@@ -370,94 +369,6 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 
-# download script
-cd /usr/bin
-wget --output-document=addhost "https://${menu}/addhost.sh"
-wget --output-document=slhost "https://${service}/cf.sh"
-wget --output-document=about "https://${menu}/about.sh"
-wget --output-document=menu "https://${menu}/menu.sh"
-wget --output-document=usernew "https://${ssh}/usernew.sh"
-wget --output-document=renew "https://${ssh}/renew.sh"
-wget --output-document=trial "https://${ssh}/trial.sh"
-wget --output-document=delete "https://${ssh}/delete.sh"
-wget --output-document=member "https://${ssh}/member.sh"
-wget --output-document=delexp "https://${ssh}/delexp.sh"
-wget --output-document=running "https://${service}/running.sh"
-wget --output-document=restart "https://${menu}/restart.sh"
-wget --output-document=usernew "https://${ssh}/usernew.sh"
-wget --output-document=autokill "https://${ssh}/autokill.sh"
-wget --output-document=ceklim "https://${ssh}/ceklim.sh"
-wget --output-document=tendang "https://${service}/tendang.sh"
-wget --output-document=clearlog "https://${service}/clearlog.sh"
-wget --output-document=xp "https://${service}/xp.sh"
-wget --output-document=swapkvm "https://${service}/swapkvm.sh"
-wget --output-document=addvmess "https://${xray}/addvmess.sh"
-wget --output-document=addvless "https://${xray}/addvless.sh"
-wget --output-document=addtrojan "https://${xray}/addtrojan.sh"
-wget --output-document=backup "https://${menu}/backup.sh"
-wget --output-document=restore "https://${menu}/restore.sh"
-wget --output-document=menu-trojan "https://${menu}/menu-trojan.sh"
-wget --output-document=menu-ssh "https://${menu}/menu-ssh.sh"
-wget --output-document=menu-xray "https://${menu}/menu-xray.sh"
-wget --output-document=menu-cloud "https://${menu}/menu-cloud.sh"
-wget --output-document=delvmess "https://${xray}/delvmess.sh"
-wget --output-document=delvless "https://${xray}/delvless.sh"
-wget --output-document=deltrojan "https://${xray}/deltrojan.sh"
-wget --output-document=cekvmess "https://${xray}/cekvmess.sh"
-wget --output-document=cekvless "https://${xray}/cekvless.sh"
-wget --output-document=cektrojan "https://${xray}/cektrojan.sh"
-wget --output-document=renewvmess "https://${xray}/renewvmess.sh"
-wget --output-document=renewvless "https://${xray}/renewvless.sh"
-wget --output-document=renewtrojan "https://${xray}/renewtrojan.sh"
-wget --output-document=certv2ray "https://${menu}/certv2ray.sh"
-wget --output-document=ipsaya "https://${service}/ipsaya.sh"
-chmod +x backup
-chmod +x restore
-chmod +x ipsaya
-chmod +x menu-xray
-chmod +x menu-trojan
-chmod +x menu-cloud
-chmod +x menu-ssh
-chmod +x running
-chmod +x slhost
-chmod +x addhost
-chmod +x menu
-chmod +x usernew
-chmod +x trial
-chmod +x delete
-chmod +x member
-chmod +x delexp
-chmod +x restart
-chmod +x about
-chmod +x autokill
-chmod +x tendang
-chmod +x ceklim
-chmod +x renew
-chmod +x clearlog
-chmod +x wbmn
-chmod +x xp
-chmod +x swapkvm
-chmod +x addvmess
-chmod +x addvless
-chmod +x addtrojan
-chmod +x delvmess
-chmod +x delvless
-chmod +x deltrojan
-chmod +x cekvmess
-chmod +x cekvless
-chmod +x cektrojan
-chmod +x renewvmess
-chmod +x renewvless
-chmod +x renewtrojan
-chmod +x certv2ray
-echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
-echo "0 0 * * * root xp" >> /etc/crontab
-echo "10 4 * * * root clearlog && sslh-fix-reboot" >> /etc/crontab
-echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
-echo "0 12 * * * root clearlog && reboot" >> /etc/crontab
-echo "0 18 * * * root clearlog && reboot" >> /etc/crontab
-
-
 # remove unnecessary files
 cd
 apt autoclean -y
@@ -496,7 +407,7 @@ rm -f /root/ssh-vpn.sh
 echo "====================================" | lolcat
 echo "    Sucesfully Install All Service         "
 echo "====================================" | lolcat
-sleep 0.5
+sleep 1
 echo Processing...
 sleep 0.5
 clear

@@ -1,9 +1,9 @@
 #!/bin/bash
 # Open Http Puncher
 echo "===================================="
-echo "     Installing Ohp Service             "
+echo "   Installing Ohp Service             "
 echo "===================================="
-sleep 0.5
+sleep 1
 echo Running...
 sleep 0.5
 # Color
@@ -15,19 +15,6 @@ BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
-# ==========================================
-# Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl ipinfo.io/ip | grep $MYIP )
-if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
-else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Fuck You!!"
-exit 0
-fi
-
 # Download File Ohp
 wget https://github.com/lfasmpao/open-http-puncher/releases/download/0.1/ohpserver-linux32.zip
 unzip ohpserver-linux32.zip
@@ -128,15 +115,13 @@ then
 else
 	echo 'OpenVPN OHP Redirection Not Found, please check manually'
 fi
-sleep 0.5
-clear
 echo -e "==============================="
-echo -e "         Done Install OHP  "
+echo -e "   Done Install OHP  "
 echo -e "==============================="
-echo -e "    PORT OHP SSH         : 8181  "
-echo -e "    PORT OHP DROPBEAR  : 8282   "
-echo -e "    PORT OHP OpenVPN   : 8383    "
+echo -e "   PORT OHP SSH         : 8181  "
+echo -e "   PORT OHP DROPBEAR  : 8282   "
+echo -e "   PORT OHP OpenVPN   : 8383    "
 echo -e "==============================="
-echo -e "       Script By MakhlukVpn          "
+echo -e "   Script By MakhlukVpn          "
 echo -e "==============================="
 sleep 1

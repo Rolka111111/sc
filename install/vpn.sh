@@ -1,22 +1,10 @@
 #!/bin/bash
 echo "===================================="
-echo "     Installing SSH OpenVpn           "
+echo "   Installing SSH OpenVpn           "
 echo "===================================="
-sleep 0.5
+sleep 1
 echo Running...
 sleep 0.5
-# Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl ipinfo.io/ip | grep $MYIP )
-if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
-else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Fuck You!!"
-exit 0
-fi
-
 # initialisasi var
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
@@ -150,16 +138,14 @@ systemctl start openvpn
 /etc/init.d/openvpn restart
 
 # Done script
-
-clear
 echo -e "==============================="
 echo -e "  Done Install Ssh & Ovpn Websocket  "
 echo -e "==============================="
-echo -e "       PORT OpenVPN UDP : 2200     "
-echo -e "       PORT OpenVPN TCP  : 1194      "
-echo -e "       PORT OpenVPN SSL  : 990      "
+echo -e "   PORT OpenVPN UDP : 2200     "
+echo -e "   PORT OpenVPN TCP  : 1194      "
+echo -e "   PORT OpenVPN SSL  : 990      "
 echo -e "==============================="
-echo -e "        Script By MakhlukVpn          "
+echo -e "   Script By MakhlukVpn          "
 echo -e "==============================="
 sleep 1
 rm -f /root/vpn.sh

@@ -1,9 +1,9 @@
 #!/bin/bash
 # Proxy For Ssh & Ovpn Websocket
-echo "====================================" | lolcat
+echo "===================================="
 echo "  Installing Websocket-SSH          "
-echo "====================================" | lolcat
-sleep 0.5
+echo "===================================="
+sleep 1
 echo Processing...
 sleep 0.5
 # Getting Proxy Template
@@ -35,8 +35,8 @@ WantedBy=multi-user.target
 END
 
 systemctl daemon-reload
-systemctl enable sshws-nontls
-systemctl restart sshws-nontls
+systemctl enable ws-nontls
+systemctl restart ws-nontls
 
 # Installing Service ws tls
 cat > /etc/systemd/system/ws-tls.service << END
@@ -65,7 +65,7 @@ systemctl restart ws-tls
 # Installing Service
 cat > /etc/systemd/system/ws-ovpn.service << END
 [Unit]
-Description=Python Proxy Mod By LamVpn
+Description=  Websocket OpenVPN By MakhlukVpn
 Documentation=https://nekopoi.care
 After=network.target nss-lookup.target
 
@@ -86,14 +86,14 @@ systemctl daemon-reload
 systemctl enable ws-ovpn
 systemctl restart ws-ovpn
 
-clear
-echo -e "===============================" | lolcat
-echo -e " Done Install Websocket  "
-echo -e "===============================" | lolcat
-echo -e "  PORT SSH NONTLS : 80        "
-echo -e "  PORT SSH TLS    : 443        "
-echo -e "  PORT OVPN WS B  : 2086      "
-echo -e "===============================" | lolcat
+
+echo -e "==============================="
+echo -e "  Done Install Ssh & Ovpn Websocket  "
+echo -e "==============================="
+echo -e "   PORT SSH NONTLS : 80        "
+echo -e "   PORT SSH TLS    : 443        "
+echo -e "   PORT OVPN WS B  : 2086      "
+echo -e "==============================="
 echo -e "   Script By MakhlukVpn          "
-echo -e "===============================" | lolcat
+echo -e "==============================="
 sleep 1
