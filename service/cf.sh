@@ -10,7 +10,6 @@ rm -f /etc/xray/domain
 rm -rf /etc/xray/domain
 mkdir -p /usr/bin/xray
 mkdir -p /etc/xray
-cp /root/domain /etc/xray/
 clear
 # Certificat For Ssh & Ovpn Websocket
 echo "====================================" | lolcat
@@ -53,7 +52,6 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
 echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
 cp /root/domain /etc/xray/
-echo $SUB_DOMAIN > /etc/v2ray/domain
 echo $SUB_DOMAIN > /etc/xray/domain
 echo $SUB_DOMAIN > /root/domain
 echo $SUB_DOMAIN > /etc/xray/domain
