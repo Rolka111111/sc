@@ -8,9 +8,9 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 		exit 1
 fi
 echo "===================================="
-echo "   Installing AutoScript            "
+echo "             Installing AutoScript            "
 echo "===================================="
-sleep 0.5
+sleep 2
 echo Processing...
 sleep 0.5
 # Link Hosting Kalian Untuk Tool
@@ -23,33 +23,34 @@ service="raw.githubusercontent.com/Annnjayy/sc/main/service"
 menu="raw.githubusercontent.com/Annnjayy/sc/main/menu"
 #Link Hosting Kalian Untuk Install
 instal="raw.githubusercontent.com/Annnjayy/sc/main/install"
-
-# Getting
-MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$(wget -qO- ipinfo.io/ip);
-rm -f setup.sh
-clear
+# info
 if [ -f "/etc/xray/domain" ]; then
 echo "Script Already Installed"
 exit 0
 fi
+# install lolcat
+apt install lolcat -y
+echo -e "===============================" | lolcat
+read -rp "Nama/Pengguna : " -e nama
+echo -e "===============================" | lolcat
+echo $nama > /etc/xray/pengguna
 mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
 # install cloudflare certificate
 wget https://${service}/cf.sh && chmod +x cf.sh && ./cf.sh
+# install slowdns cloudflare certificate
+wget https://${service}/nscf.sh && chmod +x nscf.sh && bash nscf.sh
 # install xray
-wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && screen -S ins-xray ./ins-xray.sh
+wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 #install ssh ovpn
-wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 # Websocket
 wget https://${instal}/ssh-ws.sh && chmod +x ssh-ws.sh && ./ssh-ws.sh
 # Ohp Server
 wget https://${instal}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
-# ip saya
-wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
-# install slowdns cloudflare certificate
-wget https://${instal}/nscf.sh && chmod +x nscf.sh && ./nscf.sh
+ wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
+# install tool
+wget https://${instal}/tool.sh && bash tool.sh
 
 #delete sc yabg sudah terinstall
 rm -f /root/ssh-vpn.sh
@@ -57,6 +58,8 @@ rm -f /root/ins-xray.sh
 rm -f /root/ipsaya.sh
 rm -f /root/ssh-ws.sh
 rm -f /root/ohp.sh
+rm -f /root/sncf.sh
+rm -f /root/tool.sh
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
@@ -72,7 +75,7 @@ WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
 systemctl enable autosett
-wget --output-document=/etc/set.sh "https://${service}/set.sh"
+wget -O /etc/set.sh "https://${service}/set.sh"
 chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
