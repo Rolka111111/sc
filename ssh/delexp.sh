@@ -5,19 +5,6 @@ green='\e[0;32m'
 clear
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl ipinfo.io/ip | grep $MYIP )
-if [ $MYIP = $MYIP ]; then
-echo -e "===============================" | lolcat
-echo -e "$ Permission Accepted..."
-echo -e "===============================" | lolcat
-else
-echo -e "===============================" | lolcat
-echo -e "$ Permission Denied!"
-echo -e "===============================" | lolcat
-exit 0
-fi
-clear
 hariini=`date +%d-%m-%Y`
 echo -e "===============================" | lolcat
 echo -e "     Succesfully
