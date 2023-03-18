@@ -24,4 +24,3 @@ cd .acme.sh
 bash acme.sh --register-account -m makhlukvpn@gmail.com
 bash acme.sh --issue --standalone -d $domain --force
 bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
-

@@ -11,39 +11,27 @@ echo -e "   Starting Restart All Service"
 echo -e "===============================" | lolcat
 sleep 1
 pkill python
-systemctl stop sslh
 systemctl daemon-reload
-systemctl disable ws-tls
-systemctl disable sslh
-systemctl daemon-reload
-systemctl enable sslh
-systemctl enable ws-tls
-systemctl stop ws-tls
-systemctl start sslh
-systemctl restart sslh
-/etc/init.d/sslh start
-/etc/init.d/sslh restart
-systemctl start ws-tls
-systemctl start ws-nontls
-systemctl restart ws-tls
-systemctl restart ws-nontls
-systemctl restart xray.service
-service cron restart
 systemctl restart ws-ovpn
 systemctl restart ssh-ohp
 systemctl restart dropbear-ohp
 systemctl restart openvpn-ohp
 systemctl restart trojan-go
-
 /etc/init.d/ssh restart
 /etc/init.d/sslh restart
 echo -e "   Starting Restart Ssh Service"
+sleep 0.5
+systemctl restart ws-tls
+systemctl restart ws-nontls
+echo -e "  Starting Restart Websocket Service"
+sleep 0.5
+systemctl restart xray
+echo -e "  Starting Restart Xray Service"
 sleep 0.5
 /etc/init.d/dropbear restart
 echo -e "  Starting Restart Dropbear Service"
 sleep 0.5
 /etc/init.d/stunnel5 restart
-/etc/init.d/stunnel4 restart
 echo -e "  Starting Restart Stunnel Service"
 sleep 0.5
 /etc/init.d/openvpn restart
