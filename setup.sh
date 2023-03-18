@@ -8,7 +8,7 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 		exit 1
 fi
 echo "===================================="
-echo "             Installing AutoScript            "
+echo "     Installing AutoScript            "
 echo "===================================="
 sleep 2
 echo Processing...
@@ -23,34 +23,45 @@ service="raw.githubusercontent.com/Annnjayy/sc/main/service"
 menu="raw.githubusercontent.com/Annnjayy/sc/main/menu"
 #Link Hosting Kalian Untuk Install
 instal="raw.githubusercontent.com/Annnjayy/sc/main/install"
-# info
+# info script install
 if [ -f "/etc/xray/domain" ]; then
-echo "Script Already Installed"
+echo -e "===============================" | lolcat
+echo -e "   Script Already Installed"
+echo -e "===============================" | lolcat
 exit 0
 fi
 # install lolcat
 apt install lolcat -y
+mkdir .s
 echo -e "===============================" | lolcat
 read -rp "Nama/Pengguna : " -e nama
 echo -e "===============================" | lolcat
-echo $nama > /etc/xray/pengguna
+echo $nama > /root/.s/pennguna
 mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
+#ip saya
+wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
 # install cloudflare certificate
-wget https://${service}/cf.sh && chmod +x cf.sh && ./cf.sh
-# install slowdns cloudflare certificate
-wget https://${service}/nscf.sh && chmod +x nscf.sh && bash nscf.sh
-# install xray
-wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-#install ssh ovpn
+wget https://${service}/cf.sh
+bash cf.sh
+#install all service
 wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 # Websocket
 wget https://${instal}/ssh-ws.sh && chmod +x ssh-ws.sh && ./ssh-ws.sh
 # Ohp Server
 wget https://${instal}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
- wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
+# install openvpn
+wget https://${instal}/vpn.sh && bash vpn.sh
+# install xray
+wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 # install tool
 wget https://${instal}/tool.sh && bash tool.sh
+#install xray certificate cloudflare
+wget https://${menu}/certv2ray.sh
+bash certv2ray.sh
+# install slowdns cloudflare certificate
+wget https://${instal}/nscf.sh
+bash nscf.sh
 
 #delete sc yabg sudah terinstall
 rm -f /root/ssh-vpn.sh
@@ -60,6 +71,7 @@ rm -f /root/ssh-ws.sh
 rm -f /root/ohp.sh
 rm -f /root/sncf.sh
 rm -f /root/tool.sh
+rm -f /root/certv2ray.sh
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
@@ -84,27 +96,27 @@ echo "Installation has been completed!!"
 echo " "
 echo "================ {Service & Port} =================" | tee -a log-install.txt | lolcat
 echo ""
-echo "   - OpenSSH                 : 22, 2253"  | tee -a log-install.txt
-echo "   - OpenVPN                 : TCP 1194, UDP 2200, SSL 990"  | tee -a log-install.txt
-echo "   - Stunnel5                : 443, 445"  | tee -a log-install.txt
-echo "   - Dropbear                : 443, 109, 143"  | tee -a log-install.txt
-echo "   - Squid Proxy             : 3128, 8080"  | tee -a log-install.txt
-echo "   - Badvpn                  : 7100, 7200, 7300"  | tee -a log-install.txt
-echo "   - Nginx                   : 89"  | tee -a log-install.txt
-echo "   - XRAYS Vmess TLS         : 8443"  | tee -a log-install.txt
+echo "   - OpenSSH                  : 22, 2253"  | tee -a log-install.txt
+echo "   - OpenVPN                  : TCP 1194, UDP 2200, SSL 990"  | tee -a log-install.txt
+echo "   - Stunnel5                  : 443, 445"  | tee -a log-install.txt
+echo "   - Dropbear                  : 443, 109, 143"  | tee -a log-install.txt
+echo "   - Squid Proxy               : 3128, 8080"  | tee -a log-install.txt
+echo "   - Badvpn                    : 7100, 7200, 7300"  | tee -a log-install.txt
+echo "   - Nginx                     : 89"  | tee -a log-install.txt
+echo "   - XRAYS Vmess TLS         : 443"  | tee -a log-install.txt
 echo "   - XRAYS Vmess None TLS    : 80"  | tee -a log-install.txt
-echo "   - XRAYS Vless TLS         : 443, 8443"  | tee -a log-install.txt
-echo "   - XRAYS Vless None TLS    : 80, 8880"  | tee -a log-install.txt
-echo "   - XRAYS Trojan            : 2083"  | tee -a log-install.txt
-echo "   - Websocket TLS           : 443, 8443"  | tee -a log-install.txt
-echo "   - Websocket None TLS      : 80, 8880"  | tee -a log-install.txt
-echo "   - Websocket Ovpn          : 2086"  | tee -a log-install.txt
-echo "   - OHP SSH                 : 8181"  | tee -a log-install.txt
-echo "   - OHP Dropbear            : 8282"  | tee -a log-install.txt
-echo "   - OHP OpenVPN             : 8383"  | tee -a log-install.txt
-echo "   - TrojanGo                : 2087"  | tee -a log-install.txt
+echo "   - XRAYS Vless TLS          : 443"  | tee -a log-install.txt
+echo "   - XRAYS Vless None TLS     : 80"  | tee -a log-install.txt
+echo "   - XRAYS Trojan TLS         : 2083"  | tee -a log-install.txt
+echo "   - XRAYS Trojan None TLS    : 2087"  | tee -a log-install.txt
+echo "   - Websocket TLS             : 443, "  | tee -a log-install.txt
+echo "   - Websocket None TLS       : 80, "  | tee -a log-install.txt
+echo "   - Websocket Ovpn            : 2086"  | tee -a log-install.txt
+echo "   - OHP SSH                  : 8181"  | tee -a log-install.txt
+echo "   - OHP Dropbear              : 8282"  | tee -a log-install.txt
+echo "   - OHP OpenVPN              : 8383"  | tee -a log-install.txt
 echo "   - SLOWDNS OpenSSH         : 2253 "  | tee -a log-install.txt
-echo "   - SLOWDNS Dropbear        : 1153 "  | tee -a log-install.txt
+echo "   - SLOWDNS Dropbear         : 1153 "  | tee -a log-install.txt
 echo "   - SLOWDNS SSL/TLS         : 3353 "  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo ""
@@ -125,9 +137,6 @@ echo "   - White Label" | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo "   - Dev/Main                : MakhlukVpn"  | tee -a log-install.txt
 echo "   - Telegram                 : t.me/MakhlukVpn"  | tee -a log-install.txt
-#echo "   - Instagram               : @senowahyu62"  | tee -a log-install.txt
-#echo "   - Whatsapp                : 082220155143"  | tee -a log-install.txt
-#echo "   - Facebook                : https://www.facebook.com/senowahyu62" | tee -a log-install.txt
 echo ""
 echo "============= {Script Created By MakhlukVpn} ============" | tee -a log-install.txt | lolcat
 echo ""
@@ -135,4 +144,3 @@ echo " Reboot 10 Sec"
 sleep 10
 rm -f setup.sh
 reboot
-
