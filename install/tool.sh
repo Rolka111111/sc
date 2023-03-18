@@ -22,7 +22,7 @@ wget --output-document=trial "https://${ssh}/trial.sh"
 wget --output-document=delete "https://${ssh}/delete.sh"
 wget --output-document=member "https://${ssh}/member.sh"
 wget --output-document=delexp "https://${ssh}/delexp.sh"
-wget --output-document=running "https://${service}/running.sh"
+wget --output-document=run "https://${menu}/running.sh"
 wget --output-document=restart "https://${menu}/restart.sh"
 wget --output-document=usernew "https://${ssh}/usernew.sh"
 wget --output-document=autokill "https://${ssh}/autokill.sh"
@@ -58,7 +58,7 @@ chmod +x menu-xray
 chmod +x menu-trojan
 chmod +x menu-cloud
 chmod +x menu-ssh
-chmod +x running
+chmod +x run
 chmod +x slhost
 chmod +x addhost
 chmod +x menu

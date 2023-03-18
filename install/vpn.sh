@@ -1,7 +1,7 @@
 #!/bin/bash
-echo "===================================="
-echo "   Installing SSH OpenVpn           "
-echo "===================================="
+echo -e "===============================" | lolcat
+echo -e "   Installing SSH OpenVpn           "
+echo -e "===============================" | lolcat
 sleep 1
 echo Running...
 sleep 0.5
@@ -138,14 +138,14 @@ systemctl start openvpn
 /etc/init.d/openvpn restart
 
 # Done script
-echo -e "==============================="
+echo -e "===============================" | lolcat
 echo -e "  Done Install Ssh & Ovpn Websocket  "
-echo -e "==============================="
+echo -e "===============================" | lolcat
 echo -e "   PORT OpenVPN UDP : 2200     "
 echo -e "   PORT OpenVPN TCP  : 1194      "
 echo -e "   PORT OpenVPN SSL  : 990      "
-echo -e "==============================="
+echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
-echo -e "==============================="
+echo -e "===============================" | lolcat
 sleep 1
 rm -f /root/vpn.sh

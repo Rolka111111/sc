@@ -1,8 +1,8 @@
 #!/bin/bash
 # Proxy For Ssh & Ovpn Websocket
-echo "===================================="
-echo "  Installing Websocket-SSH          "
-echo "===================================="
+echo -e "===============================" | lolcat
+echo -e "  Installing Websocket-SSH          "
+echo -e "===============================" | lolcat
 sleep 1
 echo Processing...
 sleep 0.5
@@ -15,7 +15,7 @@ chmod +x /usr/local/bin/ws-tls
 chmod +x /usr/local/bin/ws-ovpn
 
 # Installing Service ws nontls
-cat > /etc/systemd/system/sshws-nontls.service << END
+cat > /etc/systemd/system/ws-nontls.service << END
 [Unit]
 Description=SSH Websocket By MakhlukVpn
 Documentation=https://nekopi.care
@@ -86,14 +86,13 @@ systemctl daemon-reload
 systemctl enable ws-ovpn
 systemctl restart ws-ovpn
 
-
-echo -e "==============================="
+echo -e "===============================" | lolcat
 echo -e "  Done Install Ssh & Ovpn Websocket  "
-echo -e "==============================="
+echo -e "===============================" | lolcat
 echo -e "   PORT SSH NONTLS : 80        "
 echo -e "   PORT SSH TLS    : 443        "
 echo -e "   PORT OVPN WS B  : 2086      "
-echo -e "==============================="
+echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
-echo -e "==============================="
+echo -e "===============================" | lolcat
 sleep 1

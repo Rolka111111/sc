@@ -1,7 +1,7 @@
 #!/bin/bash
-echo "===================================="
-echo "   Installing All Service            "
-echo "===================================="
+echo -e "===============================" | lolcat
+echo -e "   Installing All Service            "
+echo -e "===============================" | lolcat
 sleep 1
 echo Processing...
 sleep 0.5
