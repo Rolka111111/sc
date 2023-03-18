@@ -13,7 +13,7 @@ echo -e "===============================" | lolcat
 sleep 1
 echo Running...
 sleep 0.5
-domain=$(cat /root/domain)
+domain=$(cat /etc/xray/domain)
 sleep 1
 mkdir -p /etc/xray 
 echo -e "[ ${green}INFO${NC} ] Checking... "
@@ -59,11 +59,10 @@ touch /var/log/xray/error.log
 touch /var/log/xray/access2.log
 touch /var/log/xray/error2.log
 # / / Ambil Xray Core Version Terbaru
-bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" @ install -u www-data --version 1.5.6
+bash -c "$(curl -L https://github.com/XTLS/Xray-install/raw/main/install-release.sh)" --install -u www-data --version 1.5.6
 
 ## crt xray
 systemctl stop nginx
-rm -rf /etc/nginx/conf.d/alone.conf
 
 # nginx 
 /etc/init.d/nginx stop
