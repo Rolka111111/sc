@@ -7,9 +7,11 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 		echo "OpenVZ is not supported"
 		exit 1
 fi
-echo "===================================="
-echo "     Installing AutoScript            "
-echo "===================================="
+#installing
+apt install lolcat -y
+echo "====================================" | lolcat
+echo "  Installing AutoScript            "
+echo "====================================" | lolcat
 sleep 2
 echo Processing...
 sleep 0.5
@@ -30,9 +32,8 @@ echo -e "   Script Already Installed"
 echo -e "===============================" | lolcat
 exit 0
 fi
-# install lolcat
-apt install lolcat -y
-mkdir .s
+# istall script
+mkdir /root/.s
 echo -e "===============================" | lolcat
 read -rp "Nama/Pengguna : " -e nama
 echo -e "===============================" | lolcat
@@ -44,16 +45,16 @@ wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
 # install cloudflare certificate
 wget https://${service}/cf.sh
 bash cf.sh
+# install xray
+wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+#install all service
+wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 # Websocket
 wget https://${instal}/ssh-ws.sh && chmod +x ssh-ws.sh && ./ssh-ws.sh
 # Ohp Server
 wget https://${instal}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 # install openvpn
 wget https://${instal}/vpn.sh && bash vpn.sh
-# install xray
-wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
-#install all service
-wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 # install tool
 wget https://${instal}/tool.sh && bash tool.sh
 #install xray certificate cloudflare
@@ -63,13 +64,13 @@ bash certv2ray.sh
 wget https://${instal}/nscf.sh
 bash nscf.sh
 
-#delete sc yabg sudah terinstall
+#delete sc yang sudah terinstall
 rm -f /root/ssh-vpn.sh
 rm -f /root/ins-xray.sh
 rm -f /root/ipsaya.sh
 rm -f /root/ssh-ws.sh
 rm -f /root/ohp.sh
-rm -f /root/sncf.sh
+rm -f /root/nscf.sh
 rm -f /root/tool.sh
 rm -f /root/certv2ray.sh
 cat <<EOF> /etc/systemd/system/autosett.service
