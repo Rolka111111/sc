@@ -44,8 +44,6 @@ wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
 # install cloudflare certificate
 wget https://${service}/cf.sh
 bash cf.sh
-#install all service
-wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 # Websocket
 wget https://${instal}/ssh-ws.sh && chmod +x ssh-ws.sh && ./ssh-ws.sh
 # Ohp Server
@@ -54,6 +52,8 @@ wget https://${instal}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 wget https://${instal}/vpn.sh && bash vpn.sh
 # install xray
 wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+#install all service
+wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 # install tool
 wget https://${instal}/tool.sh && bash tool.sh
 #install xray certificate cloudflare
