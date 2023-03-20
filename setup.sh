@@ -37,7 +37,7 @@ mkdir /root/.s
 echo -e "===============================" | lolcat
 read -rp "Nama/Pengguna : " -e nama
 echo -e "===============================" | lolcat
-echo $nama > /root/.s/pennguna
+echo $nama > /root/.s/pengguna
 mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
 #ip saya
