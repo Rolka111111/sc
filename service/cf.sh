@@ -4,13 +4,6 @@ green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- icanhazip.com);
 apt install jq curl -y
-rm -f /root/domain
-rm -f /etc/v2ray/domain
-rm -f /etc/xray/domain
-rm -rf /etc/xray/domain
-mkdir -p /usr/bin/xray
-mkdir -p /etc/xray
-clear
 # Certificat For Ssh & Ovpn Websocket
 echo "====================================" | lolcat
 echo "   Installing Cert Cloudflare Domain        "
