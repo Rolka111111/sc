@@ -13,26 +13,9 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl ipinfo.io/ip | grep $MYIP )
-if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
-else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Fuck You!!"
-exit 0
-fi
-clear
-source /var/lib/crot/ipvps.conf
-if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 nsdomain=$(cat /etc/xray/dns)
 key=$(cat /etc/slowdns/server.pub)
-else
-domain=$IP
-fi
-tls="$(cat ~/log-install.txt | grep -w "Vmess TLS" | cut -d: -f2|sed 's/ //g')"
-nontls="$(cat ~/log-install.txt | grep -w "Vmess None TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 echo -e "===============================" | lolcat
 read -rp "Username : " -e user
@@ -64,7 +47,7 @@ cat>/etc/xray/vmess-$user-tls.json<<EOF
       "net": "ws",
       "path": "/vmess",
       "type": "none",
-      "host": "",
+      "host": "${domain}",
       "tls": "tls"
 }
 EOF
@@ -79,7 +62,7 @@ cat>/etc/xray/vmess-$user-nontls.json<<EOF
       "net": "ws",
       "path": "/vmess",
       "type": "none",
-      "host": "",
+      "host": "${domain}",
       "tls": "none"
 }
 EOF
@@ -92,10 +75,10 @@ echo -e ""
 echo -e "========={XRAYS/VMESS}=========" | lolcat
 echo -e "Remarks     : ${user}"
 echo -e "Address     : ${domain}"
-echo -e "Nameserver  : $nsdomain"
+echo -e "Nameserver  : ${nsdomain}"
 echo -e "Pub Key     : $key"
-echo -e "Port TLS     : 443, 8443"
-echo -e "Port No TLS : 80 ,880"
+echo -e "Port TLS     : 443 "
+echo -e "Port No TLS : 80 "
 echo -e "User ID     : ${uuid}"
 echo -e "Alter ID     : 0"
 echo -e "Security     : auto"

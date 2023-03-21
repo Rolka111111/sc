@@ -13,26 +13,9 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl ipinfo.io/ip | grep $MYIP )
-if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
-else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Fuck You!!"
-exit 0
-fi
-clear
-source /var/lib/crot/ipvps.conf
-if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 nsdomain=$(cat /etc/xray/dns)
 key=$(cat /etc/slowdns/server.pub)
-else
-domain=$IP
-fi
-tls="$(cat ~/log-install.txt | grep -w "Vless TLS" | cut -d: -f2|sed 's/ //g')"
-nontls="$(cat ~/log-install.txt | grep -w "Vless None TLS" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
 echo -e "===============================" | lolcat
 read -rp "Username : " -e user
@@ -54,8 +37,8 @@ sed -i '/#xray-vless-tls$/a\#### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
 sed -i '/#xray-vless-nontls$/a\#### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-xrayvless1="vless://${uuid}@${domain}:443?path=/vless/&security=tls&encryption=none&type=ws#${user}"
-xrayvless2="vless://${uuid}@${domain}:80?path=/vless/&encryption=none&type=ws#${user}"
+xrayvless1="vless://${uuid}@${domain}:443?path=/vless&security=tls&encryption=none&type=ws#${user}"
+xrayvless2="vless://${uuid}@${domain}:80?path=/vless&encryption=none&type=ws#${user}"
 clear
 echo -e ""
 echo -e "========={XRAYS/VLESS}==========" | lolcat
@@ -68,7 +51,7 @@ echo -e "Port No TLS : $nontls"
 echo -e "User ID     : ${uuid}"
 echo -e "Encryption  : none"
 echo -e "Network     : ws"
-echo -e "Path        : /vless/"
+echo -e "Path        : /vless"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "===============================" | lolcat
@@ -83,4 +66,4 @@ echo -e "     Terimakasih Telah "
 echo -e "  Menggunakan Layanan Kami "
 echo -e ""
 echo -e "===============================" | lolcat
-echo -e "
+echo -e ""

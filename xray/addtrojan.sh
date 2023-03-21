@@ -13,16 +13,9 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl ipinfo.io/ip | grep $MYIP )
 # add trojan
 uuid=$(cat /etc/trojan-go/uuid.txt)
-source /var/lib/akbarstorevpn/ipvps.conf
-if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
-else
-domain=$IP
-fi
 trgo="$(cat ~/log-install.txt | grep -w "Tr Go" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 		echo -e "===============================" | lolcat
@@ -44,18 +37,19 @@ hariini=`date -d "0 days" +"%Y-%m-%d"`
 echo -e "### $user $exp" >> /etc/trojan-go/akun.conf
 systemctl restart trojan-go.service
 link="trojan-go://${user}@${domain}:2083/?sni=${domain}&type=ws&host=${domain}&path=/trojango&encryption=none#$user"
+linkgo="trojan-go://${user}@${domain}:2087/?sni=${domain}&type=ws&host=${domain}&path=/trojango&encryption=none#$user"
 clear
 echo -e ""
 echo -e "========={XRAYS/TROJAN}=========" | lolcat
 echo -e "Remarks  : ${user}"
-echo -e "IP/Host  : ${MYIP}"
 echo -e "Address  : ${domain}"
 echo -e "Port     : 2083, 2087"
 echo -e "Key      : ${user}"
 echo -e "Created  : $hariini"
 echo -e "Expired  : $exp"
 echo -e "===============================" | lolcat
-echo -e " Link TR  : ${link}"
+echo -e " Link TR WS  : ${link}"
+echo -e " Link TR GO  : ${linkgo}"
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
