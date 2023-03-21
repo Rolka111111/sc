@@ -18,3 +18,5 @@ echo -e "             Succesfully
 echo -e "===============================" | lolcat
 echo -e "        Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
+sleep 2
+menu
