@@ -44,3 +44,5 @@ echo -e "    Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
 fi
+sleep 2
+menu

@@ -29,3 +29,5 @@ echo -e "===============================" | lolcat
 echo -e "     Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
+sleep 4
+menu
