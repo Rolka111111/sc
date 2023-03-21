@@ -7,11 +7,9 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 		echo "OpenVZ is not supported"
 		exit 1
 fi
-#installing
-apt install lolcat -y
-echo "====================================" | lolcat
-echo "  Installing AutoScript            "
-echo "====================================" | lolcat
+echo "===================================="
+echo "     Installing AutoScript            "
+echo "===================================="
 sleep 2
 echo Processing...
 sleep 0.5
@@ -32,8 +30,9 @@ echo -e "   Script Already Installed"
 echo -e "===============================" | lolcat
 exit 0
 fi
-# istall script
-mkdir /root/.s
+# install lolcat
+apt install lolcat -y
+mkdir .s
 echo -e "===============================" | lolcat
 read -rp "Nama/Pengguna : " -e nama
 echo -e "===============================" | lolcat
@@ -41,36 +40,48 @@ echo $nama > /root/.s/pengguna
 mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
 #ip saya
+echo -e "[ ${green}INFO${NC} ] Starting Getting Cert... " 
+sleep 2
 wget https://${service}/ipsaya.sh && chmod +x ipsaya.sh
 # install cloudflare certificate
 wget https://${service}/cf.sh
 bash cf.sh
 # install xray
+echo -e "[ ${green}INFO${NC} ] Starting Install Xray "
+sleep 2
 wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 #install all service
+echo -e "[ ${green}INFO${NC} ] Starting Install Service "
+sleep 2
 wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 # Websocket
+echo -e "[ ${green}INFO${NC} ] Starting Install SSH Ws & OpVpn & OHP "
+sleep 2
 wget https://${instal}/ssh-ws.sh && chmod +x ssh-ws.sh && ./ssh-ws.sh
 # Ohp Server
 wget https://${instal}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 # install openvpn
 wget https://${instal}/vpn.sh && bash vpn.sh
 # install tool
+echo -e "[ ${green}INFO${NC} ] Starting Install Tools "
+sleep 2
 wget https://${instal}/tool.sh && bash tool.sh
 #install xray certificate cloudflare
+echo -e "[ ${green}INFO${NC} ] Starting Install Cert "
+sleep 2
 wget https://${menu}/certv2ray.sh
 bash certv2ray.sh
 # install slowdns cloudflare certificate
 wget https://${instal}/nscf.sh
 bash nscf.sh
 
-#delete sc yang sudah terinstall
+#delete sc yabg sudah terinstall
 rm -f /root/ssh-vpn.sh
 rm -f /root/ins-xray.sh
 rm -f /root/ipsaya.sh
 rm -f /root/ssh-ws.sh
 rm -f /root/ohp.sh
-rm -f /root/nscf.sh
+rm -f /root/sncf.sh
 rm -f /root/tool.sh
 rm -f /root/certv2ray.sh
 cat <<EOF> /etc/systemd/system/autosett.service
@@ -92,10 +103,10 @@ wget -O /etc/set.sh "https://${service}/set.sh"
 chmod +x /etc/set.sh
 history -c
 echo "1.2" > /home/ver
+echo -e "[ ${green}INFO${NC} ] Processing Install Done "
+sleep 2
 echo " "
-echo "Installation has been completed!!"
-echo " "
-echo "================ {Service & Port} =================" | tee -a log-install.txt | lolcat
+echo "================= {Service & Port} ==================" | tee -a log-install.txt | lolcat
 echo ""
 echo "   - OpenSSH                  : 22, 2253"  | tee -a log-install.txt
 echo "   - OpenVPN                  : TCP 1194, UDP 2200, SSL 990"  | tee -a log-install.txt
@@ -121,7 +132,7 @@ echo "   - SLOWDNS Dropbear         : 1153 "  | tee -a log-install.txt
 echo "   - SLOWDNS SSL/TLS         : 3353 "  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo ""
-echo "============= {Server Information & Other Features} ==========="  | tee -a log-install.txt | lolcat
+echo "=========== {Server Information & Other Features} =========="  | tee -a log-install.txt | lolcat
 echo ""
 echo "   - Timezone                : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
 echo "   - Fail2Ban                 : [ON]"  | tee -a log-install.txt
@@ -140,7 +151,8 @@ echo "   - Dev/Main                : MakhlukVpn"  | tee -a log-install.txt
 echo "   - Telegram                 : t.me/MakhlukVpn"  | tee -a log-install.txt
 echo ""
 echo "============= {Script Created By MakhlukVpn} ============" | tee -a log-install.txt | lolcat
-echo ""
+echo -e "[ ${green}INFO${NC} ] Starting Reboot Vps"
+sleep 1
 echo " Reboot 10 Sec"
 sleep 10
 rm -f setup.sh
