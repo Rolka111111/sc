@@ -141,6 +141,7 @@ echo "clear" >> .profile
 echo "neofetch" >> .profile
 
 # install webserver
+apt install nginx -y
 apt -y install nginx php php-fpm php-cli php-mysql libxml-parser-perl
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
@@ -326,9 +327,6 @@ systemctl restart stunnel5
 /etc/init.d/stunnel5 restart
 /etc/init.d/stunnel5 status
 /etc/init.d/stunnel5 restart
-
-#OpenVPN
-wget https://${install}/vpn.sh &&  chmod +x vpn.sh && bash vpn.sh
 
 # install fail2ban
 apt -y install fail2ban
