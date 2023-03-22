@@ -46,9 +46,6 @@ sleep 0.5
 /etc/init.d/nginx restart
 echo -e "  Starting Restart Nginx Service"
 sleep 0.5
-/etc/init.d/squid restart
-echo -e "  Starting Restart Squid Service"
-sleep 0.5
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000
