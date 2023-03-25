@@ -1,7 +1,7 @@
 #!/bin/bash
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
-MYIP=$(cat /etc/xray/domain));
+MYIP=$(cat /etc/xray/domain);
 MYIP2="s/xxxxxxxxx/$MYIP/g";
 apt-get install tmux -y
 function ovpn_install() {
