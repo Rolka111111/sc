@@ -92,22 +92,25 @@ function cert_ovpn() {
     echo '<ca>' >> /etc/openvpn/tcp.ovpn
     cat /etc/openvpn/server/ca.crt >> /etc/openvpn/tcp.ovpn
     echo '</ca>' >> /etc/openvpn/tcp.ovpn
-    cp /etc/openvpn/tcp.ovpn /var/www/html/tcp.ovpn
+    cp /etc/openvpn/tcp.ovpn /home/vps/public_html/tcp.ovpn
     
     echo '<ca>' >> /etc/openvpn/udp.ovpn   
     cat /etc/openvpn/server/ca.crt >> /etc/openvpn/udp.ovpn
     echo '</ca>' >> /etc/openvpn/udp.ovpn
-    cp /etc/openvpn/udp.ovpn /var/www/html/udp.ovpn
+    cp /etc/openvpn/udp.ovpn /home/vps/public_html/udp.ovpn
     
     echo '<ca>' >> /etc/openvpn/ws-ssl.ovpn
     cat /etc/openvpn/server/ca.crt >> /etc/openvpn/ws-ssl.ovpn
     echo '</ca>' >> /etc/openvpn/ws-ssl.ovpn
-    cp /etc/openvpn/ws-ssl.ovpn /var/www/html/ws-ssl.ovpn
+    cp /etc/openvpn/ws-ssl.ovpn /home/vps/public_html/ws-ssl.ovpn
     
     echo '<ca>' >> /etc/openvpn/ssl.ovpn
     cat /etc/openvpn/server/ca.crt >> /etc/openvpn/ssl.ovpn
     echo '</ca>' >> /etc/openvpn/ssl.ovpn
-    cp /etc/openvpn/ssl.ovpn /var/www/html/ssl.ovpn
+    cp /etc/openvpn/ssl.ovpn /home/vps/public_html/ssl.ovpn
+    cd /home/vps/public_html/
+    zip OpenVPN.zip tcp.ovpn udp.ovpn ws-ssl.ovpn ssl.ovpn
+    cd
 }
 
 function install_ovpn() {
