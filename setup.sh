@@ -61,7 +61,7 @@ wget https://${instal}/ssh-ws.sh && chmod +x ssh-ws.sh && ./ssh-ws.sh
 # Ohp Server
 wget https://${instal}/ohp.sh && chmod +x ohp.sh && ./ohp.sh
 # install openvpn
-wget https://${instal}/vpn.sh && bash vpn.sh
+wget https://${instal}/openvpn.sh && bash openvpn.sh
 # install tool
 echo -e "[ ${green}INFO${NC} ] Starting Install Tools "
 sleep 2
@@ -82,6 +82,7 @@ rm -f /root/ipsaya.sh
 rm -f /root/ssh-ws.sh
 rm -f /root/ohp.sh
 rm -f /root/sncf.sh
+rm -f /root/openvpn.sh
 rm -f /root/tool.sh
 rm -f /root/certv2ray.sh
 cat <<EOF> /etc/systemd/system/autosett.service
