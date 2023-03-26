@@ -51,9 +51,9 @@ echo -e "[ ${green}INFO${NC} ] Starting Install Service "
 sleep 2
 wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
 # install xray
-echo -e "[ ${green}INFO${NC} ] Starting Install Xray "
-sleep 2
-wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
+#echo -e "[ ${green}INFO${NC} ] Starting Install Xray "
+#sleep 2
+#wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 # Websocket
 echo -e "[ ${green}INFO${NC} ] Starting Install SSH Ws & OpVpn & OHP "
 sleep 2
