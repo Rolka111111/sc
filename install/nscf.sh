@@ -1,12 +1,15 @@
 #!/bin/sh
 GIT_CMD="https://github.com/FighterTunnel/tunnel/raw/main/"
 #Certificat For Ssh & Ovpn Websocket
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
 echo "====================================" | lolcat
 echo "  Installing Cert Cloudflare NSDomain        "
 echo "====================================" | lolcat
 sleep 1
-echo Running...
-sleep 0.5
+echo -e "[ ${green}INFO${NC} ] Starting Install Cert.... " 
+sleep 1
 ns_domain_cloudflare() {
 	DOMAIN="makhlukvpn.my.id"
 	DAOMIN=$(cat /etc/xray/domain)

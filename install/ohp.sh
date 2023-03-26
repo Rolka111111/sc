@@ -1,20 +1,14 @@
 #!/bin/bash
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
 # Open Http Puncher
 echo -e "===============================" | lolcat
 echo -e "   Installing Ohp Service             "
 echo -e "===============================" | lolcat
 sleep 1
-echo Running...
-sleep 0.5
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
+echo -e "[ ${green}INFO${NC} ] Starting Install Ohp.... " 
+sleep 1
 # Download File Ohp
 wget https://github.com/lfasmpao/open-http-puncher/releases/download/0.1/ohpserver-linux32.zip
 unzip ohpserver-linux32.zip
@@ -124,4 +118,4 @@ echo -e "   PORT OHP OpenVPN   : 8383    "
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
-sleep 1
+sleep 2

@@ -1,11 +1,14 @@
 #!/bin/bash
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
 # Proxy For Ssh & Ovpn Websocket
 echo -e "===============================" | lolcat
-echo -e "  Installing Websocket-SSH          "
+echo -e "  Installing SSH Websocket-OVPN      "
 echo -e "===============================" | lolcat
 sleep 1
-echo Processing...
-sleep 0.5
+echo -e "[ ${green}INFO${NC} ] Starting Install Ssh....... " 
+sleep 1
 # Getting Proxy Template
 wget --output-document=/usr/local/bin/ws-nontls https://raw.githubusercontent.com/Annnjayy/sc/main/install/ws-ntls.py
 wget --output-document=/usr/local/bin/ws-tls https://raw.githubusercontent.com/Annnjayy/sc/main/install/ws-tls.py
@@ -91,8 +94,8 @@ echo -e "  Done Install Ssh & Ovpn Websocket  "
 echo -e "===============================" | lolcat
 echo -e "   PORT SSH NONTLS : 80        "
 echo -e "   PORT SSH TLS    : 443        "
-echo -e "   PORT OVPN WS B  : 2086      "
+echo -e "   PORT OVPN WS   : 2086      "
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
-sleep 1
+sleep 2

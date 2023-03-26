@@ -1,4 +1,14 @@
 #!/bin/bash
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+echo -e "===============================" | lolcat
+echo -e "   Installing SSH OpenVpn           "
+echo -e "===============================" | lolcat
+sleep 1
+echo -e "[ ${green}INFO${NC} ] Starting Install OpenVPN..
+... " 
+sleep 1
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
 MYIP=$(cat /etc/xray/domain);
@@ -76,7 +86,7 @@ cat > /etc/openvpn/ssl.ovpn <<-END
 client
 dev tun
 proto tcp
-remote xxxxxxxxx 443
+remote xxxxxxxxx 990
 resolv-retry infinite
 route-method exe
 nobind
@@ -125,3 +135,14 @@ function install_ovpn() {
     
 }
 install_ovpn
+echo -e "===============================" | lolcat
+echo -e "   Done Install OpenVPN  "
+echo -e "===============================" | lolcat
+echo -e "   PORT OpenVPN UDP : 2200     "
+echo -e "   PORT OpenVPN TCP  : 1194      "
+echo -e "   PORT OpenVPN SSL  : 990      "
+echo -e "   PORT OpenVPN WS-SSL  : 443      "
+echo -e "===============================" | lolcat
+echo -e "   Script By MakhlukVpn          "
+echo -e "===============================" | lolcat
+sleep 2
