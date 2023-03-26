@@ -14,7 +14,7 @@ rm -rf /etc/xray/domain
 echo $domain > /etc/xray/domain
 certv2ray
 echo -e "===============================" | lolcat
-echo -e "             Succesfully
+echo -e "             Succesfully "
 echo -e "===============================" | lolcat
 echo -e "        Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
