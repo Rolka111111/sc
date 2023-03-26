@@ -8,7 +8,7 @@ clear
 echo " "
 if [ -e "/root/log-limit.txt" ]; then
 echo -e "===============================" | lolcat
-echo -e "User Who Violate The Maximum Limit";
+echo -e "User Who Violate The Maximum Limit"
 echo -e "Time - Username - Number of Multilogin"
 echo -e "===============================" | lolcat
 echo -e "     Script By MakhlukVpn          "
