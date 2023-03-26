@@ -9,6 +9,9 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 fi
 echo -e "[ ${green}INFO${NC} ] Starting Update Package " 
 sleep 2
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
 #update
 apt update -y
 apt upgrade -y
@@ -150,35 +153,35 @@ echo "================= {Service & Port} ==================" | tee -a log-instal
 echo ""
 echo "   - OpenSSH                   : 22, 2253"  | tee -a log-install.txt
 echo "   - OpenVPN                   : TCP 1194, UDP 2200, SSL 990, 443"  | tee -a log-install.txt
-echo "   - Stunnel5                    : 443, 445"  | tee -a log-install.txt
-echo "   - Dropbear                   : 443, 109, 143"  | tee -a log-install.txt
-echo "   - Squid Proxy                 : 3128, 8080"  | tee -a log-install.txt
-echo "   - Badvpn                      : 7100, 7200, 7300"  | tee -a log-install.txt
-echo "   - Nginx                       : 89"  | tee -a log-install.txt
-echo "   - XRAYS Vmess TLS          : 443"  | tee -a log-install.txt
-echo "   - XRAYS Vmess None TLS    : 80"  | tee -a log-install.txt
+echo "   - Stunnel5                  : 443, 445"  | tee -a log-install.txt
+echo "   - Dropbear                  : 443, 109, 143"  | tee -a log-install.txt
+echo "   - Squid Proxy               : 3128, 8080"  | tee -a log-install.txt
+echo "   - Badvpn                    : 7100, 7200, 7300"  | tee -a log-install.txt
+echo "   - Nginx                     : 89"  | tee -a log-install.txt
+echo "   - XRAYS Vmess TLS           : 443"  | tee -a log-install.txt
+echo "   - XRAYS Vmess None TLS      : 80"  | tee -a log-install.txt
 echo "   - XRAYS Vless TLS           : 443"  | tee -a log-install.txt
-echo "   - XRAYS Vless None TLS     : 80"  | tee -a log-install.txt
-echo "   - XRAYS Trojan WS          : 2053"  | tee -a log-install.txt
+echo "   - XRAYS Vless None TLS      : 80"  | tee -a log-install.txt
+echo "   - XRAYS Trojan WS           : 2053"  | tee -a log-install.txt
 echo "   - XRAYS Trojan GO           : 2087"  | tee -a log-install.txt
-echo "   - Websocket TLS             : 443, "  | tee -a log-install.txt
-echo "   - Websocket None TLS       : 80, "  | tee -a log-install.txt
+echo "   - Websocket TLS             : 443 "  | tee -a log-install.txt
+echo "   - Websocket None TLS        : 80 "  | tee -a log-install.txt
 echo "   - Websocket Ovpn            : 2086"  | tee -a log-install.txt
 echo "   - OHP SSH                   : 8181"  | tee -a log-install.txt
 echo "   - OHP Dropbear              : 8282"  | tee -a log-install.txt
-echo "   - OHP OpenVPN              : 8383"  | tee -a log-install.txt
-echo "   - SLOWDNS UDP             : 53, 5300 "  | tee -a log-install.txt
-echo "   - SLOWDNS SSL/TLS         : 443 "  | tee -a log-install.txt
+echo "   - OHP OpenVPN               : 8383"  | tee -a log-install.txt
+echo "   - SLOWDNS UDP               : 53, 5300 "  | tee -a log-install.txt
+echo "   - SLOWDNS SSL/TLS           : 443 "  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo ""
 echo "=========== {Server Information & Other Features} =========="  | tee -a log-install.txt | lolcat
 echo ""
-echo "   - Timezone                : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
-echo "   - Fail2Ban                 : [ON]"  | tee -a log-install.txt
-echo "   - Dflate                   : [ON]"  | tee -a log-install.txt
-echo "   - IPtables                 : [ON]"  | tee -a log-install.txt
-echo "   - Auto-Reboot             : [ON]"  | tee -a log-install.txt
-echo "   - IPv6                    : [OFF]"  | tee -a log-install.txt
+echo "   - Timezone                  : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
+echo "   - Fail2Ban                  : [ON]"  | tee -a log-install.txt
+echo "   - Dflate                    : [ON]"  | tee -a log-install.txt
+echo "   - IPtables                  : [ON]"  | tee -a log-install.txt
+echo "   - Auto-Reboot               : [ON]"  | tee -a log-install.txt
+echo "   - IPv6                      : [OFF]"  | tee -a log-install.txt
 echo "   - Autoreboot On 05.00 GMT +7" | tee -a log-install.txt
 echo "   - Autobackup Data" | tee -a log-install.txt
 echo "   - Restore Data" | tee -a log-install.txt
