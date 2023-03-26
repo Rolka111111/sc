@@ -94,7 +94,7 @@ echo -e "  Done Install Ssh & Ovpn Websocket  "
 echo -e "===============================" | lolcat
 echo -e "   PORT SSH NONTLS : 80        "
 echo -e "   PORT SSH TLS    : 443        "
-echo -e "   PORT OVPN WS   : 2086      "
+echo -e "   PORT OVPN WS    : 2086      "
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
