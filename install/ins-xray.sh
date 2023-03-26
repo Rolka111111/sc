@@ -828,7 +828,7 @@ echo -e "  PORT Vmess NTLS    : 80 "
 echo -e "  PORT VLESS TLS     : 443  "
 echo -e "  PORT VLESS NTLS    : 80  "
 echo -e "  PORT TROJAN        : 2087 "
-echo -e "  PORT TROJAN GO    : 2053  "
+echo -e "  PORT TROJAN GO     : 2053  "
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
