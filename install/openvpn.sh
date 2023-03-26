@@ -138,10 +138,10 @@ install_ovpn
 echo -e "===============================" | lolcat
 echo -e "   Done Install OpenVPN  "
 echo -e "===============================" | lolcat
-echo -e "   PORT OpenVPN UDP : 2200     "
-echo -e "   PORT OpenVPN TCP  : 1194      "
-echo -e "   PORT OpenVPN SSL  : 990      "
-echo -e "   PORT OpenVPN WS-SSL  : 443      "
+echo -e "   PORT OpenVPN UDP    : 2200     "
+echo -e "   PORT OpenVPN TCP    : 1194      "
+echo -e "   PORT OpenVPN SSL    : 990      "
+echo -e "   PORT OpenVPN WS-SSL : 443      "
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
