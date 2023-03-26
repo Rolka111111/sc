@@ -1,5 +1,5 @@
 #!/bin/bash
-# SL
+# My Telegram : https://t.me/colongvpn
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -13,30 +13,35 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
+if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
 nsdomain=$(cat /etc/xray/dns)
 key=$(cat /etc/slowdns/server.pub)
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-echo -e "===============================" | lolcat
-read -rp "Username : " -e user
-CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
-if [[ ${CLIENT_EXISTS} == '1' ]]; then
-echo -e "===============================" | lolcat
-echo -e "  Username ${CLIENT_NAME} Already On "
-echo -e "   VPS Please Choose Another"
-echo -e "===============================" | lolcat
-exit 1
+else
+domain=$IP
 fi
-done
+until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
+		echo -e "===============================" | lolcat
+		read -rp "Username : " -e user
+		CLIENT_EXISTS=$(grep -w $user /etc/xray/v2ray-tls.json | wc -l)
+
+		if [[ ${CLIENT_EXISTS} == '1' ]]; then
+			echo -e "===============================" | lolcat
+			echo -e "Username ${RED}${CLIENT_NAME}${NC} Already On VPS Please Choose Another"
+			echo -e "===============================" | lolcat
+			exit 1
+		fi
+	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (Days) : " masaaktif
+echo -e "===============================" | lolcat
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#xray-vmess-tls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"32"',"email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#xray-vmess-nontls$/a\### '"$user $exp"'\
-},{"id": "'""$uuid""'","alterId": '"32"',"email": "'""$user""'"' /etc/xray/config.json
-cat>/etc/xray/vmess-$user-tls.json<<EOF
+sed -i '/#xray-v2ray-tls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/v2ray-tls.json
+sed -i '/#xray-v2ray-nontls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","alterId": '"0"',"email": "'""$user""'"' /etc/xray/v2ray-nontls.json
+cat>/etc/xray/v2ray-$user-tls.json<<EOF
       {
       "v": "2",
       "ps": "${user}",
@@ -51,7 +56,7 @@ cat>/etc/xray/vmess-$user-tls.json<<EOF
       "tls": "tls"
 }
 EOF
-cat>/etc/xray/vmess-$user-nontls.json<<EOF
+cat>/etc/xray/v2ray-$user-nontls.json<<EOF
       {
       "v": "2",
       "ps": "${user}",
@@ -68,8 +73,11 @@ cat>/etc/xray/vmess-$user-nontls.json<<EOF
 EOF
 vmess_base641=$( base64 -w 0 <<< $vmess_json1)
 vmess_base642=$( base64 -w 0 <<< $vmess_json2)
-xrayv2ray1="vmess://$(base64 -w 0 /etc/xray/vmess-$user-tls.json)"
-xrayv2ray2="vmess://$(base64 -w 0 /etc/xray/vmess-$user-nontls.json)"
+xrayv2ray1="vmess://$(base64 -w 0 /etc/xray/v2ray-$user-tls.json)"
+xrayv2ray2="vmess://$(base64 -w 0 /etc/xray/v2ray-$user-nontls.json)"
+systemctl restart xray@v2ray-tls
+systemctl restart xray@v2ray-nontls
+service cron restart
 clear
 echo -e ""
 echo -e "========={XRAYS/VMESS}=========" | lolcat
@@ -87,9 +95,9 @@ echo -e "Path        : /vmess"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "===============================" | lolcat
-echo -e "Link TLS    : ${xrayv2ray1}"
+echo -e " Link TLS    : ${xrayv2ray1}"
 echo -e "===============================" | lolcat
-echo -e "Link No TLS : ${xrayv2ray2}"
+echo -e " Link No TLS : ${xrayv2ray2}"
 echo -e "===============================" | lolcat
 echo -e "    Script By MakhlukVpn          "
 echo -e "===============================" | lolcat

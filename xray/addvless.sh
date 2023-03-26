@@ -1,5 +1,5 @@
 #!/bin/bash
-# SL
+# My Telegram : https://t.me/colongvpn
 # ==========================================
 # Color
 RED='\033[0;31m'
@@ -13,32 +13,36 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
+if [[ "$IP" = "" ]]; then
 domain=$(cat /etc/xray/domain)
-nsdomain=$(cat /etc/xray/dns)
-key=$(cat /etc/slowdns/server.pub)
-until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
-echo -e "===============================" | lolcat
-read -rp "Username : " -e user
-CLIENT_EXISTS=$(grep -w $user /etc/xray/config.json | wc -l)
-if [[ ${CLIENT_EXISTS} == '1' ]]; then
-echo -e "===============================" | lolcat
-echo -e "  Username ${user} Already On "
-echo -e "    VPS Please Choose Another"
-echo -e "===============================" | lolcat
-exit 1
+else
+domain=$IP
 fi
-done
+until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${CLIENT_EXISTS} == '0' ]]; do
+		echo -e "===============================" | lolcat
+		read -rp "Username : " -e user
+		CLIENT_EXISTS=$(grep -w $user /etc/xray/vless-tls.json | wc -l)
+
+		if [[ ${CLIENT_EXISTS} == '1' ]]; then
+			echo -e "===============================" | lolcat
+			echo -e "Username ${RED}${user}${NC} Already On VPS Please Choose Another"
+			echo -e "===============================" | lolcat
+			exit 1
+		fi
+	done
 uuid=$(cat /proc/sys/kernel/random/uuid)
 read -p "Expired (Days) : " masaaktif
-echo -e "===============================" | lolcat
 hariini=`date -d "0 days" +"%Y-%m-%d"`
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
-sed -i '/#xray-vless-tls$/a\#### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-sed -i '/#xray-vless-nontls$/a\#### '"$user $exp"'\
-},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/config.json
-xrayvless1="vless://${uuid}@${domain}:443?path=/vless&security=tls&encryption=none&type=ws#${user}"
-xrayvless2="vless://${uuid}@${domain}:80?path=/vless&encryption=none&type=ws#${user}"
+sed -i '/#xray-vless-tls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/vless-tls.json
+sed -i '/#xray-vless-nontls$/a\### '"$user $exp"'\
+},{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/vless-nontls.json
+xrayvless1="vless://${uuid}@${domain}:443?path=/vless/&security=tls&encryption=none&type=ws#${user}"
+xrayvless2="vless://${uuid}@${domain}:80?path=/vless/&encryption=none&type=ws#${user}"
+systemctl restart xray@vless-tls
+systemctl restart xray@vless-nontls
+service cron restart
 clear
 echo -e ""
 echo -e "========={XRAYS/VLESS}==========" | lolcat
@@ -46,8 +50,8 @@ echo -e "Remarks     : ${user}"
 echo -e "Address     : ${domain}"
 echo -e "Nameserver  : $nsdomain"
 echo -e "Pub Key     : $key"
-echo -e "Port TLS    : $tls"
-echo -e "Port No TLS : $nontls"
+echo -e "Port TLS    : 443"
+echo -e "Port No TLS : 80"
 echo -e "User ID     : ${uuid}"
 echo -e "Encryption  : none"
 echo -e "Network     : ws"
