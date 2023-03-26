@@ -9,6 +9,7 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 fi
 echo -e "[ ${green}INFO${NC} ] Starting Update Package " 
 sleep 2
+#color
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
@@ -88,14 +89,14 @@ echo -e "[ ${green}INFO${NC} ] Starting Getting Cert... "
 sleep 2
 wget https://${service}/cf.sh
 bash cf.sh
-# install xray
-echo -e "[ ${green}INFO${NC} ] Starting Install Xray "
-sleep 2
-wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 #install all service
 echo -e "[ ${green}INFO${NC} ] Starting Install All Service "
 sleep 2
 wget https://${instal}/ssh-vpn.sh && chmod +x ssh-vpn.sh && ./ssh-vpn.sh
+# install xray
+echo -e "[ ${green}INFO${NC} ] Starting Install Xray "
+sleep 2
+wget https://${instal}/ins-xray.sh && chmod +x ins-xray.sh && ./ins-xray.sh
 # Websocket
 echo -e "[ ${green}INFO${NC} ] Starting Install SSH Ws & OpenVPN & OHP "
 sleep 2
@@ -111,13 +112,13 @@ wget https://${instal}/tool.sh && bash tool.sh
 #install xray certificate cloudflare
 echo -e "[ ${green}INFO${NC} ] Starting Install Cert "
 sleep 2
-wget https://${menu}/certv2ray.sh
-bash certv2ray.sh
 # install slowdns cloudflare certificate
 wget https://${instal}/nscf.sh
 bash nscf.sh
-
-#delete sc yabg sudah terinstall
+#cloud
+#wget https://${instal}/set-br.sh
+#bash set-br.sh
+#delete sc yang sudah terinstall
 rm -f /root/ssh-vpn.sh
 rm -f /root/ins-xray.sh
 rm -f /root/ipsaya.sh
@@ -126,7 +127,7 @@ rm -f /root/ssh-ws.sh
 rm -f /root/ohp.sh
 rm -f /root/nscf.sh
 rm -f /root/tool.sh
-rm -f /root/certv2ray.sh
+#rm -f /root/set-br.sh
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
@@ -189,8 +190,8 @@ echo "   - Auto Delete Expired Account" | tee -a log-install.txt
 echo "   - Full Orders For Various Services" | tee -a log-install.txt
 echo "   - White Label" | tee -a log-install.txt
 echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
-echo "   - Dev/Main                : MakhlukVpn"  | tee -a log-install.txt
-echo "   - Telegram                 : t.me/MakhlukVpn"  | tee -a log-install.txt
+echo "   - Dev/Main                  : MakhlukVpn"  | tee -a log-install.txt
+echo "   - Telegram                  : t.me/MakhlukVpn"  | tee -a log-install.txt
 echo ""
 echo "============= {Script Created By MakhlukVpn} ============" | tee -a log-install.txt | lolcat
 echo -e "[ ${green}INFO${NC} ] Starting Reboot Vps"
