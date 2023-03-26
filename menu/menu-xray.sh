@@ -4,22 +4,24 @@ red='\e[1;31m'
 green='\e[0;32m'
 clear
 echo -e "===============================" | lolcat
-echo -e ".       XRAY | VMESS / VLESS "
+echo -e "     ⇱ XRAY | VMESS ⇲"
 echo -e "===============================" | lolcat
 echo -e " 1}.$green Create Account Vmess Websocket"
 echo -e " 2}.$green Delete Account Vmess Websocket"
 echo -e " 3}.$green Extending Account Vmess Active Life"
 echo -e " 4}.$green Check User Login Vmess"
 echo -e "===============================" | lolcat
+echo -e "     ⇱ XRAY | VLESS ⇲"
+echo -e "===============================" | lolcat
 echo -e " 5}.$green Create Account Vless Websocket"
 echo -e " 6}.$green Delete Account Vless Websocket"
 echo -e " 7}.$green Extending Account Vless Active Life"
 echo -e " 8}.$green Check User Login Vless"
-echo -e " 9}.$green Menu"
+echo -e " 9}.$green Back To Menu"
 echo -e " x}.$red Exit"
 echo -e ""
 echo -e "===============================" | lolcat
-echo -e "        Script By MakhlukVpn          "
+echo -e "     Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
 echo -e ""

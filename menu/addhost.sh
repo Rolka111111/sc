@@ -2,6 +2,7 @@
 clear
 red='\e[1;31m'
 green='\e[0;32m'
+NC='\e[0m'
 clear
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
@@ -14,9 +15,9 @@ rm -rf /etc/xray/domain
 echo $domain > /etc/xray/domain
 certv2ray
 echo -e "===============================" | lolcat
-echo -e "             Succesfully "
+echo -e "       Succesfully "
 echo -e "===============================" | lolcat
-echo -e "        Script By MakhlukVpn          "
+echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 sleep 2
 menu

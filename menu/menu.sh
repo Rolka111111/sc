@@ -45,7 +45,7 @@ echo -e "# Public IP      : $MYIP"
 echo -e "# Domain       : $Domen"
 echo -e "# ISP Country   : $NAMAISP , $COUNTRY"
 echo -e "===============================" | lolcat
-echo -e "     Menu Manager  "        
+echo -e "     ⇱ Menu Manager ⇲ "        
 echo -e "===============================" | lolcat
 echo -e ""
 echo -e " 1}.$green  Manager SSH & OpenVPN"
@@ -63,9 +63,9 @@ echo -e ""
 echo -e "=====================================" | lolcat
 echo -e "# Total Download    : $downloadsize GB "
 echo -e "# Total Upload      : $uploadsize GB "
-echo -e "# Client Name.      : $Name"
+echo -e "# Client Name       : $Name"
 echo -e "# Exp Script        : $Exp"
-echo -e "# Version           : V.1 "
+echo -e "# Version           : V.1 {latest}"
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
@@ -82,7 +82,7 @@ menu-ssh
 menu-xray
 ;;
 3)
-menu-trojan
+menu-tro
 ;;
 4)
 restart
@@ -94,7 +94,7 @@ addhost
 certv2ray
 ;;
 7)
-run
+st
 ;;
 8)
 about

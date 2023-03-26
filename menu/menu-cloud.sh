@@ -4,7 +4,7 @@ red='\e[1;31m'
 green='\e[0;32m'
 clear
 echo -e "===============================" | lolcat
-echo -e "           Menu Cloud Manager  "        
+echo -e "     ⇱ Menu Cloud Manager ⇲ "        
 echo -e "===============================" | lolcat
 echo -e " 1}.  Backup Data VPS"
 echo -e " 2}.  Restore Data VPS"

@@ -2,50 +2,61 @@
 clear
 red='\e[1;31m'
 green='\e[0;32m'
+NC='\e[0m'
 clear
 echo -e ""
-echo -e "===============================" | lolcat
-echo -e "     Tunggu Sebentar"
 echo -e "===============================" | lolcat
 echo -e "   Starting Restart All Service"
 echo -e "===============================" | lolcat
 sleep 1
+echo -e "[ ${green}INFO${NC} ] Starting Restart Service... " 
+sleep 1
 pkill python
 systemctl daemon-reload
-systemctl restart ws-ovpn
+echo -e "[ ${green}INFO${NC} ] Starting Restart Ohp... " 
+sleep 0.5
 systemctl restart ssh-ohp
 systemctl restart dropbear-ohp
 systemctl restart openvpn-ohp
-systemctl restart trojan-go
+echo -e "[ ${green}INFO${NC} ] Starting Restart Ssh... " 
+sleep 0.5
 /etc/init.d/ssh restart
 /etc/init.d/sslh restart
-echo -e "   Starting Restart Ssh Service"
+echo -e "[ ${green}INFO${NC} ] Starting Restart Websocket..." 
 sleep 0.5
 systemctl restart ws-tls
 systemctl restart ws-nontls
-echo -e "  Starting Restart Websocket Service"
+echo -e "[ ${green}INFO${NC} ] Starting Restart Xray... " 
 sleep 0.5
-systemctl restart xray
-echo -e "  Starting Restart Xray Service"
+systemctl restart xray@v2ray-tls
+systemctl restart xray@v2ray-nontls
+systemctl restart xray@vless-tls
+systemctl restart xray@vless-nontls
+systemctl restart xray@trojan
+systemctl restart trojan-go
+systemctl restart dns
+echo -e "[ ${green}INFO${NC} ] Starting Restart Dropbear... " 
 sleep 0.5
 /etc/init.d/dropbear restart
-echo -e "  Starting Restart Dropbear Service"
+echo -e "[ ${green}INFO${NC} ] Starting Restart Stunnel... " 
 sleep 0.5
 /etc/init.d/stunnel5 restart
-echo -e "  Starting Restart Stunnel Service"
+echo -e "[ ${green}INFO${NC} ] Starting Restart OpenVPN... " 
 sleep 0.5
 /etc/init.d/openvpn restart
-echo -e "  Starting Restart openvpn Service"
+systemctl restart ws-ovpn
+echo -e "[ ${green}INFO${NC} ] Starting Restart Fail2ban " 
 sleep 0.5
 /etc/init.d/fail2ban restart
-echo -e "  Starting Restart Fail2ban Service"
+echo -e "[ ${green}INFO${NC} ] Starting Restart Cron... " 
 sleep 0.5
 /etc/init.d/cron restart
-echo -e "  Starting Restart Cron Service"
+echo -e "[ ${green}INFO${NC} ] Starting Restart Nginx... " 
 sleep 0.5
 /etc/init.d/nginx restart
-echo -e "  Starting Restart Nginx Service"
+echo -e "[ ${green}INFO${NC} ] Starting Restart Squid " 
 sleep 0.5
+/etc/init.d/squid restart
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000
