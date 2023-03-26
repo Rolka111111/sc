@@ -1,6 +1,4 @@
 #!/bin/bash
-# My Telegram : https://t.me/colongvpn
-# ==========================================
 # Color
 RED='\033[0;31m'
 NC='\033[0m'
@@ -85,11 +83,11 @@ echo -e "Remarks     : ${user}"
 echo -e "Address     : ${domain}"
 echo -e "Nameserver  : ${nsdomain}"
 echo -e "Pub Key     : $key"
-echo -e "Port TLS     : 443 "
+echo -e "Port TLS    : 443 "
 echo -e "Port No TLS : 80 "
 echo -e "User ID     : ${uuid}"
-echo -e "Alter ID     : 0"
-echo -e "Security     : auto"
+echo -e "Alter ID    : 0"
+echo -e "Security    : auto"
 echo -e "Network     : ws"
 echo -e "Path        : /vmess"
 echo -e "Created     : $hariini"
