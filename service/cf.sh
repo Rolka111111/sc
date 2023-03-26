@@ -9,8 +9,8 @@ echo "====================================" | lolcat
 echo "   Installing Cert Cloudflare Domain        "
 echo "====================================" | lolcat
 sleep 1
-echo Running...
-sleep 0.5
+echo -e "[ ${green}INFO${NC} ] Starting Install Cert.... " 
+sleep 1
 DOMAIN=makhlukvpn.my.id
 sub=$(</dev/urandom tr -dc a-z0-9 | head -c4)
 SUB_DOMAIN=${sub}.makhlukvpn.my.id
@@ -42,7 +42,6 @@ RESULT=$(curl -sLX PUT "https://api.cloudflare.com/client/v4/zones/${ZONE}/dns_r
      -H "X-Auth-Key: ${CF_KEY}" \
      -H "Content-Type: application/json" \
      --data '{"type":"A","name":"'${SUB_DOMAIN}'","content":"'${IP}'","ttl":120,"proxied":false}')
-mkdir /etc/xray
 echo "Host : $SUB_DOMAIN"
 echo $SUB_DOMAIN > /root/domain
 cp /root/domain /etc/xray/
