@@ -38,12 +38,12 @@ echo -e "===============================" | lolcat
 echo -e "     ⇱ Sytem Information ⇲           "
 echo -e "===============================" | lolcat
 echo -e "# OS Name     : $Tipe , $Versi_OS"
-echo -e "# Cpu Usage    : $cpu_usage"
-echo -e "# Total RAM    : ${totalram}MB"
-echo -e "# Avaible       : ${MEMORY}MB"
-echo -e "# Public IP      : $MYIP"
-echo -e "# Domain       : $Domen"
-echo -e "# ISP Country   : $NAMAISP , $COUNTRY"
+echo -e "# Cpu Usage   : $cpu_usage"
+echo -e "# Total RAM   : ${totalram}MB"
+echo -e "# Avaible     : ${MEMORY}MB"
+echo -e "# Public IP   : $MYIP"
+echo -e "# Domain      : $Domen"
+echo -e "# ISP Country : $NAMAISP , $COUNTRY"
 echo -e "===============================" | lolcat
 echo -e "     ⇱ Menu Manager ⇲ "        
 echo -e "===============================" | lolcat
@@ -61,11 +61,11 @@ echo -e " 10}.$green  Reboot Vps "
 echo -e " x}.$red  Exit"
 echo -e ""
 echo -e "=====================================" | lolcat
-echo -e "# Total Download    : $downloadsize GB "
-echo -e "# Total Upload      : $uploadsize GB "
-echo -e "# Client Name       : $Name"
-echo -e "# Exp Script        : $Exp"
-echo -e "# Version           : V.1 {latest}"
+echo -e "# Total Download : $downloadsize GB "
+echo -e "# Total Upload   : $uploadsize GB "
+echo -e "# Client Name    : $Name"
+echo -e "# Exp Script     : $Exp"
+echo -e "# Version        : V.1 {latest}"
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
