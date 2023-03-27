@@ -1,21 +1,15 @@
 #!/bin/sh
-GIT_CMD="https://github.com/FighterTunnel/tunnel/raw/main/"
-#Certificat For Ssh & Ovpn Websocket
-red='\e[1;31m'
-green='\e[0;32m'
-NC='\e[0m'
+REPOS="https://raw.githubusercontent.com/Annnjayy/sc/main/service/"
 echo "====================================" | lolcat
 echo "  Installing Cert Cloudflare NSDomain        "
 echo "====================================" | lolcat
 sleep 1
-echo -e "[ ${green}INFO${NC} ] Starting Install Cert.... " 
+echo -e "[ ${green}INFO${NC} ] Starting Install NS Cert.... " 
 sleep 1
 ns_domain_cloudflare() {
-	DOMAIN="makhlukvpn.my.id"
-	DAOMIN=$(cat /etc/xray/domain)
-	SUB=$(tr </dev/urandom -dc a-z0-9 | head -c7)
-	SUB_DOMAIN=${SUB}."makhlukvpn.my.id"
-	NS_DOMAIN=ns-${SUB_DOMAIN}
+	DOMAIN=$(cat /etc/xray/domain)
+	DOMAIN_PATH=$(cat /etc/xray/domain)
+	NS_DOMAIN=ns-${DOMAIN}
 	CF_ID=makhlukvpn@gmail.com
         CF_KEY=1e1fd5209818f9492309a6c60b94e1df4340f
 	set -euo pipefail
@@ -41,7 +35,7 @@ ns_domain_cloudflare() {
 			-H "X-Auth-Email: ${CF_ID}" \
 			-H "X-Auth-Key: ${CF_KEY}" \
 			-H "Content-Type: application/json" \
-			--data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${DAOMIN}'","proxied":false}' | jq -r .result.id
+			--data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${DOMAIN_PATH}'","proxied":false}' | jq -r .result.id
 		)
 	fi
 
@@ -50,24 +44,25 @@ ns_domain_cloudflare() {
 		-H "X-Auth-Email: ${CF_ID}" \
 		-H "X-Auth-Key: ${CF_KEY}" \
 		-H "Content-Type: application/json" \
-		--data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${DAOMIN}'","proxied":false}'
+		--data '{"type":"NS","name":"'${NS_DOMAIN}'","content":"'${DOMAIN_PATH}'","proxied":false}'
 	)
 	echo $NS_DOMAIN >/etc/xray/dns
-    echo $NS_DOMAIN > /root/nsdomain
 }
 
 setup_dnstt() {
-	cd
 	mkdir -p /etc/slowdns
-	wget -O dnstt-server "${GIT_CMD}X-SlowDNS/dnstt-server" && chmod +x dnstt-server >/dev/null 2>&1
-	wget -O dnstt-client "${GIT_CMD}X-SlowDNS/dnstt-client" && chmod +x dnstt-client >/dev/null 2>&1
+    cd /etc/slowdns
+	wget -O /etc/slowdns/dnstt-server "${REPOS}dnstt-server" >/dev/null 2>&1
+	chmod +x /etc/slowdns/dnstt-server >/dev/null 2>&1
+	wget -O /etc/slowdns/dnstt-client "${REPOS}dnstt-client" >/dev/null 2>&1
+	chmod +x /etc/slowdns/dnstt-client >/dev/null 2>&1
 	./dnstt-server -gen-key -privkey-file server.key -pubkey-file server.pub
 	chmod +x *
-	mv * /etc/slowdns
-	wget -O /etc/systemd/system/client.service "${GIT_CMD}X-SlowDNS/client" >/dev/null 2>&1
-	wget -O /etc/systemd/system/server.service "${GIT_CMD}X-SlowDNS/server" >/dev/null 2>&1
-	sed -i "s/xxxx/$NS_DOMAIN/g" /etc/systemd/system/client.service 
-	sed -i "s/xxxx/$NS_DOMAIN/g" /etc/systemd/system/server.service 
+	wget -O /etc/systemd/system/client.service "${REPOS}client" >/dev/null 2>&1
+	wget -O /etc/systemd/system/server.service "${REPOS}server" >/dev/null 2>&1
+	sed -i "s/xxxx/$NS_DOMAIN/g" /etc/systemd/system/client.service
+	sed -i "s/xxxx/$NS_DOMAIN/g" /etc/systemd/system/server.service
+	cd
 }
 ns_domain_cloudflare
 setup_dnstt
