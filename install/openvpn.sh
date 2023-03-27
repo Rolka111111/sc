@@ -6,6 +6,8 @@ echo -e "===============================" | lolcat
 echo -e "   Installing SSH OpenVpn           "
 echo -e "===============================" | lolcat
 sleep 1
+apt install openvpn easy-rsa unzip -y
+apt install openssl iptables iptables-persistent -y
 echo -e "[ ${green}INFO${NC} ] Starting Install OpenVPN..
 ... " 
 sleep 1
