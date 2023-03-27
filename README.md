@@ -25,11 +25,11 @@ apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://ra
 
 • Stunnel5                  : 443, 445, 777
 
-• OpenVPN                   : TCP 1194, UDP 2200, SSL 990
+• OpenVPN                   : TCP 1194, UDP 2200, SSL 990/443
 
 • Websocket SSH TLS         : 443
 
-• Websocket SSH HTTP        : 80
+• Websocket SSH HTTP        : 8080
 
 • Websocket OpenVPN         : 2086
 
@@ -39,33 +39,17 @@ apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://ra
 
 • Nginx                     : 89
 
-• Wireguard                 : 7070
-
-• L2TP/IPSEC VPN            : 1701
-
-• PPTP VPN                  : 1732
-
-• SSTP VPN                  : 444
-
-• Shadowsocks-R             : 1443-1543
-
-• SS-OBFS TLS               : 2443-2543
-
-• SS-OBFS HTTP              : 3443-3543
-
-• XRAYS Vmess TLS           : 443
+• XRAYS Vmess TLS           : 8443
 
 • XRAYS Vmess None TLS      : 80
 
-• XRAYS Vless TLS           : 443
+• XRAYS Vless TLS           : 2083
 
-• XRAYS Vless None TLS      : 80
+• XRAYS Vless None TLS      : 2095
 
-• XRAYS Trojan              : 2083
+• XRAYS Trojan              : 2087
 
-• XRAYS Vmess GRPC TLS      : 1180,3380
-
-• XRAYS Vless GRPC TLS      : 2280,4480
+• Trojan Go                 : 2053
 
 • OHP SSH                   : 8181
 
@@ -73,9 +57,7 @@ apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://ra
 
 • OHP OpenVPN               : 8383
 
-• Trojan Go                 : 2087
-
-• SlowDNS                   : [OFF]
+• SlowDNS                   : [MAINTENANCE]
 
 • CloudFront Over Websocket : [OFF]
 
