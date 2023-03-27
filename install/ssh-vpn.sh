@@ -295,7 +295,8 @@ echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # Install BBR
-#wget https://${akbarvpn}/bbr.sh && chmod +x bbr.sh && ./bbr.sh
+wget https://${service}/bbr.sh
+bash bbr.sh
 
 # Ganti Banner
 wget --output-document=/etc/issue.net "https://${service}/issue.net"
