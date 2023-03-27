@@ -47,7 +47,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 echo start
 sleep 0.5
-domain=$(cat /xray/domain)
+domain=$(cat /etc/xray/domain)
 echo -e "[ ${green}INFO${NC} ] Start " 
 sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 cd /root/
