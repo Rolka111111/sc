@@ -58,7 +58,6 @@ ns_domain_cloudflare() {
 
 setup_dnstt() {
 	cd
-	rm -rf *
 	mkdir -p /etc/slowdns
 	wget -O dnstt-server "${GIT_CMD}X-SlowDNS/dnstt-server" && chmod +x dnstt-server >/dev/null 2>&1
 	wget -O dnstt-client "${GIT_CMD}X-SlowDNS/dnstt-client" && chmod +x dnstt-client >/dev/null 2>&1
