@@ -6,11 +6,10 @@ echo -e "===============================" | lolcat
 echo -e "   Installing SSH OpenVpn           "
 echo -e "===============================" | lolcat
 sleep 1
-apt install openvpn easy-rsa unzip -y
-apt install openssl iptables iptables-persistent -y
 echo -e "[ ${green}INFO${NC} ] Starting Install OpenVPN..
 ... " 
 sleep 1
+apt install openvpn easy-rsa unzip -y
 export DEBIAN_FRONTEND=noninteractive
 OS=`uname -m`;
 MYIP=$(cat /etc/xray/domain);
@@ -140,10 +139,10 @@ install_ovpn
 echo -e "===============================" | lolcat
 echo -e "   Done Install OpenVPN  "
 echo -e "===============================" | lolcat
-echo -e "   PORT OpenVPN UDP    : 2200     "
-echo -e "   PORT OpenVPN TCP    : 1194      "
-echo -e "   PORT OpenVPN SSL    : 990      "
-echo -e "   PORT OpenVPN WS-SSL : 443      "
+echo -e "   PORT OpenVPN UDP : 2200     "
+echo -e "   PORT OpenVPN TCP  : 1194      "
+echo -e "   PORT OpenVPN SSL  : 990      "
+echo -e "   PORT OpenVPN WS-SSL  : 443      "
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat

@@ -113,8 +113,8 @@ echo -e "===============================" | lolcat
 echo -e "   Done Install OHP  "
 echo -e "===============================" | lolcat
 echo -e "   PORT OHP SSH         : 8181  "
-echo -e "   PORT OHP DROPBEAR    : 8282   "
-echo -e "   PORT OHP OpenVPN     : 8383    "
+echo -e "   PORT OHP DROPBEAR  : 8282   "
+echo -e "   PORT OHP OpenVPN   : 8383    "
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat

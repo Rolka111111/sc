@@ -47,7 +47,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 clear
 echo start
 sleep 0.5
-domain=$(cat /etc/xray/domain)
+domain=$(cat /xray/domain)
 echo -e "[ ${green}INFO${NC} ] Start " 
 sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
 cd /root/
@@ -554,8 +554,8 @@ END
 
 # // Enable & Start Service
 # Accept port Xray
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2083 -j ACCEPT
@@ -823,12 +823,12 @@ systemctl restart dns
 echo -e "===============================" | lolcat
 echo -e "    Done Install Xray  "
 echo -e "===============================" | lolcat
-echo -e "  PORT Vmess TLS     : 443 "
+echo -e "  PORT Vmess TLS     : 8443 "
 echo -e "  PORT Vmess NTLS    : 80 "
-echo -e "  PORT VLESS TLS     : 443  "
-echo -e "  PORT VLESS NTLS    : 80  "
-echo -e "  PORT TROJAN        : 2087 "
-echo -e "  PORT TROJAN GO     : 2053  "
+echo -e "  PORT VLESS TLS     : 2083  "
+echo -e "  PORT VLESS NTLS    : 2095  "
+echo -e "  PORT TROJAN WS    : 2087 "
+echo -e "  PORT TROJAN GO    : 2053  "
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat

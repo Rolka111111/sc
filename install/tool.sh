@@ -36,11 +36,10 @@ wget --output-document=restart "https://${menu}/restart.sh"
 wget --output-document=usernew "https://${ssh}/usernew.sh"
 wget --output-document=autokill "https://${ssh}/autokill.sh"
 wget --output-document=ceklim "https://${ssh}/ceklim.sh"
-wget --output-document=cek "https://${ssh}/cekssh.sh"
+wget --output-document=cek "https://${ssh}/cekssh.sh
 wget --output-document=tendang "https://${service}/tendang.sh"
 wget --output-document=clearlog "https://${service}/clearlog.sh"
 wget --output-document=xp "https://${service}/xp.sh"
-wget --output-document=swapkvm "https://${service}/swapkvm.sh"
 wget --output-document=addvmess "https://${xray}/addvmess.sh"
 wget --output-document=addvless "https://${xray}/addvless.sh"
 wget --output-document=addtrojan "https://${xray}/addtrojan.sh"
@@ -88,9 +87,7 @@ chmod +x tendang
 chmod +x ceklim
 chmod +x renew
 chmod +x clearlog
-chmod +x wbmn
 chmod +x xp
-chmod +x swapkvm
 chmod +x addvmess
 chmod +x addvless
 chmod +x addtrojan
