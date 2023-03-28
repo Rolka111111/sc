@@ -1,7 +1,5 @@
 #!/bin/bash
 clear
-red='\e[1;31m'
-green='\e[0;32m'
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo -e "===============================" | lolcat

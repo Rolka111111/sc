@@ -1,16 +1,8 @@
 #!/bin/bash
-# My Telegram : https://t.me/colongvpn
-# ==========================================
+clear
 # Color
 RED='\033[0;31m'
 NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 
@@ -23,7 +15,7 @@ fi
                 
 data=( `ps aux | grep -i dropbear | awk '{print $2}'`);
 echo "==========[ Dropbear User Login ]=========="; | lolcat
-echo "ID  |  Username  |  IP Address";
+echo "  ID  |  Username  |  IP Address";
 echo "======================================"; | lolcat
 cat $LOG | grep -i dropbear | grep -i "Password auth succeeded" > /tmp/login-db.txt;
 for PID in "${data[@]}"
@@ -38,7 +30,7 @@ do
 done
 echo " "
 echo "==========[ OpenSSH User Login ]=========="; | lolcat
-echo "ID  |  Username  |  IP Address";
+echo "   ID  |  Username  |  IP Address";
 echo "======================================"; | lolcat
 cat $LOG | grep -i sshd | grep -i "Accepted password for" > /tmp/login-db.txt
 data=( `ps aux | grep "\[priv\]" | sort -k 72 | awk '{print $2}'`);
@@ -56,7 +48,7 @@ done
 if [ -f "/etc/openvpn/server/openvpn-tcp.log" ]; then
 echo ""
 echo "==========[ OpenVPN TCP User Login ]=========="; | lolcat
-echo "Username  |  IP Address  |  Connected";
+echo "   Username  |  IP Address  |  Connected";
 echo "======================================"; | lolcat
         cat /etc/openvpn/server/openvpn-tcp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-tcp.txt
         cat /tmp/vpn-login-tcp.txt
@@ -66,12 +58,12 @@ echo "======================================"; | lolcat
 if [ -f "/etc/openvpn/server/openvpn-udp.log" ]; then
 echo " "
 echo "==========[ OpenVPN UDP User Login ]=========="; | lolcat
-echo "Username  |  IP Address  |  Connected";
+echo "   Username  |  IP Address  |  Connected";
 echo "======================================"; | lolcat
         cat /etc/openvpn/server/openvpn-udp.log | grep -w "^CLIENT_LIST" | cut -d ',' -f 2,3,8 | sed -e 's/,/      /g' > /tmp/vpn-login-udp.txt
         cat /tmp/vpn-login-udp.txt
 fi
 echo "======================================" | lolcat
-echo "         Script By MakhlukVpn"
+echo "       Script By MakhlukVpn"
 echo "======================================" | lolcat
 
