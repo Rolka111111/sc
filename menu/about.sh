@@ -4,7 +4,7 @@ red='\e[1;31m'
 green='\e[0;32m'
 clear
 neofetch
-cat /root/log-install.txt
+cat /root/.s/log-install.txt
 echo ""
 echo -e "=================================="| lolcat
 echo -e " Premium Auto Script By MakhlukVpn      "

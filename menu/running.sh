@@ -34,7 +34,6 @@ BLUE='\033[0;34m'
 PURPLE='\033[0;35m'
 CYAN='\033[0;36m'
 LIGHT='\033[0;37m'
-clear
 
 # STATUS SERVICE OPENVPN
 if [[ $oovpn == "active" ]]; then
@@ -213,26 +212,26 @@ echo -e "Time        : $jam"
 echo -e "=====================================" | lolcat
 echo -e "    ⇱ System Status Information ⇲"
 echo -e "=====================================" | lolcat
-echo -e " SSH / TUN            : $status_ssh"
-echo -e " Websocket TLS        : $swstls"
-echo -e " Websocket None TLS   : $swsdrop"
-echo -e " Websocket Ovpn       : $swsovpn"
-echo -e " OHP Dropbear         : $sohp"
-echo -e " OHP OpenVPN          : $sohq"
-echo -e " OHP SSH              : $sohr"
-echo -e " XRAYS Vmess TLS      : $status_tls_v2ray"
-echo -e " XRAYS Vmess None TLS : $status_nontls_v2ray"
-echo -e " XRAYS Vless TLS      : $status_tls_vless"
-echo -e " XRAYS Vless None TLS : $status_nontls_vless"
-echo -e " XRAYS Trojan         : $status_virus_trojan"
-echo -e " XRAYS Trojan GO      : $status_trgo"
-echo -e " OpenVPN              : $status_openvpn"
-echo -e " Dropbear             : $status_beruangjatuh"
-echo -e " Stunnel              : $status_stunnel"
-echo -e " Squid                : $status_squid"
-echo -e " Fail2Ban             : $status_fail2ban"
-echo -e " Crons                : $status_cron"
-echo -e " Vnstat               : $status_vnstat"
+echo -e " SSH / TUN                : $status_ssh"
+echo -e " Websocket TLS            :$swstls"
+echo -e " Websocket None TLS      :$swsdrop"
+echo -e " Websocket Ovpn          :$swsovpn"
+echo -e " OHP Dropbear             :$sohp"
+echo -e " OHP OpenVPN             :$sohq"
+echo -e " OHP SSH                  :$sohr"
+echo -e " XRAYS Vmess TLS         :$status_tls_v2ray"
+echo -e " XRAYS Vmess None TLS   :$status_nontls_v2ray"
+echo -e " XRAYS Vless TLS          :$status_tls_vless"
+echo -e " XRAYS Vless None TLS    :$status_nontls_vless"
+echo -e " XRAYS Trojan            :$status_virus_trojan"
+echo -e " XRAYS Trojan GO         :$status_trgo"
+echo -e " OpenVPN                  : $status_openvpn"
+echo -e " Dropbear                  : $status_beruangjatuh"
+echo -e " Stunnel                   : $status_stunnel"
+echo -e " Squid                     : $status_squid"
+echo -e " Fail2Ban                  : $status_fail2ban"
+echo -e " Crons                     : $status_cron"
+echo -e " Vnstat                    : $status_vnstat"
 echo -e "=====================================" | lolcat
 echo -e "    Script By MakhlukVpn          "
 echo -e "=====================================" | lolcat
