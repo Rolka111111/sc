@@ -1,33 +1,12 @@
 #!/bin/bash
-# SL
-# ==========================================
-# Color
-RED='\033[0;31m'
-NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
+clear
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl ipinfo.io/ip | grep $MYIP )
-if [ $MYIP = $MYIP ]; then
-echo -e "${NC}${GREEN}Permission Accepted...${NC}"
-else
-echo -e "${NC}${RED}Permission Denied!${NC}";
-echo -e "${NC}${LIGHT}Fuck You!!"
-exit 0
-fi
-clear
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/v2ray-tls.json")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
-		echo ""
-		echo "You have no existing clients!"
+		echo -e "================================" | lolcat
+		echo -e "     You have no existing clients!"
 		exit 1
 	fi
 
@@ -60,7 +39,7 @@ service cron restart
 clear
 echo ""
 echo -e "===============================" | lolcat
-echo -e "  XRAYS/Vmess Account Renewed    "
+echo -e "      Vmess Account Renewed    "
 echo -e "===============================" | lolcat
 echo -e "  Username  : $user"
 echo -e "  Expired   : $exp4"

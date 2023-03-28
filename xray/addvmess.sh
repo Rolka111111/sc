@@ -1,14 +1,8 @@
 #!/bin/bash
+clear
 # Color
 RED='\033[0;31m'
 NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 if [[ "$IP" = "" ]]; then
@@ -44,7 +38,7 @@ cat>/etc/xray/v2ray-$user-tls.json<<EOF
       "v": "2",
       "ps": "${user}",
       "add": "${domain}",
-      "port": "443",
+      "port": "8443",
       "id": "${uuid}",
       "aid": "0",
       "net": "ws",
@@ -83,11 +77,11 @@ echo -e "Remarks     : ${user}"
 echo -e "Address     : ${domain}"
 echo -e "Nameserver  : ${nsdomain}"
 echo -e "Pub Key     : $key"
-echo -e "Port TLS    : 443 "
+echo -e "Port TLS     : 8443 "
 echo -e "Port No TLS : 80 "
 echo -e "User ID     : ${uuid}"
-echo -e "Alter ID    : 0"
-echo -e "Security    : auto"
+echo -e "Alter ID     : 0"
+echo -e "Security     : auto"
 echo -e "Network     : ws"
 echo -e "Path        : /vmess"
 echo -e "Created     : $hariini"

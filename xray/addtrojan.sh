@@ -1,14 +1,8 @@
 #!/bin/bash
+clear
 # Color
 RED='\033[0;31m'
 NC='\033[0m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-BLUE='\033[0;34m'
-PURPLE='\033[0;35m'
-CYAN='\033[0;36m'
-LIGHT='\033[0;37m'
-# ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
 if [[ "$IP" = "" ]]; then
@@ -47,7 +41,7 @@ echo -e "Key      : ${user}"
 echo -e "Created  : $hariini"
 echo -e "Expired  : $exp"
 echo -e "===============================" | lolcat
-echo -e " Link TR WS  : ${link}"
+echo -e " Link TR WS  : ${trojanlink}"
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
