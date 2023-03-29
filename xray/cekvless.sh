@@ -5,7 +5,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/vless-tls.json | grep '^####' | cut -d ' ' -f 2`);
 echo -e "===============================" | lolcat
-echo -e "      Vless User Login            "
+echo -e "       Vless User Login        "
 echo -e "===============================" | lolcat
 for akun in "${data[@]}"
 do
