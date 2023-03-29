@@ -35,7 +35,7 @@ function lane() {
 function LOGO() {
 	echo -e ""
 	echo -e "===============================" | lolcat
-    echo -e "      ⇱ Menu Slowdns ⇲"
+    echo -e "       ⇱ Menu Slowdns ⇲"
     echo -e "===============================" | lolcat
 	echo -e ""
 }
@@ -44,8 +44,8 @@ function Credit_MakhlukVpn() {
     sleep 1
     echo -e "===============================" | lolcat
     echo -e ""
-    echo -e "    Terimakasih Telah "
-    echo -e "  Menggunakan Layanan Kami "
+    echo -e "      Terimakasih Telah "
+    echo -e "   Menggunakan Layanan Kami "
     echo -e ""
     echo -e "===============================" | lolcat
     echo -e ""
@@ -106,6 +106,12 @@ function add_cert(){
     systemctl enable xray@trojan
     echo -e "[ ${green}INFO${NC} ] Processing to stop port 80 " 
     sleep 1
+    sudo fuser -k 80/tcp
+    sudo fuser -k 80/tcp
+    sudo fuser -k 80/tcp
+    sudo fuser -k 80/tcp
+    sudo fuser -k 80/tcp
+    sudo fuser -k 80/tcp
     echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
     sleep 2
     /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
@@ -127,15 +133,14 @@ function make_follow() {
     rm /home/vps/public_html/udp.ovpn
     rm /home/vps/public_html/ssl.ovpn
     rm /home/vps/public_html/ws-ssl.ovpn
-    MYIP=$(cat /etc/xray/domain);
-    MYIP2="s/xxxxxxxxx/$MYIP/g";
+    MYIP=$(cat /etc/xray/domain)
     echo 1 > /proc/sys/net/ipv4/ip_forward
     sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
 cat > /etc/openvpn/tcp.ovpn <<-END
 client
 dev tun
 proto tcp
-remote xxxxxxxxx 1194
+remote $MYIP 1194
 resolv-retry infinite
 route-method exe
 nobind
@@ -145,13 +150,12 @@ auth-user-pass
 comp-lzo
 verb 3
 END
-    
-    sed -i $MYIP2 /etc/openvpn/tcp.ovpn;
+sed -i $MYIP /etc/openvpn/tcp.ovpn;
 cat > /etc/openvpn/udp.ovpn <<-END
 client
 dev tun
 proto udp
-remote xxxxxxxxx 2200
+remote $MYIP 2200
 resolv-retry infinite
 route-method exe
 nobind
@@ -161,13 +165,12 @@ auth-user-pass
 comp-lzo
 verb 3
 END
-    
-    sed -i $MYIP2 /etc/openvpn/udp.ovpn;
+sed -i $MYIP /etc/openvpn/udp.ovpn;
 cat > /etc/openvpn/ws-ssl.ovpn <<-END
 client
 dev tun
 proto tcp
-remote xxxxxxxxx 443
+remote $MYIP 443
 resolv-retry infinite
 route-method exe
 nobind
@@ -177,12 +180,12 @@ auth-user-pass
 comp-lzo
 verb 3
 END
-    sed -i $MYIP2 /etc/openvpn/ws-ssl.ovpn;
+sed -i $MYIP /etc/openvpn/ws-ssl.ovpn;
 cat > /etc/openvpn/ssl.ovpn <<-END
 client
 dev tun
 proto tcp
-remote xxxxxxxxx 990
+remote $MYIP 990
 resolv-retry infinite
 route-method exe
 nobind
@@ -192,7 +195,7 @@ auth-user-pass
 comp-lzo
 verb 3
 END
-    sed -i $MYIP2 /etc/openvpn/ssl.ovpn;
+    sed -i $MYIP /etc/openvpn/ssl.ovpn;
 }
 function cert_ovpn() {
     echo '<ca>' >> /etc/openvpn/tcp.ovpn
