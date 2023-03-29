@@ -34,7 +34,7 @@ echo -e " 9}.$green Back To Menu"
 echo -e " x}.$red Exit"
 echo -e ""
 echo -e "===============================" | lolcat
-echo -e "    Script By MakhlukVpn          "
+echo -e "      Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
 echo -e ""
