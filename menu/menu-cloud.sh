@@ -20,8 +20,8 @@ clear
 echo -e "===============================" | lolcat
 echo -e "     ⇱ Menu Cloud Manager ⇲ "        
 echo -e "===============================" | lolcat
-echo -e " 1}.  Backup Data VPS"
-echo -e " 2}.  Restore Data VPS"
+echo -e " 1}. Backup Data VPS"
+echo -e " 2}. Restore Data VPS"
 echo -e " 3}. Menu"
 echo -e " 4}. Exit"
 echo -e ""
