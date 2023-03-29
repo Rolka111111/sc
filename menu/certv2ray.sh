@@ -4,15 +4,6 @@ red='\e[1;31m'
 green='\e[0;32m'
 clear
 # Getting
-echo -e "==============================="
-echo -e ".               Running... "
-echo -e "==============================="
-echo -e "       Port 80 Akan di Hentikan"
-echo -e "        Saat Proses install Cert"
-echo -e "==============================="
-echo -e "        Script By MakhlukVpn          "
-echo -e "==============================="
-sleep 1
 domain=$(cat /etc/xray/domain)
 red='\e[1;31m'
 green='\e[0;32m'
