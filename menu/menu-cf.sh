@@ -240,6 +240,7 @@ function start_dns_ssh() {
   if [[ "${stat_net}" != "" ]]; then
     Nameserver=$(cat /etc/xray/dns)
     pub_key=$(cat /etc/slowdns/server.pub)
+    clear
     LOGO
     echo -e " ${Green}SlowDNS is enabled${Suffix}"
     echo -e ""
