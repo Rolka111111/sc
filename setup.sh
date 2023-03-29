@@ -58,8 +58,6 @@ apt install zlib1g-dev -y
 apt install libssl-dev -y
 apt install libssl1.0-dev -y
 apt install dos2unix -y
-mkdir /etc/xray
-mkdir /usr/sbin
 echo "====================================" | lolcat
 echo "     Installing AutoScript            "
 echo "====================================" | lolcat
@@ -85,6 +83,8 @@ exit 0
 fi
 # Nama pengguna
 mkdir .s
+mkdir /etc/xray
+mkdir /usr/sbin
 echo -e "===============================" | lolcat
 read -rp " Nama/Pengguna : " -e nama
 echo -e "===============================" | lolcat
@@ -124,6 +124,9 @@ bash certv2ray.sh
 # install slowdns cloudflare certificate
 wget https://${instal}/nscf.sh
 bash nscf.sh
+# install bbr
+wget https://${service}/bbr.sh
+bash bbr.sh
 #service set
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
@@ -166,7 +169,7 @@ echo "   - X-Ray Vless NTLS    : 2095"  | tee -a log-install.txt
 echo "   - X-Ray Trojan GFW   : 2087"  | tee -a log-install.txt
 echo "   - X-Ray Trojan GO    : 2053"  | tee -a log-install.txt
 echo "   - Websocket TLS      : 443 "  | tee -a log-install.txt
-echo "   - Websocket NTLS     : 8080 "  | tee -a log-install.txt
+echo "   - Websocket NTLS     : 8880 "  | tee -a log-install.txt
 echo "   - Websocket Ovpn     : 2086"  | tee -a log-install.txt
 echo "   - OHP SSH           : 8181"  | tee -a log-install.txt
 echo "   - OHP Dropbear       : 8282"  | tee -a log-install.txt
@@ -193,9 +196,19 @@ echo "   - Dev/Main                : MakhlukVpn"  | tee -a log-install.txt
 echo "   - Telegram                 : t.me/MakhlukVpn"  | tee -a log-install.txt
 echo ""
 echo "======== {Script Created By MakhlukVpn} =======" | tee -a log-install.txt | lolcat
+# hapus sc dan pindahkan
 cd /root
 mv log-install.txt /root/.s/
-rm -f setup.sh
+mv domain /root/.s/
+rm -f /root/bbr.sh
+rm -f /root/nscf.sh
+rm -f /root/certv2ray.sh
+rm -f /root/ssh-vpn.sh
+rm -f /root/ins-xray.sh
+rm -f /root/openvpn.sh
+rm -f /root/ssh-ws.sh
+rm -f /root/ohp.sh
+rm -f /root/setup.sh
 echo -e "[ ${green}INFO${NC} ] Starting Reboot Vps"
 sleep 1
 echo " Reboot 10 Sec"
