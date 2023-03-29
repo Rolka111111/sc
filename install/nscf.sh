@@ -21,9 +21,9 @@ fi
 clear
 #info
 REPO="https://raw.githubusercontent.com/Annnjayy/sc/main/service/"
-echo "====================================" | lolcat
-echo "  Installing Cert Cloudflare NSDomain        "
-echo "====================================" | lolcat
+echo "=====================================" | lolcat
+echo " Installing Cert Cloudflare NSDomain        "
+echo "=====================================" | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install NS Cert.... " 
 sleep 1
@@ -138,7 +138,7 @@ function start_dns_ssh() {
     Nameserver=$(cat /etc/xray/dns)
     pub_key=$(cat /etc/slowdns/server.pub)
     echo -e ""
-	echo -e "===============================" | lolcat
+    echo -e "===============================" | lolcat
     echo -e "    ⇱ Done Install Slowdns ⇲"
     echo -e "===============================" | lolcat
 	echo -e ""
