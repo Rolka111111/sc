@@ -18,14 +18,14 @@ exit 0
 fi
 clear
 echo -e "===============================" | lolcat
-echo -e "     ⇱ XRAY | VMESS ⇲"
+echo -e "        ⇱ XRAY | VMESS ⇲"
 echo -e "===============================" | lolcat
 echo -e " 1}.$green Create Account Vmess Websocket"
 echo -e " 2}.$green Delete Account Vmess Websocket"
 echo -e " 3}.$green Extending Account Vmess Active Life"
 echo -e " 4}.$green Check User Login Vmess"
 echo -e "===============================" | lolcat
-echo -e "     ⇱ XRAY | VLESS ⇲"
+echo -e "        ⇱ XRAY | VLESS ⇲"
 echo -e "===============================" | lolcat
 echo -e " 5}.$green Create Account Vless Websocket"
 echo -e " 6}.$green Delete Account Vless Websocket"
