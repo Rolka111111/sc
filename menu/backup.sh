@@ -20,7 +20,7 @@ cp -r /home/vps/public_html backup/public_html
 cd /root/backup
 zip -r backup-$date.zip 
 mv backup-$date.zip /home/vps/public_html
-link="https://$domain:89/backup-$date.zip"
+link="http://$domain:89/backup-$date.zip"
 echo -e "The following is a link to your vps data backup file."
 echo -e "===============================" | lolcat
 echo -e "        Detail Backup   "
