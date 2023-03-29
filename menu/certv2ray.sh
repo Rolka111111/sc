@@ -27,6 +27,11 @@ systemctl enable xray@vless-nontls
 systemctl enable xray@trojan
 echo -e "[ ${green}INFO${NC} ] Processing to stop port 80 " 
 sleep 1
+sudo fuser -k 80/tcp
+sudo fuser -k 80/tcp
+sudo fuser -k 80/tcp
+sudo fuser -k 80/tcp
+sudo fuser -k 80/tcp
 echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
 sleep 2
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
