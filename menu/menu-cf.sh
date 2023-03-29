@@ -95,7 +95,7 @@ function add_nameserver() {
   start_dns_ssh
 }
 
-function add_host(){
+function add_cert(){
     domain=$(cat /etc/xray/domain)
     echo -e "[ ${green}INFO${NC} ] Starting Install Cert..... " 
     sleep 0.5
@@ -118,6 +118,106 @@ function add_host(){
     echo -e "[ ${green}INFO${NC} ] All finished... " 
     sleep 0.5
 }
+function make_follow() {
+    rm /etc/openvpn/tcp.ovpn
+    rm /etc/openvpn/udp.ovpn
+    rm /etc/openvpn/ssl.ovpn
+    rm /etc/openvpn/ws-ssl.ovpn
+    rm /home/vps/public_html/tcp.ovpn
+    rm /home/vps/public_html/udp.ovpn
+    rm /home/vps/public_html/ssl.ovpn
+    rm /home/vps/public_html/ws-ssl.ovpn
+    MYIP=$(cat /etc/xray/domain);
+    MYIP2="s/xxxxxxxxx/$MYIP/g";
+    echo 1 > /proc/sys/net/ipv4/ip_forward
+    sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
+cat > /etc/openvpn/tcp.ovpn <<-END
+client
+dev tun
+proto tcp
+remote xxxxxxxxx 1194
+resolv-retry infinite
+route-method exe
+nobind
+persist-key
+persist-tun
+auth-user-pass
+comp-lzo
+verb 3
+END
+    
+    sed -i $MYIP2 /etc/openvpn/tcp.ovpn;
+cat > /etc/openvpn/udp.ovpn <<-END
+client
+dev tun
+proto udp
+remote xxxxxxxxx 2200
+resolv-retry infinite
+route-method exe
+nobind
+persist-key
+persist-tun
+auth-user-pass
+comp-lzo
+verb 3
+END
+    
+    sed -i $MYIP2 /etc/openvpn/udp.ovpn;
+cat > /etc/openvpn/ws-ssl.ovpn <<-END
+client
+dev tun
+proto tcp
+remote xxxxxxxxx 443
+resolv-retry infinite
+route-method exe
+nobind
+persist-key
+persist-tun
+auth-user-pass
+comp-lzo
+verb 3
+END
+    sed -i $MYIP2 /etc/openvpn/ws-ssl.ovpn;
+cat > /etc/openvpn/ssl.ovpn <<-END
+client
+dev tun
+proto tcp
+remote xxxxxxxxx 990
+resolv-retry infinite
+route-method exe
+nobind
+persist-key
+persist-tun
+auth-user-pass
+comp-lzo
+verb 3
+END
+    sed -i $MYIP2 /etc/openvpn/ssl.ovpn;
+}
+function cert_ovpn() {
+    echo '<ca>' >> /etc/openvpn/tcp.ovpn
+    cat /etc/openvpn/server/ca.crt >> /etc/openvpn/tcp.ovpn
+    echo '</ca>' >> /etc/openvpn/tcp.ovpn
+    cp /etc/openvpn/tcp.ovpn /home/vps/public_html/tcp.ovpn
+    
+    echo '<ca>' >> /etc/openvpn/udp.ovpn   
+    cat /etc/openvpn/server/ca.crt >> /etc/openvpn/udp.ovpn
+    echo '</ca>' >> /etc/openvpn/udp.ovpn
+    cp /etc/openvpn/udp.ovpn /home/vps/public_html/udp.ovpn
+    
+    echo '<ca>' >> /etc/openvpn/ws-ssl.ovpn
+    cat /etc/openvpn/server/ca.crt >> /etc/openvpn/ws-ssl.ovpn
+    echo '</ca>' >> /etc/openvpn/ws-ssl.ovpn
+    cp /etc/openvpn/ws-ssl.ovpn /home/vps/public_html/ws-ssl.ovpn
+    
+    echo '<ca>' >> /etc/openvpn/ssl.ovpn
+    cat /etc/openvpn/server/ca.crt >> /etc/openvpn/ssl.ovpn
+    echo '</ca>' >> /etc/openvpn/ssl.ovpn
+    cp /etc/openvpn/ssl.ovpn /home/vps/public_html/ssl.ovpn
+    cd /home/vps/public_html/
+    zip OpenVPN.zip tcp.ovpn udp.ovpn ws-ssl.ovpn ssl.ovpn
+    cd
+}
 
 function add_host(){
     lane
@@ -125,6 +225,9 @@ function add_host(){
     echo "IP=$domain" >>/var/lib/crot/ipvps.conf
     rm -rf /etc/xray/domain
     echo $domain > /etc/xray/domain
+    add_cert
+    make_follow
+    cert_ovpn
 }
 
 function start_dns_ssh() {
@@ -177,6 +280,7 @@ function menu_dns() {
     ;;
     2)
     add_nameserver
+    menu_dns
     ;;
     3)
     start_dns_ssh
