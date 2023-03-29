@@ -41,6 +41,14 @@ osslh=$(systemctl status sslh | grep Active | awk '{print $3}' | cut -d "(" -f2 
 ohp=$(systemctl status dropbear-ohp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 ohq=$(systemctl status openvpn-ohp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 ohr=$(systemctl status ssh-ohp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+rc_local=$(systemctl restart rc-local | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+
+# STATUS SERVICE VLESS NTLS
+if [[ $rc_local == "running" ]]; then
+  status_rc_local=" ${GREEN}Running${NC} ( No Error )"
+else
+  status_rc_local="${RED}  Not Running ${NC}  ( Error )${NC}"
+fi
 
 # STATUS SERVICE OPENVPN
 if [[ $oovpn == "active" ]]; then
@@ -204,39 +212,39 @@ echo -e "Time Zone   : $WAKTU"
 echo -e "Date        : $harini"
 echo -e "Time        : $jam"
 echo -e "========================================"| lolcat
-echo -e "    ⇱ System Status Information ⇲"
+echo -e "     ⇱ System Status Information ⇲"
 echo -e "========================================"| lolcat
-echo -e " SSH / TUN                : $status_ssh"
-echo -e " Websocket TLS            :$swstls"
-echo -e " Websocket None TLS      :$swsdrop"
-echo -e " Websocket Ovpn          :$swsovpn"
-echo -e " OHP Dropbear             :$sohp"
-echo -e " OHP OpenVPN             :$sohq"
-echo -e " OHP SSH                  :$sohr"
-echo -e " XRAYS Vmess TLS         :$status_tls_v2ray"
-echo -e " XRAYS Vmess None TLS   :$status_nontls_v2ray"
-echo -e " XRAYS Vless TLS          :$status_tls_vless"
-echo -e " XRAYS Vless None TLS    :$status_nontls_vless"
-echo -e " XRAYS Trojan            :$status_virus_trojan"
-echo -e " XRAYS Trojan GO         :$status_trgo"
-echo -e " OpenVPN                  : $status_openvpn"
-echo -e " Dropbear                  : $status_beruangjatuh"
-echo -e " Stunnel                   : $status_stunnel"
-echo -e " Squid                     : $status_squid"
-echo -e " Fail2Ban                  : $status_fail2ban"
-echo -e " Crons                     : $status_cron"
-echo -e " Vnstat                    : $status_vnstat"
+echo -e " SSH / TUN        : $status_ssh"
+echo -e " SSH SlowDNS      : $status_rc_local"
+echo -e " Websocket TLS    : $swstls"
+echo -e " Websocket NTLS   : $swsdrop"
+echo -e " Websocket Ovpn   : $swsovpn"
+echo -e " OHP Dropbear     : $sohp"
+echo -e " OHP OpenVPN      : $sohq"
+echo -e " OHP SSH          : $sohr"
+echo -e " XRAY Vmess TLS   : $status_tls_v2ray"
+echo -e " XRAY Vmess NTLS  : $status_nontls_v2ray"
+echo -e " XRAY Vless TLS   : $status_tls_vless"
+echo -e " XRAY Vless NTLS  : $status_nontls_vless"
+echo -e " XRAY Trojan GFW  : $status_virus_trojan"
+echo -e " XRAY Trojan GO   : $status_trgo"
+echo -e " OpenVPN          : $status_openvpn"
+echo -e " Dropbear         : $status_beruangjatuh"
+echo -e " Stunnel          : $status_stunnel"
+echo -e " Squid            : $status_squid"
+echo -e " Fail2Ban         : $status_fail2ban"
+echo -e " Crons            : $status_cron"
+echo -e " Vnstat           : $status_vnstat"
 echo -e "========================================"| lolcat
-echo -e "      Premium Auto Script By MakhlukVpn      "
+echo -e "   Premium Auto Script By MakhlukVpn   "
 echo -e " "
 cat /root/.s/log-install.txt
 echo -e " "
-echo -e "      For Debian 9 & Debian 10 64 bit        "
-echo -e "   For Ubuntu 18.04 & Ubuntu 20.04 64 bit"
-echo -e "        Build Up By MakhlukVpn             "
+echo -e "    For Debian 9 & Debian 10 64 bit    "
+echo -e " For Ubuntu 18.04 & Ubuntu 20.04 64 bit"
+echo -e "        Build Up By MakhlukVpn      "
 echo -e "========================================"| lolcat
-echo -e "    Terimakasih Telah "
-echo -e "  Menggunakan Layanan Kami "
-echo -e ""
-echo -e "=======================================" | lolcat
+echo -e "           Terimakasih Telah "
+echo -e "        Menggunakan Layanan Kami "
+echo -e "========================================"| lolcat
 echo -e " "
