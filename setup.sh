@@ -7,44 +7,52 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 		echo "OpenVZ is not supported"
 		exit 1
 fi
+#color
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo -e "[ ${green}INFO${NC} ] Starting Check Ip Vps... " 
+sleep 2
+IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
+else
+echo -e "[ ${green}INFO${red} ] Permission Denied!${NC}";
+echo -e "[ ${green}INFO${NC} ] Please Contact Admin!!"
+echo -e "[ ${green}INFO${NC} ] WhatsApp : 087844547312"
+echo -e "[ ${green}INFO${NC} ] Telegram : https://t.me/MakhlukVpn"
+exit 0
+fi
+clear
+# Disable Ipv6
+echo -e "[ ${green}INFO${NC} ] Starting Disable Ipv6 " 
+sleep 2
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
+sysctl -w net.ipv6.conf.default.disable_ipv6=1
+#update
 echo -e "[ ${green}INFO${NC} ] Starting Update Package " 
 sleep 2
-#update
 apt update -y
 apt upgrade -y
 apt dist-upgrade -y
 apt-get remove --purge ufw firewalld -y
-apt-get remove --purge exim4 -y
-apt -y install wget curl
 apt install lolcat -y
 # Install Requirements Tools
 apt install openssl iptables iptables-persistent -y
+apt-get install ncurses-utils -y
 apt install ruby -y
 apt install python -y
 apt install make -y
 apt install cmake -y
-apt install coreutils -y
-apt install rsyslog -y
 apt install net-tools -y
-apt install zip -y
-apt install unzip -y
-apt install nano -y
-apt install sed -y
-apt install gnupg -y
 apt install gnupg1 -y
-apt install bc -y
 apt install jq -y
-apt install apt-transport-https -y
 apt install build-essential -y
-apt install dirmngr -y
 apt install libxml-parser-perl -y
 apt install neofetch -y
-apt install git -y
-apt install lsof -y
 apt install libsqlite3-dev -y
 apt install libz-dev -y
-apt install gcc -y
-apt install g++ -y
 apt install libreadline-dev -y
 apt install zlib1g-dev -y
 apt install libssl-dev -y
@@ -67,7 +75,7 @@ menu="raw.githubusercontent.com/Annnjayy/sc/main/menu"
 #Link Hosting Kalian Untuk Install
 instal="raw.githubusercontent.com/Annnjayy/sc/main/install"
 # info script install
-if [ -f "/etc/xray/domain" ]; then
+if [ -f "/etc/.s/log-install.txt" ]; then
 echo -e "===============================" | lolcat
 echo -e "   Script Already Installed"
 echo -e "===============================" | lolcat
@@ -114,17 +122,7 @@ bash certv2ray.sh
 # install slowdns cloudflare certificate
 wget https://${instal}/nscf.sh
 bash nscf.sh
-
-#delete sc yabg sudah terinstall
-rm -f /root/ssh-vpn.sh
-rm -f /root/ins-xray.sh
-rm -f /root/ipsaya.sh
-rm -f /root/openvpn.sh
-rm -f /root/ssh-ws.sh
-rm -f /root/ohp.sh
-rm -f /root/nscf.sh
-rm -f /root/tool.sh
-rm -f /root/certv2ray.sh
+#service set
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
 Description=autosetting
@@ -147,39 +145,41 @@ echo "1.2" > /home/ver
 echo -e "[ ${green}INFO${NC} ] Processing Install Done "
 sleep 2
 echo " "
-echo "================= {Service & Port} ==================" | tee -a log-install.txt | lolcat
+echo "================ {Service & Port} ================" | tee -a log-install.txt | lolcat
 echo ""
-echo "   - OpenSSH                   : 22, 2253"  | tee -a log-install.txt
-echo "   - OpenVPN                   : TCP 1194, UDP 2200, SSL 990, 443"  | tee -a log-install.txt
-echo "   - Stunnel5                    : 443, 445"  | tee -a log-install.txt
-echo "   - Dropbear                   : 443, 109, 143"  | tee -a log-install.txt
-echo "   - Squid Proxy                 : 3128, 8080"  | tee -a log-install.txt
-echo "   - Badvpn                      : 7100, 7200, 7300"  | tee -a log-install.txt
-echo "   - Nginx                       : 89"  | tee -a log-install.txt
-echo "   - XRAYS Vmess TLS          : 8443"  | tee -a log-install.txt
-echo "   - XRAYS Vmess None TLS    : 80"  | tee -a log-install.txt
-echo "   - XRAYS Vless TLS           : 2083"  | tee -a log-install.txt
-echo "   - XRAYS Vless None TLS     : 2095"  | tee -a log-install.txt
-echo "   - XRAYS Trojan WS          : 2087"  | tee -a log-install.txt
-echo "   - XRAYS Trojan GO           : 2053"  | tee -a log-install.txt
-echo "   - Websocket TLS             : 443 "  | tee -a log-install.txt
-echo "   - Websocket None TLS       : 8080 "  | tee -a log-install.txt
-echo "   - Websocket Ovpn            : 2086"  | tee -a log-install.txt
-echo "   - OHP SSH                   : 8181"  | tee -a log-install.txt
-echo "   - OHP Dropbear              : 8282"  | tee -a log-install.txt
-echo "   - OHP OpenVPN              : 8383"  | tee -a log-install.txt
-echo "   - SLOWDNS UDP             : 53, 5300 "  | tee -a log-install.txt
-echo "   - SLOWDNS SSL/TLS         : 443 "  | tee -a log-install.txt
+echo "   - OpenSSH            : 22, 2253"  | tee -a log-install.txt
+echo "   - OpenVPN TCP         : 1194"  | tee -a log-install.txt
+echo "   - OpenVPN UDP        : 2200"  | tee -a log-install.txt
+echo "   - OpenVPN SSL        : 990"  | tee -a log-install.txt
+echo "   - OpenVPN WS-SSL     : 443"  | tee -a log-install.txt 
+echo "   - Stunnel5             : 443, 445"  | tee -a log-install.txt
+echo "   - Dropbear             : 443, 109, 143"  | tee -a log-install.txt
+echo "   - Squid Proxy          : 3128, 8080"  | tee -a log-install.txt
+echo "   - Badvpn              : 7100, 7200, 7300"  | tee -a log-install.txt
+echo "   - Nginx               : 89"  | tee -a log-install.txt
+echo "   - X-Ray Vmess TLS    : 8443"  | tee -a log-install.txt
+echo "   - X-Ray Vmess NTLS   : 80"  | tee -a log-install.txt
+echo "   - X-Ray Vless TLS     : 2083"  | tee -a log-install.txt
+echo "   - X-Ray Vless NTLS    : 2095"  | tee -a log-install.txt
+echo "   - X-Ray Trojan GFW   : 2087"  | tee -a log-install.txt
+echo "   - X-Ray Trojan GO    : 2053"  | tee -a log-install.txt
+echo "   - Websocket TLS      : 443 "  | tee -a log-install.txt
+echo "   - Websocket NTLS     : 8080 "  | tee -a log-install.txt
+echo "   - Websocket Ovpn     : 2086"  | tee -a log-install.txt
+echo "   - OHP SSH           : 8181"  | tee -a log-install.txt
+echo "   - OHP Dropbear       : 8282"  | tee -a log-install.txt
+echo "   - OHP OpenVPN      : 8383"  | tee -a log-install.txt
+echo "   - SlowDNS           : 53, 5300 "  | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo ""
-echo "=========== {Server Information & Other Features} =========="  | tee -a log-install.txt | lolcat
+echo "======= {Server Information & Other Features} ======="  | tee -a log-install.txt | lolcat
 echo ""
-echo "   - Timezone                : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
-echo "   - Fail2Ban                 : [ON]"  | tee -a log-install.txt
-echo "   - Dflate                   : [ON]"  | tee -a log-install.txt
-echo "   - IPtables                 : [ON]"  | tee -a log-install.txt
-echo "   - Auto-Reboot             : [ON]"  | tee -a log-install.txt
-echo "   - IPv6                    : [OFF]"  | tee -a log-install.txt
+echo "   - Timezone          : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
+echo "   - Fail2Ban           : [ON]"  | tee -a log-install.txt
+echo "   - Dflate             : [ON]"  | tee -a log-install.txt
+echo "   - IPtables           : [ON]"  | tee -a log-install.txt
+echo "   - Auto-Reboot       : [ON]"  | tee -a log-install.txt
+echo "   - IPv6              : [OFF]"  | tee -a log-install.txt
 echo "   - Autoreboot On 05.00 GMT +7" | tee -a log-install.txt
 echo "   - Autobackup Data" | tee -a log-install.txt
 echo "   - Restore Data" | tee -a log-install.txt
@@ -190,11 +190,12 @@ echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
 echo "   - Dev/Main                : MakhlukVpn"  | tee -a log-install.txt
 echo "   - Telegram                 : t.me/MakhlukVpn"  | tee -a log-install.txt
 echo ""
-echo "============= {Script Created By MakhlukVpn} ============" | tee -a log-install.txt | lolcat
+echo "======== {Script Created By MakhlukVpn} =======" | tee -a log-install.txt | lolcat
+cd /root
+mv log-install.txt /root/.s/
+rm -f setup.sh
 echo -e "[ ${green}INFO${NC} ] Starting Reboot Vps"
 sleep 1
 echo " Reboot 10 Sec"
 sleep 10
-mv log-install.txt /root/.s/
-rm -f setup.sh
 reboot
