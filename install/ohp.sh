@@ -19,7 +19,7 @@ fi
 clear
 # Open Http Puncher
 echo -e "===============================" | lolcat
-echo -e "   Installing Ohp Service             "
+echo -e "     Installing Ohp Service    "
 echo -e "===============================" | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install Ohp.... " 
@@ -125,13 +125,13 @@ else
 	echo 'OpenVPN OHP Redirection Not Found, please check manually'
 fi
 echo -e "===============================" | lolcat
-echo -e "   Done Install OHP  "
+echo -e "       Done Install OHP  "
 echo -e "===============================" | lolcat
-echo -e "   PORT OHP SSH         : 8181  "
-echo -e "   PORT OHP DROPBEAR  : 8282   "
-echo -e "   PORT OHP OpenVPN   : 8383    "
+echo -e "  PORT OHP SSH       : 8181  "
+echo -e "  PORT OHP DROPBEAR  : 8282   "
+echo -e "  PORT OHP OpenVPN   : 8383    "
 echo -e "===============================" | lolcat
-echo -e "   Script By MakhlukVpn          "
+echo -e "     Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 #hapus sc
 rm /root/ohp.sh
