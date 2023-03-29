@@ -18,7 +18,7 @@ exit 0
 fi
 clear
 echo -e "===============================" | lolcat
-echo -e "   Installing Xray Service            "
+echo -e "    Installing Xray Service            "
 echo -e "===============================" | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install Xray..... " 
@@ -833,16 +833,16 @@ systemctl daemon-reload
 systemctl restart dns 
 # info install done
 echo -e "===============================" | lolcat
-echo -e "    Done Install Xray  "
+echo -e "       Done Install Xray  "
 echo -e "===============================" | lolcat
-echo -e "  PORT Vmess TLS     : 8443 "
-echo -e "  PORT Vmess NTLS    : 80 "
-echo -e "  PORT VLESS TLS     : 2083  "
-echo -e "  PORT VLESS NTLS    : 2095  "
+echo -e "  PORT Vmess TLS    : 8443 "
+echo -e "  PORT Vmess NTLS   : 80 "
+echo -e "  PORT VLESS TLS    : 2083  "
+echo -e "  PORT VLESS NTLS   : 2095  "
 echo -e "  PORT TROJAN GFW   : 2087 "
 echo -e "  PORT TROJAN GO    : 2053  "
 echo -e "===============================" | lolcat
-echo -e "   Script By MakhlukVpn          "
+echo -e "     Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 #hapus sc
 rm /root/ins-xray.sh
