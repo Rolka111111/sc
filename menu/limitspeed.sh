@@ -51,17 +51,24 @@ else
 sts="${Error}"
 fi
 clear
-echo -e "=================================="
+echo -e "===============================" | lolcat
 echo -e "    Limit Bandwidth Speed $sts    "
-echo -e "=================================="
-echo -e "[1]. Start Limit"
-echo -e "[2]. Stop Limit"
-echo -e "==============================="
-read -rp "Please Enter The Correct Number : " -e num
+echo -e "===============================" | lolcat
+echo -e " 1}.$green Start Limit"
+echo -e " 2}.$green Stop Limit"
+echo -e " 3}.$green Back To Menu"
+echo -e " x}.$red Exit"
+echo -e "===============================" | lolcat
+read -rp "Please Input Number [1-2 or [x] ] : " -e num
+echo -e "===============================" | lolcat
 if [[ "$num" = "1" ]]; then
 start
 elif [[ "$num" = "2" ]]; then
 stop
+elif [[ "$num" = "3" ]]; then
+menu
+elif [[ "$num" = "x" ]]; then
+exit
 else
 clear
 echo " You Entered The Wrong Number"
