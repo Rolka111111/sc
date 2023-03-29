@@ -13,7 +13,6 @@ echo -e "==============================="
 echo -e "        Script By MakhlukVpn          "
 echo -e "==============================="
 sleep 1
-source /var/lib/crot/ipvps.conf
 domain=$(cat /etc/xray/domain)
 red='\e[1;31m'
 green='\e[0;32m'

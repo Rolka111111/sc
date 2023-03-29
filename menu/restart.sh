@@ -1,8 +1,21 @@
 #!/bin/bash
 clear
+#color
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Loading..."
+IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
+else
+echo -e "[ ${green}INFO${red} ] Permission Denied!${NC}";
+echo -e "[ ${green}INFO${NC} ] Please Contact Admin!!"
+echo -e "[ ${green}INFO${NC} ] WhatsApp : 087844547312"
+echo -e "[ ${green}INFO${NC} ] Telegram : https://t.me/MakhlukVpn"
+exit 0
+fi
 clear
 echo -e ""
 echo -e "===============================" | lolcat
@@ -10,7 +23,7 @@ echo -e "   Starting Restart All Service"
 echo -e "===============================" | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Restart Service... " 
-sleep 1
+sleep 0.5
 pkill python
 systemctl daemon-reload
 echo -e "[ ${green}INFO${NC} ] Starting Restart Ohp... " 
@@ -18,10 +31,6 @@ sleep 0.5
 systemctl restart ssh-ohp
 systemctl restart dropbear-ohp
 systemctl restart openvpn-ohp
-echo -e "[ ${green}INFO${NC} ] Starting Restart Ssh... " 
-sleep 0.5
-/etc/init.d/ssh restart
-/etc/init.d/sslh restart
 echo -e "[ ${green}INFO${NC} ] Starting Restart Websocket..." 
 sleep 0.5
 systemctl restart ws-tls
@@ -35,6 +44,10 @@ systemctl restart xray@vless-nontls
 systemctl restart xray@trojan
 systemctl restart trojan-go
 systemctl restart dns
+echo -e "[ ${green}INFO${NC} ] Starting Restart Ssh... " 
+sleep 0.5
+/etc/init.d/ssh restart
+/etc/init.d/sslh restart
 echo -e "[ ${green}INFO${NC} ] Starting Restart Dropbear... " 
 sleep 0.5
 /etc/init.d/dropbear restart
@@ -54,9 +67,10 @@ sleep 0.5
 echo -e "[ ${green}INFO${NC} ] Starting Restart Nginx... " 
 sleep 0.5
 /etc/init.d/nginx restart
-echo -e "[ ${green}INFO${NC} ] Starting Restart Squid " 
+echo -e "[ ${green}INFO${NC} ] Starting Restart SlowDNS... " 
 sleep 0.5
-/etc/init.d/squid restart
+systemctl restart rc-local
+netfilter-persistent reload
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000

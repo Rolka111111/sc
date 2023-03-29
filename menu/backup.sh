@@ -1,75 +1,56 @@
 #!/bin/bash
 clear
+#color
 red='\e[1;31m'
 green='\e[0;32m'
-clear
-# Getting
+NC='\e[0m'
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Loading..."
+IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
+else
+echo -e "[ ${green}INFO${red} ] Permission Denied!${NC}";
+echo -e "[ ${green}INFO${NC} ] Please Contact Admin!!"
+echo -e "[ ${green}INFO${NC} ] WhatsApp : 087844547312"
+echo -e "[ ${green}INFO${NC} ] Telegram : https://t.me/MakhlukVpn"
+exit 0
+fi
 clear
 IP=$(wget -qO- ipinfo.io/ip);
 date=$(date +"%Y-%m-%d")
+domain=$(cat /etc/xray/domain)
 clear
-mkdir /home/email
-email=$(cat /home/email)
-if [[ "$email" = "" ]]; then
-echo -e "===============================" | lolcat
-echo -e " Masukkan Email Untuk Menerima Backup"
-echo -e "===============================" | lolcat
-read -rp "Email : " -e email
-cat <<EOF>>/home/email
-$email
-EOF
-fi
-clear
-echo -e "===============================" | lolcat
-echo -e "      Mohon Tunggu Sebentar ,!!"
-echo -e "===============================" | lolcat
-rm -rf /root/backup
+echo "Starting Backup"
+sleep 1
+echo "Membuat Directory"
 mkdir /root/backup
+sleep 1
+echo "Start Backup"
+sleep 2
+clear
 cp /etc/passwd backup/
 cp /etc/group backup/
-cp /etc/shadow backup/
-cp /etc/gshadow backup/
-cp -r /var/lib/crot/ backup/crot
 cp -r /etc/xray backup/xray
 cp -r /etc/trojan-go backup/trojan-go
 cp -r /home/vps/public_html backup/public_html
 cd /root
-zip -r $IP-$date.zip backup > /dev/null 2>&1
-rclone copy /root/$IP-$date.zip dr:backup/
-url=$(rclone link dr:backup/$IP-$date.zip)
-id=(`echo $url | grep '^https' | cut -d'=' -f2`)
-link="https://drive.google.com/u/4/uc?id=${id}&export=download"
-echo -e "
-Detail Backup 
-===============================
-IP VPS        : $IP
-Link Backup   : $link
-Tanggal       : $date
-===============================
-        Script By MakhlukVpn          
-===============================
-
-    Mohon Simpan File Backup Nya
-
-===============================
-echo -e "
-" | mail -s "Backup Data" $email
+zip -r backup-$date.zip backup > /dev/null 2>&1
+mv backup-$date.zip /home/vps/public_html
+link="https://$domain:89/backup-$date.zip"
+echo -e "The following is a link to your vps data backup file."
+echo -e "===============================" | lolcat
+echo -e "       Detail Backup   "
+echo -e "===============================" | lolcat
+echo -e " Ip VPS        : $IP"
+echo -e " Domain VPS   : $IP"
+echo -e " Link Backup   : $link"
+echo -e "===============================" | lolcat
+echo -e "      Script By MakhlukVpn"
+echo -e "===============================" | lolcat
+echo ""
+echo -e "If you want to restore data, please copy the link above"
+echo ""
 rm -rf /root/backup
-rm -r /root/$IP-$date.zip
-clear
-echo -e "
-Detail Backup 
-===============================
-IP VPS        : ${IP}
-Link Backup   : $link
-Tanggal       : $date
-===============================
-  Silahkan cek Kotak Masuk $email
-===============================
-        Script By MakhlukVpn         
-===============================
-
-            Terimakasih Telah
-        Menggunakan Layanan Kami
-
-===============================
+rm -r /root/backup-$date.zip
+echo "Done"

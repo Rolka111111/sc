@@ -1,7 +1,22 @@
 #!/bin/bash
 clear
+#color
 red='\e[1;31m'
 green='\e[0;32m'
+NC='\e[0m'
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Loading..."
+IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
+else
+echo -e "[ ${green}INFO${red} ] Permission Denied!${NC}";
+echo -e "[ ${green}INFO${NC} ] Please Contact Admin!!"
+echo -e "[ ${green}INFO${NC} ] WhatsApp : 087844547312"
+echo -e "[ ${green}INFO${NC} ] Telegram : https://t.me/MakhlukVpn"
+exit 0
+fi
+clear
 # isp
 NAMAISP=$( curl -s ipinfo.io/org | cut -d " " -f 2-10  )
 COUNTRY=$( curl -s ipinfo.io/country )
@@ -48,23 +63,23 @@ echo -e "===============================" | lolcat
 echo -e "     ⇱ Menu Manager ⇲ "        
 echo -e "===============================" | lolcat
 echo -e ""
-echo -e " 1}.$green  Manager SSH & OpenVPN"
-echo -e " 2}.$green  Manager X-RAY Vmess & Vless"
-echo -e " 3}.$green  Manager X-RAY Trojan Ws & Go"
+echo -e " 1}.$green  Manage SSH & OpenVPN"
+echo -e " 2}.$green  Manage X-RAY Vmess & Vless"
+echo -e " 3}.$green  Manage X-RAY Trojan GFW & Go"
 echo -e " 4}.$green  Restart All Service"
-echo -e " 5}.$green  Add Domain"
+echo -e " 5}.$green  Manage Cloudflare Domain"
 echo -e " 6}.$green  Renew Certificate Xray"
-echo -e " 7}.$green  Info Service Running "
-echo -e " 8}.$green  Info ScriptAutoInstaller "
+echo -e " 7}.$green  Manage Limit Bandwidth "
+echo -e " 8}.$green  Info Script & Service"
 echo -e " 9}.$green  Cloud Manager Drive "
-echo -e " 10}.$green  Reboot Vps "
+echo -e " 10}.$green Reboot Vps "
 echo -e " x}.$red  Exit"
 echo -e ""
 echo -e "=====================================" | lolcat
 echo -e "• Total Download    : $downloadsize GB "
 echo -e "• Total Upload      : $uploadsize GB "
 echo -e "• Client Name       : $Name"
-echo -e "• Exp Script        : $Exp"
+echo -e "• Exp Script        : LifeTime"
 echo -e "• Version           : V.1 {latest}"
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
@@ -88,13 +103,13 @@ menu-tro
 restart
 ;;
 5)
-addhost
+menu-cf
 ;;
 6)
 certv2ray
 ;;
 7)
-st
+limit
 ;;
 8)
 about
