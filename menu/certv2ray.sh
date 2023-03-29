@@ -32,6 +32,7 @@ sudo fuser -k 80/tcp
 sudo fuser -k 80/tcp
 sudo fuser -k 80/tcp
 sudo fuser -k 80/tcp
+sudo fuser -k 80/tcp
 echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
 sleep 2
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
@@ -43,6 +44,3 @@ systemctl restart xray@vless-nontls
 systemctl restart xray@trojan
 echo -e "[ ${green}INFO${NC} ] All finished... " 
 sleep 0.5
-echo ""
-read -n 1 -s -r -p "Press any key to back on menu"
-menu
