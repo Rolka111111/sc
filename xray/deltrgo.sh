@@ -5,7 +5,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/trojan-go/akun.conf")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		echo -e "================================" | lolcat
-		echo -e "     You have no existing clients!"
+		echo -e " You have no existing clients!"
 		exit 1
 	fi
 
