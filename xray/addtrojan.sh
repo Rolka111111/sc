@@ -55,13 +55,13 @@ echo -e "Key      : ${user}"
 echo -e "Created  : $hariini"
 echo -e "Expired  : $exp"
 echo -e "===============================" | lolcat
-echo -e " Link TR GFW  : ${trojanlink}"
+echo -e "Link TR GFW : ${trojanlink}"
 echo -e "===============================" | lolcat
-echo -e "   Script By MakhlukVpn          "
+echo -e "     Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
 echo -e "       Terimakasih Telah "
-echo -e "   Menggunakan Layanan Kami "
+echo -e "    Menggunakan Layanan Kami "
 echo -e ""
 echo -e "===============================" | lolcat
 echo -e ""
