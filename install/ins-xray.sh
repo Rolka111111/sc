@@ -1,8 +1,21 @@
 #!/bin/bash
+clear
+#color
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Loading..."
+IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
+else
+echo -e "[ ${green}INFO${red} ] Permission Denied!${NC}";
+echo -e "[ ${green}INFO${NC} ] Please Contact Admin!!"
+echo -e "[ ${green}INFO${NC} ] WhatsApp : 087844547312"
+echo -e "[ ${green}INFO${NC} ] Telegram : https://t.me/MakhlukVpn"
+exit 0
+fi
 clear
 echo -e "===============================" | lolcat
 echo -e "   Installing Xray Service            "
@@ -817,8 +830,7 @@ LimitNOFILE=1000000
 WantedBy=multi-user.target
 EOF
 systemctl daemon-reload
-systemctl restart dns
-
+systemctl restart dns 
 # info install done
 echo -e "===============================" | lolcat
 echo -e "    Done Install Xray  "
@@ -827,9 +839,11 @@ echo -e "  PORT Vmess TLS     : 8443 "
 echo -e "  PORT Vmess NTLS    : 80 "
 echo -e "  PORT VLESS TLS     : 2083  "
 echo -e "  PORT VLESS NTLS    : 2095  "
-echo -e "  PORT TROJAN WS    : 2087 "
+echo -e "  PORT TROJAN GFW   : 2087 "
 echo -e "  PORT TROJAN GO    : 2053  "
 echo -e "===============================" | lolcat
 echo -e "   Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
+#hapus sc
+rm /root/ins-xray.sh
 sleep 2

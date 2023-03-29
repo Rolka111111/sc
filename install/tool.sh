@@ -1,8 +1,22 @@
 #!/bin/bash
 clear
+#color
 red='\e[1;31m'
 green='\e[0;32m'
 NC='\e[0m'
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Loading..."
+IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
+else
+echo -e "[ ${green}INFO${red} ] Permission Denied!${NC}";
+echo -e "[ ${green}INFO${NC} ] Please Contact Admin!!"
+echo -e "[ ${green}INFO${NC} ] WhatsApp : 087844547312"
+echo -e "[ ${green}INFO${NC} ] Telegram : https://t.me/MakhlukVpn"
+exit 0
+fi
+clear
 # info
 echo -e "===============================" | lolcat
 echo -e "   Installing All Tool            "
@@ -22,7 +36,9 @@ menu="raw.githubusercontent.com/Annnjayy/sc/main/menu"
 instal="raw.githubusercontent.com/Annnjayy/sc/main/install"
 #install
 cd /usr/bin
-wget --output-document=addhost "https://${menu}/addhost.sh"
+wget --output-document=add_host "https://${menu}/addhost.sh"
+wget --output-document=limit "https://${menu}/limitspeed.sh"
+wget --output-document=add_ns "https://${instal}/nscf.sh"
 wget --output-document=slhost "https://${service}/cf.sh"
 wget --output-document=about "https://${menu}/about.sh"
 wget --output-document=menu "https://${menu}/menu.sh"
@@ -36,7 +52,7 @@ wget --output-document=restart "https://${menu}/restart.sh"
 wget --output-document=usernew "https://${ssh}/usernew.sh"
 wget --output-document=autokill "https://${ssh}/autokill.sh"
 wget --output-document=ceklim "https://${ssh}/ceklim.sh"
-wget --output-document=cek "https://${ssh}/cekssh.sh
+wget --output-document=cek "https://${ssh}/cekssh.sh"
 wget --output-document=tendang "https://${service}/tendang.sh"
 wget --output-document=clearlog "https://${service}/clearlog.sh"
 wget --output-document=xp "https://${service}/xp.sh"
@@ -47,6 +63,7 @@ wget --output-document=backup "https://${menu}/backup.sh"
 wget --output-document=restore "https://${menu}/restore.sh"
 wget --output-document=menu-tro "https://${menu}/menu-trojan.sh"
 wget --output-document=menu-ssh "https://${menu}/menu-ssh.sh"
+wget --output-document=menu-cf "https://${menu}/menu-cf.sh"
 wget --output-document=menu-xray "https://${menu}/menu-xray.sh"
 wget --output-document=menu-cloud "https://${menu}/menu-cloud.sh"
 wget --output-document=delvmess "https://${xray}/delvmess.sh"
@@ -71,10 +88,12 @@ chmod +x menu-xray
 chmod +x menu-tro
 chmod +x menu-cloud
 chmod +x menu-ssh
-chmod +x st
+chmod +x menu-cf
+chmod +x limit
 chmod +x cek
 chmod +x slhost
-chmod +x addhost
+chmod +x add_host
+chmod +x add_ns
 chmod +x menu
 chmod +x usernew
 chmod +x trial
@@ -105,10 +124,17 @@ chmod +x renewvless
 chmod +x renewtrojan
 chmod +x renewtrgo
 chmod +x certv2ray
-
+#fix
 echo "0 5 * * * root clearlog && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 echo "10 4 * * * root clearlog && sslh-fix-reboot" >> /etc/crontab
 echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
 echo "0 12 * * * root clearlog && reboot" >> /etc/crontab
 echo "0 18 * * * root clearlog && reboot" >> /etc/crontab
+git clone  https://github.com/magnific0/wondershaper.git
+cd wondershaper
+make install
+rm -rf wondershaper
+echo > /home/limit
+#hapus sc
+rm /root/tool.sh
