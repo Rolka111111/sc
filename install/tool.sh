@@ -36,9 +36,7 @@ menu="raw.githubusercontent.com/Annnjayy/sc/main/menu"
 instal="raw.githubusercontent.com/Annnjayy/sc/main/install"
 #install
 cd /usr/bin
-wget --output-document=add_host "https://${menu}/addhost.sh"
 wget --output-document=limit "https://${menu}/limitspeed.sh"
-wget --output-document=add_ns "https://${instal}/nscf.sh"
 wget --output-document=slhost "https://${service}/cf.sh"
 wget --output-document=about "https://${menu}/about.sh"
 wget --output-document=menu "https://${menu}/menu.sh"
@@ -92,8 +90,6 @@ chmod +x menu-cf
 chmod +x limit
 chmod +x cek
 chmod +x slhost
-chmod +x add_host
-chmod +x add_ns
 chmod +x menu
 chmod +x usernew
 chmod +x trial

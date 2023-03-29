@@ -45,7 +45,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/bin/python -O /usr/local/bin/ws-nontls 8080
+ExecStart=/usr/bin/python -O /usr/local/bin/ws-nontls 8880
 Restart=on-failure
 
 [Install]
@@ -107,7 +107,7 @@ systemctl restart ws-ovpn
 echo -e "===============================" | lolcat
 echo -e "  Done Install Ssh & Ovpn Websocket  "
 echo -e "===============================" | lolcat
-echo -e "   PORT SSH NONTLS : 8080        "
+echo -e "   PORT SSH NONTLS : 8880        "
 echo -e "   PORT SSH TLS    : 443        "
 echo -e "   PORT OVPN WS   : 2086      "
 echo -e "===============================" | lolcat
