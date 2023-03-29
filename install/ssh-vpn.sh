@@ -18,7 +18,7 @@ exit 0
 fi
 clear
 echo -e "===============================" | lolcat
-echo -e "   Installing All Service            "
+echo -e "     Installing All Service     "
 echo -e "===============================" | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install All Service..... " 
@@ -368,7 +368,7 @@ mv cert.pem /root/.s/
 
 # finihsing
 echo "====================================" | lolcat
-echo "    Sucesfully Install All Service         "
+echo "    Sucesfully Install All Service    "
 echo "====================================" | lolcat
 #hapus sc
 rm /root/ssh-vpn.sh
