@@ -47,7 +47,7 @@ downloadsize=$(($download/1073741824))
 # Upload
 upload=`grep -e "lo:" -e "wlan0:" -e "eth0" /proc/net/dev | awk '{print $10}' | paste -sd+ - | bc`
 uploadsize=$(($upload/1073741824))
-
+clear
 echo -e ""
 echo -e "===============================" | lolcat
 echo -e "     ⇱ Sytem Information ⇲           "
