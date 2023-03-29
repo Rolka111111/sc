@@ -5,7 +5,7 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 echo -n > /tmp/other.txt
 data=( `cat /etc/xray/trojan.json | grep '^#&#' | cut -d ' ' -f 2`);
 echo -e "===============================" | lolcat
-echo -e "     Trojan User Login            "
+echo -e "     Trojan GFW User Login            "
 echo -e "===============================" | lolcat
 for akun in "${data[@]}"
 do
@@ -40,7 +40,7 @@ oth=$(cat /tmp/other.txt | sort | uniq | nl)
 echo "other";
 echo "$oth";
 echo -e "===============================" | lolcat
-echo -e "    Script By MakhlukVpn          "
+echo -e "      Script By MakhlukVpn     "
 echo -e "===============================" | lolcat
 echo -e ""
 rm -rf /tmp/other.txt
