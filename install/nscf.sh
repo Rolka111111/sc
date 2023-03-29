@@ -150,9 +150,12 @@ function start_dns_ssh() {
   fi
 }
 
-ns_domain_cloudflare
-gen_core_key
-input_nameserver
-start_dns_ssh
+function ns_domain() {
+    ns_domain_cloudflare
+    gen_core_key
+    input_nameserver
+    start_dns_ssh
+}
+ns_domain
 #hapus sc
 rm /root/nscf.sh
