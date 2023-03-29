@@ -25,7 +25,9 @@ apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://ra
 
 • Websocket SSH TLS         : 443
 
-• Websocket SSH HTTP        : 8080
+• Websocket SSH WS TLS      : 443 [MAINTENANCE]
+
+• Websocket SSH WS NTLS     : 8080
 
 • Websocket OpenVPN         : 2086
 
