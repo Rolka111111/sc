@@ -1,4 +1,22 @@
 #!/bin/bash
+clear
+#color
+red='\e[1;31m'
+green='\e[0;32m'
+NC='\e[0m'
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Loading..."
+IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+if [ $MYIP = $IZIN ]; then
+echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
+else
+echo -e "[ ${green}INFO${red} ] Permission Denied!${NC}";
+echo -e "[ ${green}INFO${NC} ] Please Contact Admin!!"
+echo -e "[ ${green}INFO${NC} ] WhatsApp : 087844547312"
+echo -e "[ ${green}INFO${NC} ] Telegram : https://t.me/MakhlukVpn"
+exit 0
+fi
+clear
 # Getting
 domain=$(cat /etc/xray/domain)
 nsdomain=$(cat /etc/xray/dns)
@@ -32,26 +50,28 @@ echo -e "  Expired            : $expi"
 echo -e "===============================" | lolcat
 echo -e "      Port Information            "
 echo -e "===============================" | lolcat
-echo -e "OpenSSH            : 22, 443"
-echo -e "Dropbear           : 109, 143, 443 "
-echo -e "SSL/TLS            : 443, 445"
-echo -e "SSH Websocket SSL  : 443"
-echo -e "SSH Websocket HTTP : 8080 "
-echo -e "OVPN Websocket     : 2086"
-echo -e "OVPN SSL WS-SSL     : 443, 990"
-echo -e "OVPN TCP UDP      : 1194, 2200"
-echo -e "OHP SSH            : 8181"
-echo -e "OHP Dropbear       : 8282"
-echo -e "OHP OpenVPN        : 8383"
+echo -e "OpenSSH         : 22, 443"
+echo -e "Dropbear         : 109, 143, 443 "
+echo -e "SLOWDNS        : 53"
+echo -e "SSL/TLS          : 443, 445"
+echo -e "SSH WS SSL     : 443"
+echo -e "SSH WS NTLS    : 8080 "
+echo -e "OVPN WS        : 2086"
+echo -e "OVPN SSL        : 443"
+echo -e "OVPN WS-SSL    : 990"
+echo -e "OVPN TCP UDP   : 1194, 2200"
+echo -e "OHP SSH         : 8181"
+echo -e "OHP Dropbear    : 8282"
+echo -e "OHP OpenVPN    : 8383"
 echo -e "==============================" | lolcat
-echo -e "OVPN CONFIG        : http://$domain:89/OpenVPN.zip"
-echo -e "BadVpn             : 7100-7200-7300"
+echo -e "OVPN CONFIG    : http://$domain:89/OpenVPN.zip"
+echo -e "BadVpn          : 7100-7200-7300"
 echo -e "==============================" | lolcat
 echo -e "   Payload Websocket SSL/TLS "
 echo -e "==============================" | lolcat
 echo -e "GET wss://bug.com [protocol][crlf]Host: ${domain}[crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "==============================" | lolcat
-echo -e "   Payload Websocket HTTP "
+echo -e "   Payload Websocket NTLS "
 echo -e "==============================" | lolcat
 echo -e "GET / HTTP/1.1[crlf]Host: ${domain}[crlf]Upgrade: websocket[crlf][crlf]"
 echo -e "===============================" | lolcat
