@@ -18,7 +18,7 @@ exit 0
 fi
 clear
 echo -e "===============================" | lolcat
-echo -e "   Installing SSH OpenVpn           "
+echo -e "     Installing SSH OpenVpn    "
 echo -e "===============================" | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install OpenVPN..
@@ -152,14 +152,14 @@ function install_ovpn() {
 }
 install_ovpn
 echo -e "===============================" | lolcat
-echo -e "   Done Install OpenVPN  "
+echo -e "      Done Install OpenVPN  "
 echo -e "===============================" | lolcat
-echo -e "   PORT OpenVPN UDP : 2200     "
-echo -e "   PORT OpenVPN TCP  : 1194      "
-echo -e "   PORT OpenVPN SSL  : 990      "
-echo -e "   PORT OpenVPN WS-SSL  : 443      "
+echo -e "  PORT OpenVPN UDP     : 2200     "
+echo -e "  PORT OpenVPN TCP     : 1194      "
+echo -e "  PORT OpenVPN SSL     : 990      "
+echo -e "  PORT OpenVPN WS-SSL  : 443      "
 echo -e "===============================" | lolcat
-echo -e "   Script By MakhlukVpn          "
+echo -e "      Script By MakhlukVpn     "
 echo -e "===============================" | lolcat
 #hapus sc
 rm /root/openvpn.sh
