@@ -64,6 +64,6 @@ echo "======================================" | lolcat
 fi
 echo " "
 echo "======================================" | lolcat
-echo "       Script By MakhlukVpn"
+echo "        Script By MakhlukVpn"
 echo "======================================" | lolcat
 
