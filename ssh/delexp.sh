@@ -7,7 +7,7 @@ clear
 MYIP=$(wget -qO- ipinfo.io/ip);
 hariini=`date +%d-%m-%Y`
 echo -e "===============================" | lolcat
-echo -e "     Succesfully
+echo -e "          Succesfully
 echo -e "===============================" | lolcat
 echo -e " Username $hariini Telah Di Hapus"
 echo -e "===============================" | lolcat
@@ -44,7 +44,7 @@ userdel $username
 fi
 done
 echo -e "===============================" | lolcat
-echo -e "       Succesfully
+echo -e "          Succesfully
 echo -e "===============================" | lolcat
-echo -e "   Script By MakhlukVpn          "
+echo -e "      Script By MakhlukVpn       "
 echo -e "===============================" | lolcat
