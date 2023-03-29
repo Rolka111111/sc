@@ -19,7 +19,7 @@ fi
 clear
 # Proxy For Ssh & Ovpn Websocket
 echo -e "===============================" | lolcat
-echo -e "  Installing SSH Websocket-OVPN      "
+echo -e " Installing SSH Websocket-OVPN "
 echo -e "===============================" | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install Ssh....... " 
@@ -105,13 +105,13 @@ systemctl enable ws-ovpn
 systemctl restart ws-ovpn
 
 echo -e "===============================" | lolcat
-echo -e "  Done Install Ssh & Ovpn Websocket  "
+echo -e "  Done Install SSH & Ovpn WS "
 echo -e "===============================" | lolcat
-echo -e "   PORT SSH NONTLS : 8880        "
-echo -e "   PORT SSH TLS    : 443        "
-echo -e "   PORT OVPN WS   : 2086      "
+echo -e "  PORT SSH NONTLS : 8880        "
+echo -e "  PORT SSH TLS    : 443        "
+echo -e "  PORT OVPN WS    : 2086      "
 echo -e "===============================" | lolcat
-echo -e "   Script By MakhlukVpn          "
+echo -e "     Script By MakhlukVpn    "
 echo -e "===============================" | lolcat
 #hapus sc
 rm /root/ssh-ws.sh
