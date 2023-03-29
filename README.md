@@ -1,9 +1,10 @@
 # sc Testing🗿
-Note : 
+
  Disarankan kalau sudah install scriptnya
 lihat dulu service runningnya di menu info script,
 lihat ada yang error gak, kalau ada yang error
 restart service dan Renew Certificate xray
+
  Dan jikalau slowdns nya ga berfungsi
 maka pilih start slowdns di menu domain.
 
