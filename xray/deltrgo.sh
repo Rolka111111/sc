@@ -13,7 +13,7 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/trojan-go/akun.conf")
 	echo " Select the existing client you want to remove"
 	echo " Press CTRL+C to return"
 	echo -e "================================" | lolcat
-	echo -e "     No  Expired   User"
+	echo -e "       No  Expired   User"
 	echo -e "================================" | lolcat
 	grep -E "^### " "/etc/trojan-go/akun.conf" | cut -d ' ' -f 2-3 | nl -s ') '
 	until [[ ${CLIENT_NUMBER} -ge 1 && ${CLIENT_NUMBER} -le ${NUMBER_OF_CLIENTS} ]]; do
@@ -37,6 +37,6 @@ echo -e "================================" | lolcat
 echo -e " Username  : $user"
 echo -e " Expired   : $exp"
 echo -e "===============================" | lolcat
-echo -e "    Script By MakhlukVpn          "
+echo -e "     Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
