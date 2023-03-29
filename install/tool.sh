@@ -19,7 +19,7 @@ fi
 clear
 # info
 echo -e "===============================" | lolcat
-echo -e "   Installing All Tool            "
+echo -e "      Installing All Tool      "
 echo -e "===============================" | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install Tools..... " 
