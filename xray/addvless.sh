@@ -55,7 +55,7 @@ echo -e "========={XRAYS/VLESS}==========" | lolcat
 echo -e "Remarks     : ${user}"
 echo -e "Address     : ${domain}"
 echo -e "Port TLS    : 2083"
-echo -e "Port No TLS : 2095"
+echo -e "Port NTLS   : 2095"
 echo -e "User ID     : ${uuid}"
 echo -e "Encryption  : none"
 echo -e "Network     : ws"
@@ -63,15 +63,15 @@ echo -e "Path        : /vless"
 echo -e "Created     : $hariini"
 echo -e "Expired     : $exp"
 echo -e "===============================" | lolcat
-echo -e "Link TLS    : ${xrayvless1}"
+echo -e "Link TLS  : ${xrayvless1}"
 echo -e "===============================" | lolcat
-echo -e "Link No TLS : ${xrayvless2}"
+echo -e "Link NTLS : ${xrayvless2}"
 echo -e "===============================" | lolcat
-echo -e "   Script By MakhlukVpn          "
+echo -e "     Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
-echo -e "     Terimakasih Telah "
-echo -e "  Menggunakan Layanan Kami "
+echo -e "      Terimakasih Telah "
+echo -e "    Menggunakan Layanan Kami "
 echo -e ""
 echo -e "===============================" | lolcat
 echo -e ""
