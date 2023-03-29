@@ -18,14 +18,14 @@ exit 0
 fi
 clear
 echo -e "===============================" | lolcat
-echo -e "    ⇱ Menu Xray | Trojan GFW ⇲"
+echo -e "  ⇱ Menu Xray | Trojan GFW ⇲"
 echo -e "===============================" | lolcat
 echo -e " 1}.$green Create Account Trojan GFW "
 echo -e " 2}.$green Delete Account Trojan GFW "
 echo -e " 3}.$green Renew Account Trojan GFW "
 echo -e " 4}.$green Check User Login Trojan GFW "
 echo -e "===============================" | lolcat
-echo -e "    ⇱ Menu Xray | Trojan GO ⇲"
+echo -e "  ⇱ Menu Xray | Trojan GO ⇲"
 echo -e "===============================" | lolcat
 echo -e " 5}.$green Create Account Trojan Go"
 echo -e " 6}.$green Delete Account Trojan Go"
@@ -34,7 +34,7 @@ echo -e " 8}.$green Check User Login Trojan Go"
 echo -e " 9}.$green Back To Menu"
 echo -e " x}.$red Exit"
 echo -e "===============================" | lolcat
-echo -e "    Script By MakhlukVpn          "
+echo -e "      Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
 echo -e ""
