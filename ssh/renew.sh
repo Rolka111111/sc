@@ -20,12 +20,12 @@ clear
 echo -e ""
 echo -e "===============================" | lolcat
 echo -e ""
-echo -e "   Username        :  $User"
-echo -e "   Days Added      :  $Days Days"
-echo -e "   Expires on      :  $Expiration_Display"
+echo -e "   Username    :  $User"
+echo -e "   Days Added  :  $Days Days"
+echo -e "   Expires on  :  $Expiration_Display"
 echo -e ""
 echo -e "===============================" | lolcat
-echo -e "    Script By MakhlukVpn          "
+echo -e "     Script By MakhlukVpn    "
 echo -e "===============================" | lolcat
 exho -e ""
 else
