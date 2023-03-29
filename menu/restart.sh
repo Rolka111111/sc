@@ -57,8 +57,8 @@ sleep 0.5
 /etc/init.d/nginx restart
 echo -e "[ ${green}INFO${NC} ] Starting Restart SlowDNS... " 
 sleep 0.5
-systemctl restart rc-local
-netfilter-persistent reload
+systemctl restart rc-local > /root/.s/log
+netfilter-persistent reload > /root/.s/log
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000
