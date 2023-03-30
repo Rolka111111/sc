@@ -51,7 +51,7 @@ locality=Indonesia
 organization=infinity
 organizationalunit=infinity
 commonname=cdn.covid19.go.id
-email=hayuk69@gmail.com
+email=makhlukvpn@gmail.com
 
 # simple password minimal
 wget --output-document=/etc/pam.d/common-password "https://${service}/password"
