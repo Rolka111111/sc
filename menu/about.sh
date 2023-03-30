@@ -204,6 +204,7 @@ else
    swsopen="${RED}  Not Running ${NC}  ( Error )${NC}"
 fi
 #info
+cat /root/.s/log-install.txt
 echo -e "========================================"| lolcat
 echo -e "    ⇱ Time Information ⇲"
 echo -e "========================================"| lolcat
@@ -236,10 +237,6 @@ echo -e " Fail2Ban         : $status_fail2ban"
 echo -e " Crons            : $status_cron"
 echo -e " Vnstat           : $status_vnstat"
 echo -e "========================================"| lolcat
-echo -e "   Premium Auto Script By MakhlukVpn   "
-echo -e " "
-cat /root/.s/log-install.txt
-echo -e " "
 echo -e "    For Debian 9 & Debian 10 64 bit    "
 echo -e " For Ubuntu 18.04 & Ubuntu 20.04 64 bit"
 echo -e "        Build Up By MakhlukVpn      "
