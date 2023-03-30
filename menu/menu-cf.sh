@@ -104,14 +104,38 @@ function add_cert(){
     systemctl enable xray@vless-tls
     systemctl enable xray@vless-nontls
     systemctl enable xray@trojan
-    echo -e "[ ${green}INFO${NC} ] Processing to stop port 80 " 
-    sleep 1
-    sudo fuser -k 80/tcp
-    sudo fuser -k 80/tcp
-    sudo fuser -k 80/tcp
-    sudo fuser -k 80/tcp
-    sudo fuser -k 80/tcp
-    sudo fuser -k 80/tcp
+    echo -e "[ ${green}INFO${NC} ] Processing 10 second to stop port 80 " 
+sleep 2
+echo -e "1"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "2"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "3"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "4"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "5"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "6"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "7"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "8"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "9"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "10"
+sudo fuser -k 80/tcp
+sleep 0.2
     echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
     sleep 2
     /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
