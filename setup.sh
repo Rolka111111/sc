@@ -149,53 +149,53 @@ history -c
 echo "1.2" > /home/ver
 echo -e "[ ${green}INFO${NC} ] Processing Install Done "
 sleep 2
-echo " "
-echo "================ {Service & Port} ================" | tee -a log-install.txt | lolcat
-echo ""
-echo "   - OpenSSH           : 22, 2253"  | tee -a log-install.txt
-echo "   - OpenVPN TCP       : 1194"  | tee -a log-install.txt
-echo "   - OpenVPN UDP       : 2200"  | tee -a log-install.txt
-echo "   - OpenVPN SSL       : 990"  | tee -a log-install.txt
-echo "   - OpenVPN WS-SSL    : 443"  | tee -a log-install.txt 
-echo "   - Stunnel5          : 443, 445"  | tee -a log-install.txt
-echo "   - Dropbear          : 443, 109, 143"  | tee -a log-install.txt
-echo "   - Squid Proxy       : 3128, 8080"  | tee -a log-install.txt
-echo "   - Badvpn            : 7100, 7200, 7300"  | tee -a log-install.txt
-echo "   - Nginx             : 89"  | tee -a log-install.txt
-echo "   - X-Ray Vmess TLS   : 8443"  | tee -a log-install.txt
-echo "   - X-Ray Vmess NTLS  : 80"  | tee -a log-install.txt
-echo "   - X-Ray Vless TLS   : 2083"  | tee -a log-install.txt
-echo "   - X-Ray Vless NTLS  : 2095"  | tee -a log-install.txt
-echo "   - X-Ray Trojan GFW  : 2087"  | tee -a log-install.txt
-echo "   - X-Ray Trojan GO   : 2053"  | tee -a log-install.txt
-echo "   - Websocket TLS     : 443 "  | tee -a log-install.txt
-echo "   - Websocket NTLS    : 8880 "  | tee -a log-install.txt
-echo "   - Websocket Ovpn    : 2086"  | tee -a log-install.txt
-echo "   - OHP SSH           : 8181"  | tee -a log-install.txt
-echo "   - OHP Dropbear      : 8282"  | tee -a log-install.txt
-echo "   - OHP OpenVPN       : 8383"  | tee -a log-install.txt
-echo "   - SlowDNS           : 53, 5300 "  | tee -a log-install.txt
-echo ""  | tee -a log-install.txt
-echo ""
-echo "======= {Server Information & Other Features} ======="  | tee -a log-install.txt | lolcat
-echo ""
-echo "   - Timezone          : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
-echo "   - Fail2Ban          : [ON]"  | tee -a log-install.txt
-echo "   - Dflate            : [ON]"  | tee -a log-install.txt
-echo "   - IPtables          : [ON]"  | tee -a log-install.txt
-echo "   - Auto-Reboot       : [ON]"  | tee -a log-install.txt
-echo "   - IPv6              : [OFF]"  | tee -a log-install.txt
-echo "   - Autoreboot On 05.00 GMT +7" | tee -a log-install.txt
-echo "   - Autobackup Data" | tee -a log-install.txt
-echo "   - Restore Data" | tee -a log-install.txt
-echo "   - Auto Delete Expired Account" | tee -a log-install.txt
-echo "   - Full Orders For Various Services" | tee -a log-install.txt
-echo "   - White Label" | tee -a log-install.txt
-echo "   - Installation Log --> /root/log-install.txt"  | tee -a log-install.txt
-echo "   - Dev/Main          : MakhlukVpn"  | tee -a log-install.txt
-echo "   - Telegram          : t.me/MakhlukVpn"  | tee -a log-install.txt
-echo ""
-echo "======== {Script Created By MakhlukVpn} =======" | tee -a log-install.txt | lolcat
+echo " " | tee -a log-install.txt
+echo "=========== {Service & Port} ===========" | tee -a log-install.txt | lolcat
+echo " " | tee -a log-install.txt
+echo "  - OpenSSH           : 22, 2253"  | tee -a log-install.txt
+echo "  - OpenVPN TCP       : 1194"  | tee -a log-install.txt
+echo "  - OpenVPN UDP       : 2200"  | tee -a log-install.txt
+echo "  - OpenVPN SSL       : 990"  | tee -a log-install.txt
+echo "  - OpenVPN WS-SSL    : 443"  | tee -a log-install.txt 
+echo "  - Stunnel5          : 443, 445"  | tee -a log-install.txt
+echo "  - Dropbear          : 443, 109, 143"  | tee -a log-install.txt
+echo "  - Squid Proxy       : 3128, 8080"  | tee -a log-install.txt
+echo "  - Badvpn            : 7100, 7200, 7300"  | tee -a log-install.txt
+echo "  - Nginx             : 89"  | tee -a log-install.txt
+echo "  - X-Ray Vmess TLS   : 8443"  | tee -a log-install.txt
+echo "  - X-Ray Vmess NTLS  : 80"  | tee -a log-install.txt
+echo "  - X-Ray Vless TLS   : 2083"  | tee -a log-install.txt
+echo "  - X-Ray Vless NTLS  : 2095"  | tee -a log-install.txt
+echo "  - X-Ray Trojan GFW  : 2087"  | tee -a log-install.txt
+echo "  - X-Ray Trojan GO   : 2053"  | tee -a log-install.txt
+echo "  - Websocket TLS     : 443 "  | tee -a log-install.txt
+echo "  - Websocket NTLS    : 8880 "  | tee -a log-install.txt
+echo "  - Websocket Ovpn    : 2086"  | tee -a log-install.txt
+echo "  - OHP SSH           : 8181"  | tee -a log-install.txt
+echo "  - OHP Dropbear      : 8282"  | tee -a log-install.txt
+echo "  - OHP OpenVPN       : 8383"  | tee -a log-install.txt
+echo "  - SlowDNS           : 53, 5300 "  | tee -a log-install.txt
+echo " " | tee -a log-install.txt
+echo " {Server Information & Other Features} "  | tee -a log-install.txt | lolcat
+echo " " | tee -a log-install.txt
+echo "  - Timezone          : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
+echo "  - Fail2Ban          : [ON]"  | tee -a log-install.txt
+echo "  - Dflate            : [ON]"  | tee -a log-install.txt
+echo "  - IPtables          : [ON]"  | tee -a log-install.txt
+echo "  - Auto-Reboot       : [ON]"  | tee -a log-install.txt
+echo "  - IPv6              : [OFF]"  | tee -a log-install.txt
+echo "  - Autoreboot On 05.00 GMT +7" | tee -a log-install.txt
+echo "  - Autobackup Data" | tee -a log-install.txt
+echo "  - Restore Data" | tee -a log-install.txt
+echo "  - Auto Delete Expired Account" | tee -a log-install.txt
+echo "  - Full Orders For Various Services" | tee -a log-install.txt
+echo "  - White Label" | tee -a log-install.txt
+echo "  - Dev/Main          : MakhlukVpn"  | tee -a log-install.txt
+echo "  - Telegram          : t.me/MakhlukVpn"  | tee -a log-install.txt
+echo " " | tee -a log-install.txt
+echo " {Script Auto Install By MakhlukVpn} " | tee -a log-install.txt | lolcat
+echo " " | tee -a log-install.txt
+echo "=======================================" | lolcat
 # hapus sc dan pindahkan
 cd /root
 mv log-install.txt /root/.s/
