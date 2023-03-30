@@ -5,9 +5,9 @@ NC='\e[0m'
 MYIP=$(wget -qO- icanhazip.com);
 apt install jq curl -y
 # Certificat For Ssh & Ovpn Websocket
-echo "====================================" | lolcat
-echo "   Installing Cert Cloudflare Domain        "
-echo "====================================" | lolcat
+echo "=====================================" | lolcat
+echo "  Installing Cert Cloudflare Domain        "
+echo "=====================================" | lolcat
 sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install Cert.... " 
 sleep 1
