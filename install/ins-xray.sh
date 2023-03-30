@@ -63,6 +63,8 @@ sleep 0.5
 domain=$(cat /xray/domain)
 echo -e "[ ${green}INFO${NC} ] Start " 
 sudo lsof -t -i tcp:80 -s tcp:listen | sudo xargs kill
+sudo fuser -k 80/tcp
+sudo fuser -k 80/tcp
 cd /root/
 wget -O acme.sh https://raw.githubusercontent.com/acmesh-official/acme.sh/master/acme.sh
 bash acme.sh --install
@@ -72,6 +74,8 @@ wget https://get.acme.sh >/dev/null 2>&1 | sh -s email=makhlukvpn@gmail.com
 /root/.acme.sh/acme.sh --upgrade --auto-upgrade >/dev/null 2>&1
 /root/.acme.sh/acme.sh --set-default-ca --server letsencrypt >/dev/null 2>&1
 echo "starting...., Port 80 Akan di Hentikan Saat Proses install Cert"
+sudo fuser -k 80/tcp
+sudo fuser -k 80/tcp
 bash acme.sh --register-account -m makhlukvpn@gmail.com
 bash acme.sh --issue --standalone -d $domain --force
 bash acme.sh --installcert -d $domain --fullchainpath /etc/xray/xray.crt --keypath /etc/xray/xray.key
