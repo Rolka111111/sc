@@ -41,9 +41,9 @@ osslh=$(systemctl status sslh | grep Active | awk '{print $3}' | cut -d "(" -f2 
 ohp=$(systemctl status dropbear-ohp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 ohq=$(systemctl status openvpn-ohp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 ohr=$(systemctl status ssh-ohp | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-rc_local=$(systemctl restart rc-local | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
+rc_local=$(systemctl status rc-local | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 
-# STATUS SERVICE VLESS NTLS
+# STATUS SERVICE SlowDNS
 if [[ $rc_local == "running" ]]; then
   status_rc_local=" ${GREEN}Running${NC} ( No Error )"
 else
