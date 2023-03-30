@@ -25,7 +25,6 @@ domain=$(cat /etc/xray/domain)
 else
 domain=$IP
 fi
-trgo="$(cat ~/log-install.txt | grep -w "Tr Go" | cut -d: -f2|sed 's/ //g')"
 until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 		echo -e "===============================" | lolcat
 		read -rp "Password : " -e user
