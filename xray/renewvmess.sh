@@ -23,12 +23,11 @@ NUMBER_OF_CLIENTS=$(grep -c -E "^### " "/etc/xray/v2ray-tls.json")
 	if [[ ${NUMBER_OF_CLIENTS} == '0' ]]; then
 		clear
 		echo -e "================================" | lolcat
-		echo -e "     You have no existing clients!"
+		echo -e "  You have no existing clients!"
 		exit 1
 	fi
 
 	clear
-	echo -e "===============================" | lolcat
 	echo "Select the existing client you want to renew"
 	echo " Press CTRL+C to return"
 	echo -e "===============================" | lolcat
@@ -56,11 +55,11 @@ service cron restart
 clear
 echo ""
 echo -e "===============================" | lolcat
-echo -e "      Vmess Account Renewed    "
+echo -e "     Vmess Account Renewed    "
 echo -e "===============================" | lolcat
 echo -e "  Username  : $user"
 echo -e "  Expired   : $exp4"
 echo -e "===============================" | lolcat
-echo -e "   Script By MakhlukVpn          "
+echo -e "     Script By MakhlukVpn          "
 echo -e "===============================" | lolcat
 echo -e ""
