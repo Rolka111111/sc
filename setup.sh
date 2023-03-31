@@ -156,9 +156,8 @@ echo "  - OpenSSH           : 22, 2253"  | tee -a log-install.txt
 echo "  - OpenVPN TCP       : 1194"  | tee -a log-install.txt
 echo "  - OpenVPN UDP       : 2200"  | tee -a log-install.txt
 echo "  - OpenVPN SSL       : 990"  | tee -a log-install.txt
-echo "  - OpenVPN WS-SSL    : 443"  | tee -a log-install.txt 
-echo "  - Stunnel5          : 443, 445"  | tee -a log-install.txt
-echo "  - Dropbear          : 443, 109, 143"  | tee -a log-install.txt
+echo "  - Stunnel5          : 443, 445, 777"  | tee -a log-install.txt
+echo "  - Dropbear          : 143, 109, 443"  | tee -a log-install.txt
 echo "  - Squid Proxy       : 3128, 8080"  | tee -a log-install.txt
 echo "  - Badvpn            : 7100, 7200, 7300"  | tee -a log-install.txt
 echo "  - Nginx             : 89"  | tee -a log-install.txt
