@@ -48,6 +48,36 @@ sleep 0.2
 echo -e "10"
 sudo fuser -k 80/tcp
 sleep 0.2
+echo -e "11"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "12"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "13"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "14"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "15"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "16"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "17"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "18"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "19"
+sudo fuser -k 80/tcp
+sleep 0.2
+echo -e "20"
+sudo fuser -k 80/tcp
+sleep 0.2
 echo -e "[ ${green}INFO${NC} ] Starting renew cert... " 
 sleep 2
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
