@@ -115,7 +115,7 @@ function cert_ovpn() {
     echo '</ca>' >> /etc/openvpn/ssl.ovpn
     cp /etc/openvpn/ssl.ovpn /home/vps/public_html/ssl.ovpn
     cd /home/vps/public_html/
-    zip OpenVPN.zip tcp.ovpn udp.ovpn ws-ssl.ovpn ssl.ovpn
+    zip OpenVPN.zip tcp.ovpn udp.ovpn ssl.ovpn
     cd
 }
 
