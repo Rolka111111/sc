@@ -1,4 +1,4 @@
-#!/bin/bash
+A#!/bin/bash
 clear
 #color
 red='\e[1;31m'
@@ -83,21 +83,6 @@ verb 3
 END
     
     sed -i $MYIP2 /etc/openvpn/udp.ovpn;
-cat > /etc/openvpn/ws-ssl.ovpn <<-END
-client
-dev tun
-proto tcp
-remote xxxxxxxxx 443
-resolv-retry infinite
-route-method exe
-nobind
-persist-key
-persist-tun
-auth-user-pass
-comp-lzo
-verb 3
-END
-    sed -i $MYIP2 /etc/openvpn/ws-ssl.ovpn;
 cat > /etc/openvpn/ssl.ovpn <<-END
 client
 dev tun
@@ -124,11 +109,6 @@ function cert_ovpn() {
     cat /etc/openvpn/server/ca.crt >> /etc/openvpn/udp.ovpn
     echo '</ca>' >> /etc/openvpn/udp.ovpn
     cp /etc/openvpn/udp.ovpn /home/vps/public_html/udp.ovpn
-    
-    echo '<ca>' >> /etc/openvpn/ws-ssl.ovpn
-    cat /etc/openvpn/server/ca.crt >> /etc/openvpn/ws-ssl.ovpn
-    echo '</ca>' >> /etc/openvpn/ws-ssl.ovpn
-    cp /etc/openvpn/ws-ssl.ovpn /home/vps/public_html/ws-ssl.ovpn
     
     echo '<ca>' >> /etc/openvpn/ssl.ovpn
     cat /etc/openvpn/server/ca.crt >> /etc/openvpn/ssl.ovpn
@@ -157,7 +137,6 @@ echo -e "===============================" | lolcat
 echo -e "  PORT OpenVPN UDP     : 2200     "
 echo -e "  PORT OpenVPN TCP     : 1194      "
 echo -e "  PORT OpenVPN SSL     : 990      "
-echo -e "  PORT OpenVPN WS-SSL  : 443      "
 echo -e "===============================" | lolcat
 echo -e "      Script By MakhlukVpn     "
 echo -e "===============================" | lolcat
