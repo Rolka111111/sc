@@ -152,11 +152,9 @@ function make_follow() {
     rm /etc/openvpn/tcp.ovpn
     rm /etc/openvpn/udp.ovpn
     rm /etc/openvpn/ssl.ovpn
-    rm /etc/openvpn/ws-ssl.ovpn
     rm /home/vps/public_html/tcp.ovpn
     rm /home/vps/public_html/udp.ovpn
     rm /home/vps/public_html/ssl.ovpn
-    rm /home/vps/public_html/ws-ssl.ovpn
     MYIP=$(cat /etc/xray/domain)
     echo 1 > /proc/sys/net/ipv4/ip_forward
     sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/g' /etc/sysctl.conf
@@ -190,21 +188,6 @@ comp-lzo
 verb 3
 END
 sed -i $MYIP /etc/openvpn/udp.ovpn;
-cat > /etc/openvpn/ws-ssl.ovpn <<-END
-client
-dev tun
-proto tcp
-remote $MYIP 443
-resolv-retry infinite
-route-method exe
-nobind
-persist-key
-persist-tun
-auth-user-pass
-comp-lzo
-verb 3
-END
-sed -i $MYIP /etc/openvpn/ws-ssl.ovpn;
 cat > /etc/openvpn/ssl.ovpn <<-END
 client
 dev tun
@@ -232,17 +215,12 @@ function cert_ovpn() {
     echo '</ca>' >> /etc/openvpn/udp.ovpn
     cp /etc/openvpn/udp.ovpn /home/vps/public_html/udp.ovpn
     
-    echo '<ca>' >> /etc/openvpn/ws-ssl.ovpn
-    cat /etc/openvpn/server/ca.crt >> /etc/openvpn/ws-ssl.ovpn
-    echo '</ca>' >> /etc/openvpn/ws-ssl.ovpn
-    cp /etc/openvpn/ws-ssl.ovpn /home/vps/public_html/ws-ssl.ovpn
-    
     echo '<ca>' >> /etc/openvpn/ssl.ovpn
     cat /etc/openvpn/server/ca.crt >> /etc/openvpn/ssl.ovpn
     echo '</ca>' >> /etc/openvpn/ssl.ovpn
     cp /etc/openvpn/ssl.ovpn /home/vps/public_html/ssl.ovpn
     cd /home/vps/public_html/
-    zip OpenVPN.zip tcp.ovpn udp.ovpn ws-ssl.ovpn ssl.ovpn
+    zip OpenVPN.zip tcp.ovpn udp.ovpn ssl.ovpn
     cd
 }
 
