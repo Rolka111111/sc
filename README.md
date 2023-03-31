@@ -30,9 +30,9 @@ apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://ra
 
  Stunnel5                  : 443, 445, 777
 
- OpenVPN                   : TCP 1194, UDP 2200, SSL 990/443
+ OpenVPN                   : TCP 1194, UDP 2200, SSL 990
 
- Websocket SSH TLS         : 443
+ Websocket SSH TLS         : 443, 445, 777
 
  Websocket SSH WS TLS      : 443 [MAINTENANCE]
 
