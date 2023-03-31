@@ -50,7 +50,7 @@ state=Indonesia
 locality=Indonesia
 organization=infinity
 organizationalunit=infinity
-commonname=cdn.covid19.go.id
+commonname=makhlukvpn.my.id
 email=makhlukvpn@gmail.com
 
 # simple password minimal
@@ -225,8 +225,7 @@ chmod 644 /etc/stunnel5
 
 # Download Config Stunnel5
 cat > /etc/stunnel5/stunnel5.conf <<-END
-cert = /etc/xray/xray.crt
-key = /etc/xray/xray.key
+cert = /etc/stunnel5/stunnel5.pem
 client = no
 socket = a:SO_REUSEADDR=1
 socket = l:TCP_NODELAY=1
