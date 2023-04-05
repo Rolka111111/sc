@@ -96,6 +96,10 @@ echo -e "[ ${green}INFO${NC} ] Starting Getting Cert... "
 sleep 2
 wget https://${service}/cf.sh
 bash cf.sh
+echo -e "[ ${green}INFO${NC} ] Starting Install Cert "
+sleep 2
+wget https://${menu}/certv2ray.sh
+bash certv2ray.sh
 # install xray
 echo -e "[ ${green}INFO${NC} ] Starting Install Xray "
 sleep 2
@@ -116,17 +120,9 @@ wget https://${instal}/openvpn.sh && bash openvpn.sh
 echo -e "[ ${green}INFO${NC} ] Starting Install Tools "
 sleep 2
 wget https://${instal}/tool.sh && bash tool.sh
-#install xray certificate cloudflare
-echo -e "[ ${green}INFO${NC} ] Starting Install Cert "
-sleep 2
-wget https://${menu}/certv2ray.sh
-bash certv2ray.sh
 # install slowdns cloudflare certificate
 wget https://${instal}/nscf.sh
 bash nscf.sh
-# install bbr
-wget https://${service}/bbr.sh
-bash bbr.sh
 #service set
 cat <<EOF> /etc/systemd/system/autosett.service
 [Unit]
@@ -199,7 +195,6 @@ echo "=======================================" | lolcat
 cd /root
 mv log-install.txt /root/.s/
 mv domain /root/.s/
-rm -f /root/bbr.sh
 rm -f /root/nscf.sh
 rm -f /root/certv2ray.sh
 rm -f /root/ssh-vpn.sh
