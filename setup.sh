@@ -2,10 +2,10 @@
 if [ "${EUID}" -ne 0 ]; then
 		echo "You need to run this script as root"
 		exit 1
-fi
-if [ "$(systemd-detect-virt)" == "openvz" ]; then
-		echo "OpenVZ is not supported"
-		exit 1
+#fi
+#if [ "$(systemd-detect-virt)" == "openvz" ]; then
+		#echo "OpenVZ is not supported"
+		#exit 1
 fi
 #color
 red='\e[1;31m'
@@ -14,7 +14,7 @@ NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo -e "[ ${green}INFO${NC} ] Starting Check Ip Vps... " 
 sleep 2
-IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/Rolka111111/sc/main/name | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
 else
@@ -65,15 +65,15 @@ sleep 2
 echo -e "[ ${green}INFO${NC} ] Starting Install Script.... " 
 sleep 0.5
 # Link Hosting Kalian Untuk Tool
-ssh="raw.githubusercontent.com/Annnjayy/sc/main/ssh"
+ssh="raw.githubusercontent.com/Rolka111111/sc/main/ssh"
 # Link Hosting Kalian Untuk Xray
-xray="raw.githubusercontent.com/Annnjayy/sc/main/xray"
+xray="raw.githubusercontent.com/Rolka111111/sc/main/xray"
 # Link Hosting Kalian Untuk Service
-service="raw.githubusercontent.com/Annnjayy/sc/main/service"
+service="raw.githubusercontent.com/Rolka111111/sc/main/service"
 # Link Hosting Kalian Untuk Menu
-menu="raw.githubusercontent.com/Annnjayy/sc/main/menu"
+menu="raw.githubusercontent.com/Rolka111111/sc/main/menu"
 #Link Hosting Kalian Untuk Install
-instal="raw.githubusercontent.com/Annnjayy/sc/main/install"
+instal="raw.githubusercontent.com/Rolka111111/sc/main/install"
 # info script install
 if [ -f "/etc/.s/log-install.txt" ]; then
 echo -e "===============================" | lolcat
