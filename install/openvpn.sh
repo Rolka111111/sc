@@ -6,7 +6,7 @@ green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Loading..."
-IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/Rolka111111/sc/main/name | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
 else
@@ -33,7 +33,7 @@ apt-get install tmux -y
 function ovpn_install() {
     rm -rf /etc/openvpn
     mkdir -p /etc/openvpn
-    wget --output-document=/etc/openvpn/vpn.zip "https://raw.githubusercontent.com/Annnjayy/sc/main/service/vpn.zip" >/dev/null 2>&1 
+    wget --output-document=/etc/openvpn/vpn.zip "https://raw.githubusercontent.com/Rolka111111/sc/main/service/vpn.zip" >/dev/null 2>&1 
     unzip -d /etc/openvpn/ /etc/openvpn/vpn.zip
     rm -f /etc/openvpn/vpn.zip
     chown -R root:root /etc/openvpn/server/easy-rsa/
