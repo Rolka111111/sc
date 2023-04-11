@@ -14,7 +14,7 @@ apt update -y && apt upgrade -y && update-grub && sleep 2 && reboot
 ````
 # Install
 ````
-apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/Annnjayy/sc/main/setup.sh && bash setup.sh
+apt update && apt install -y bzip2 gzip coreutils screen curl && wget https://raw.githubusercontent.com/Rolka111111/sc/main/setup.sh && bash setup.sh
 ````
 # Os Supported
 
