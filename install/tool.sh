@@ -6,7 +6,7 @@ green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Loading..."
-IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/Rolka111111/sc/main/name | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
 else
@@ -25,15 +25,15 @@ sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install Tools..... " 
 sleep 1
 # Link Hosting Kalian Untuk Tool
-ssh="raw.githubusercontent.com/Annnjayy/sc/main/ssh"
+ssh="raw.githubusercontent.com/Rolka111111/sc/main/ssh"
 # Link Hosting Kalian Untuk Xray
-xray="raw.githubusercontent.com/Annnjayy/sc/main/xray"
+xray="raw.githubusercontent.com/Rolka111111/sc/main/xray"
 # Link Hosting Kalian Untuk Service
-service="raw.githubusercontent.com/Annnjayy/sc/main/service"
+service="raw.githubusercontent.com/Rolka111111/sc/main/service"
 # Link Hosting Kalian Untuk Menu
-menu="raw.githubusercontent.com/Annnjayy/sc/main/menu"
+menu="raw.githubusercontent.com/Rolka111111/sc/main/menu"
 #Link Hosting Kalian Untuk Install
-instal="raw.githubusercontent.com/Annnjayy/sc/main/install"
+instal="raw.githubusercontent.com/Rolka111111/sc/main/install"
 #install
 cd /usr/bin
 wget --output-document=limit "https://${menu}/limitspeed.sh"
