@@ -6,7 +6,7 @@ green='\e[0;32m'
 NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Loading..."
-IZIN=$( curl https://raw.githubusercontent.com/Annnjayy/sc/main/name | grep $MYIP )
+IZIN=$( curl https://raw.githubusercontent.com/Rolka111111/sc/main/name | grep $MYIP )
 if [ $MYIP = $IZIN ]; then
 echo -e "[ ${green}INFO${NC} ] Permission Accepted..."
 else
@@ -25,9 +25,9 @@ sleep 1
 echo -e "[ ${green}INFO${NC} ] Starting Install Ssh....... " 
 sleep 1
 # Getting Proxy Template
-wget --output-document=/usr/local/bin/ws-nontls https://raw.githubusercontent.com/Annnjayy/sc/main/install/ws-ntls.py
-wget --output-document=/usr/local/bin/ws-tls https://raw.githubusercontent.com/Annnjayy/sc/main/install/ws-tls.py
-wget --output-document=/usr/local/bin/ws-ovpn https://raw.githubusercontent.com/Annnjayy/sc/main/install/ws-ovpn.py
+wget --output-document=/usr/local/bin/ws-nontls https://raw.githubusercontent.com/Rolka111111/sc/main/install/ws-ntls.py
+wget --output-document=/usr/local/bin/ws-tls https://raw.githubusercontent.com/Rolka111111/sc/main/install/ws-tls.py
+wget --output-document=/usr/local/bin/ws-ovpn https://raw.githubusercontent.com/Rolka111111/sc/main/install/ws-ovpn.py
 chmod +x /usr/local/bin/ws-nontls
 chmod +x /usr/local/bin/ws-tls
 chmod +x /usr/local/bin/ws-ovpn
