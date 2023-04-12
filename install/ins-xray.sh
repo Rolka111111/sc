@@ -278,7 +278,7 @@ cat > /etc/xray/vless-tls.json << END
   },
   "inbounds": [
     {
-      "port": 2083,
+      "port": 8443,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -374,7 +374,7 @@ cat > /etc/xray/vless-nontls.json << END
   },
   "inbounds": [
     {
-      "port": 2095,
+      "port": 80,
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -462,7 +462,7 @@ cat > /etc/xray/trojan.json <<END
   },
   "inbounds": [
     {
-      "port": 2087,
+      "port": 2083,
       "protocol": "trojan",
       "settings": {
         "clients": [
@@ -577,10 +577,10 @@ iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2083 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2083 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2095 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2095 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2087 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2095 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2095 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2087 -j ACCEPT
+#iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
@@ -627,7 +627,7 @@ cat > /etc/trojan-go/config.json << END
 {
   "run_type": "server",
   "local_addr": "0.0.0.0",
-  "local_port": 2053,
+  "local_port": 2087,
   "remote_addr": "127.0.0.1",
   "remote_port": 89,
   "log_level": 1,
@@ -717,8 +717,8 @@ $uuid
 END
 
 # restart
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2053 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2053 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2086 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
@@ -841,8 +841,8 @@ echo -e "       Done Install Xray  "
 echo -e "===============================" | lolcat
 echo -e "  PORT Vmess TLS    : 8443 "
 echo -e "  PORT Vmess NTLS   : 80 "
-echo -e "  PORT VLESS TLS    : 2083  "
-echo -e "  PORT VLESS NTLS   : 2095  "
+echo -e "  PORT VLESS TLS    : 8443  "
+echo -e "  PORT VLESS NTLS   : 80  "
 echo -e "  PORT TROJAN GFW   : 2087 "
 echo -e "  PORT TROJAN GO    : 2053  "
 echo -e "===============================" | lolcat
