@@ -44,8 +44,8 @@ sed -i '/#xray-vless-tls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/vless-tls.json
 sed -i '/#xray-vless-nontls$/a\### '"$user $exp"'\
 },{"id": "'""$uuid""'","email": "'""$user""'"' /etc/xray/vless-nontls.json
-xrayvless1="vless://${uuid}@${domain}:2083?path=/vless&security=tls&encryption=none&type=ws#${user}"
-xrayvless2="vless://${uuid}@${domain}:2095?path=/vless&encryption=none&type=ws#${user}"
+xrayvless1="vless://${uuid}@${domain}:8443?path=/vless&security=tls&encryption=none&type=ws#${user}"
+xrayvless2="vless://${uuid}@${domain}:80?path=/vless&encryption=none&type=ws#${user}"
 systemctl restart xray@vless-tls
 systemctl restart xray@vless-nontls
 service cron restart
@@ -54,8 +54,8 @@ echo -e ""
 echo -e "========={XRAYS/VLESS}==========" | lolcat
 echo -e "Remarks     : ${user}"
 echo -e "Address     : ${domain}"
-echo -e "Port TLS    : 2083"
-echo -e "Port NTLS   : 2095"
+echo -e "Port TLS    : 8443"
+echo -e "Port NTLS   : 80"
 echo -e "User ID     : ${uuid}"
 echo -e "Encryption  : none"
 echo -e "Network     : ws"
@@ -67,11 +67,6 @@ echo -e "Link TLS  : ${xrayvless1}"
 echo -e "===============================" | lolcat
 echo -e "Link NTLS : ${xrayvless2}"
 echo -e "===============================" | lolcat
-echo -e "     Script By MakhlukVpn          "
-echo -e "===============================" | lolcat
-echo -e ""
-echo -e "      Terimakasih Telah "
-echo -e "    Menggunakan Layanan Kami "
-echo -e ""
+echo -e "     Script By Rolka          "
 echo -e "===============================" | lolcat
 echo -e ""
